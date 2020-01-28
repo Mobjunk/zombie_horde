@@ -7,6 +7,8 @@ public class EnemyWaveSystem : MonoBehaviour
     [SerializeField] private DayNightCycle dnc;
     [SerializeField] private EnemySpawner es;
     [SerializeField] private float timer = 0;
+    [SerializeField] private bool isSpawning = false;
+    [SerializeField] private bool hasSpawned = false;
     
 
     // Start is called before the first frame update
@@ -20,18 +22,27 @@ public class EnemyWaveSystem : MonoBehaviour
     {
         if (dnc.IsNight())
         {
-            timer += Time.deltaTime;
-            if(timer < 0.04f)
-            {
-                es.EnemySpawning();
-                es.howManyEnemies += 1;
+            if(hasSpawned == false){
+                if (isSpawning == false)
+                {
+                    StartCoroutine(SpawningEnemies());
+                    isSpawning = true;
+                }
             }
-            
         }
-        
-        if(!dnc.IsNight())
+        if (!dnc.IsNight())
         {
-            return;
+            hasSpawned = false;
         }
+    }
+
+    IEnumerator SpawningEnemies()
+    {
+        yield return new WaitForSeconds(2);
+        es.EnemySpawning();
+        es.days++;
+        hasSpawned = true;
+        isSpawning = false;
+        
     }
 }

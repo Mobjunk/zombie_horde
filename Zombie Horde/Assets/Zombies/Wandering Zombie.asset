@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c96e72bb8e492d24988ed3c254937ad2, type: 3}
-  m_Name: Temp Structure
+  m_Script: {fileID: 11500000, guid: 1f2b97e5309d97541867c67dc58e81cd, type: 3}
+  m_Name: Wandering Zombie
   m_EditorClassIdentifier: 
-  structureHealth: 25
-  tile: {fileID: 11400000, guid: 7b058941b9a19734994339c8793dca15, type: 2}
+  health: 0
+  speed: 0
+  minimumDistance: 1.2
+  maximumDistance: 20
+  enemySprite: {fileID: 0}
