@@ -8,6 +8,7 @@ public class DayNightCycle : MonoBehaviour
 {
     [Header("Time")]
     [SerializeField] [Range(0,24)]private float timeOfDay = 7;
+    [SerializeField] private int daysPassed = 0;
     [SerializeField] [Range(0.05f, 240)] private float dayNightCycleMin = 2;
     [SerializeField] [Range(0, 24)] private float startNight = 20;
     [SerializeField] [Range(0, 24)] private float endNight = 6;
@@ -40,6 +41,7 @@ public class DayNightCycle : MonoBehaviour
         if (timeOfDay >= 24)
         {
             timeOfDay = 0;
+            daysPassed++;
         }
         else
         {
