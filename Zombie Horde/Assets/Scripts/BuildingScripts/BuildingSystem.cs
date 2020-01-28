@@ -28,20 +28,33 @@ public class BuildingSystem : MonoBehaviour
     {
         if (resourcesTilemap.GetTile(resourcesTilemap.WorldToCell(position)) == null)
         {
-            if (structuresTilemap.GetTile(structuresTilemap.WorldToCell(position)) == null)
+            Vector3Int gridPosition = structuresTilemap.WorldToCell(position);
+            if (structuresTilemap.GetTile(gridPosition) == null)
             {
-                structuresTilemap.SetTile(structuresTilemap.WorldToCell(position), buildingObject.tile);
+                structuresTilemap.SetTile(gridPosition, buildingObject.tile);
                 shadowTilemap.SetTile(shadowTilemap.WorldToCell(position + shadowTilemap.transform.position), buildingObject.tile);
-                placedBuildings.Add(new Building(structuresTilemap.WorldToCell(position), buildingObject.structureHealth));
+                placedBuildings.Add(new Building(gridPosition, buildingObject.structureHealth));
             }
         }
     }
 
-    public void DestroyStructure(Vector3 position)
+    public void DestroyStructure(Vector3 position, float damage)
     {
-        
-        structuresTilemap.SetTile(structuresTilemap.WorldToCell(position), null);
-        shadowTilemap.SetTile(shadowTilemap.WorldToCell(position + shadowTilemap.transform.position), null);
+        Vector3Int gridPosition = structuresTilemap.WorldToCell(position);
+        for (int i = 0; i < placedBuildings.Count; i++)
+        {
+            if (placedBuildings[i].position == gridPosition)
+            {
+                placedBuildings[i].structureHealth -= damage;
+                if (placedBuildings[i].structureHealth <= 0)
+                {
+                    structuresTilemap.SetTile(gridPosition, null);
+                    shadowTilemap.SetTile(shadowTilemap.WorldToCell(position + shadowTilemap.transform.position), null);
+                    placedBuildings.RemoveAt(i);
+                    break;
+                }
+            }
+        }
     }
 
     private void Update()

@@ -20,6 +20,6 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        buildingSystem.DestroyStructure(collision.GetContact(0).point);
+        buildingSystem.DestroyStructure(collision.GetContact(0).point, 1);
     }
 }
