@@ -17,4 +17,4 @@ MonoBehaviour:
     type: 3}
   itemName: Stone
   itemDescription: Stone used for crafting.
-  stackable: 0
+  stackable: 1
