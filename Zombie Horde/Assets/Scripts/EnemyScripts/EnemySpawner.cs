@@ -8,11 +8,14 @@ public class EnemySpawner : MonoBehaviour
     public EnemyObject eo;
     public Transform target;
 
+    public int howManyEnemies = 2;
 
     public void EnemySpawning()
     {
-        InvokeRepeating("EnemySpawning", 1, 1);
-        GameObject testEnemy = Instantiate(enemy, new Vector3(Random.Range(-10.45f, 10.45f), Random.Range(4.51f, -4.51f), 0), Quaternion.identity);
-        eo.SetUp(testEnemy.GetComponent<EnemyMovement>(), target);
+        for (int i = 0; i < howManyEnemies; i++)
+        {
+            GameObject testEnemy = Instantiate(enemy, target.position + Quaternion.Euler(0, 0, Random.Range(0, 360)) * new Vector3(30, 0, 0), Quaternion.identity);
+            eo.SetUp(testEnemy.GetComponent<EnemyMovement>(), target);
+        }
     }
 }
