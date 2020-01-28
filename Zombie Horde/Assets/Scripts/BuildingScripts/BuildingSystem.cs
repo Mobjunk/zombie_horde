@@ -32,13 +32,14 @@ public class BuildingSystem : MonoBehaviour
             {
                 structuresTilemap.SetTile(structuresTilemap.WorldToCell(position), buildingObject.tile);
                 shadowTilemap.SetTile(shadowTilemap.WorldToCell(position + shadowTilemap.transform.position), buildingObject.tile);
+                placedBuildings.Add(new Building(structuresTilemap.WorldToCell(position), buildingObject.structureHealth));
             }
         }
     }
 
     public void DestroyStructure(Vector3 position)
     {
-        Debug.LogError(position);
+        
         structuresTilemap.SetTile(structuresTilemap.WorldToCell(position), null);
         shadowTilemap.SetTile(shadowTilemap.WorldToCell(position + shadowTilemap.transform.position), null);
     }
