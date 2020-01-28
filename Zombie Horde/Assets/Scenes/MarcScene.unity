@@ -1003,7 +1003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 2555954725594334354, guid: bf9917e2b923abb4daa6cb1c2e72af5f, type: 3}
-  eo: {fileID: 11400000, guid: 32f0aae216c1cad4380f30ea59b4bc4f, type: 2}
+  eo: {fileID: 11400000, guid: 2ad407a89eaee46449304310f672daea, type: 2}
   target: {fileID: 62095553}
 --- !u!4 &1585524566
 Transform:
