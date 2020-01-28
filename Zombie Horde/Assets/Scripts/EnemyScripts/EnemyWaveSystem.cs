@@ -15,6 +15,6 @@ public class EnemyWaveSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        dnc.IsNight();
     }
 }
