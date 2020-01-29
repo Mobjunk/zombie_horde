@@ -12,6 +12,6 @@ public class EnemyHealth : MonoBehaviour
         if(currentHealth <= 0)
         {
             Debug.Log("erywcgqyehj");
-        }
+        } 
     }
 }
