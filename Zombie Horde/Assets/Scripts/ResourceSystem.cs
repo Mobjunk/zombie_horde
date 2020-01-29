@@ -25,7 +25,7 @@ public class ResourceSystem : MonoBehaviour
         public Item item;
         public int amount;
     }
-
+    
     [Header("Tilemaps")]
     [SerializeField] private Tilemap resourceTilemap;
     [SerializeField] private Tilemap shadowTilemap;
@@ -44,11 +44,13 @@ public class ResourceSystem : MonoBehaviour
         player = GameManager.playerObject.GetComponent<Player>();
     }
 
+    // This spawns a resource and keeps track of it in a list
     public void SpawnResource(Vector3 position, Tile tile)
     {
         Vector3Int gridPosition = resourceTilemap.WorldToCell(position);
         if (resourceTilemap.GetTile(gridPosition) == null && structuresTilemap.GetTile(gridPosition) == null)
         {
+            // Checks if the tile you want to spawn is a tile from a resource
             foreach (var resourceObject in resourceObjects)
             {
                 foreach (var resourceTile in resourceObject.tiles)
@@ -66,6 +68,7 @@ public class ResourceSystem : MonoBehaviour
         }
     }
 
+    // Destroys resource if durability is 0 and gives resources
     public void DestroyResource(Vector3 position, int damage)
     {
         Vector3Int gridPosition = resourceTilemap.WorldToCell(position);
@@ -82,11 +85,13 @@ public class ResourceSystem : MonoBehaviour
 
                     resources[i].durability -= damage;
 
+                    // Adds items to player inventory
                     foreach (var item in resources[i].resourceObject.itemsGivenPerHit)
                     {
                         player.inventory.Add(item.item.itemId, item.amount * damage);
                     }
 
+                    // Destroys resource
                     if (resources[i].durability <= 0)
                     {
                         resourceTilemap.SetTile(gridPosition, null);
@@ -106,7 +111,7 @@ public class ResourceSystem : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Mouse2))
         {
-            DestroyResource(Camera.main.ScreenToWorldPoint(Input.mousePosition), 2);
+            DestroyResource(Camera.main.ScreenToWorldPoint(Input.mousePosition), 1);
         }
     }
 }
