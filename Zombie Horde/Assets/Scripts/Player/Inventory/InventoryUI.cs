@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    [SerializeField] private GameObject playerObject, inventoryUI;
+    [SerializeField] private GameObject inventoryUI;
     private Player player;
 
     public void Start()
     {
-        player = playerObject.GetComponent<Player>();
+        player = GameManager.playerObject.GetComponent<Player>();
     }
 
     private void Update()
