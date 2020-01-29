@@ -130,40 +130,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
         type: 3}
-      propertyPath: gunDefinition.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
-      propertyPath: itemDefinition.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
-      propertyPath: gunDefinition.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 0161ef1ceb4b3384985f8996b6a10029,
-        type: 2}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
-      propertyPath: itemDefinition.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 28f18f47209422e49865d1d85a5e0b7e,
-        type: 2}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
-      propertyPath: itemDefinition.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 01aa8dcc6b9360a4793426af872b9cf3,
-        type: 2}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 8981816547812908193, guid: aa76e59335426204ea1288429632d7a8,
-        type: 3}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
       propertyPath: bulletSpawnLocation
       value: 
       objectReference: {fileID: 981744856}
@@ -1786,6 +1752,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 22395049, guid: 7bdd93206fc8aa4459f62ac28ebecad8, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.26056248
+      objectReference: {fileID: 0}
+    - target: {fileID: 22395049, guid: 7bdd93206fc8aa4459f62ac28ebecad8, type: 3}
+      propertyPath: m_Radius
+      value: 0.086646855
+      objectReference: {fileID: 0}
+    - target: {fileID: 558441491, guid: 7bdd93206fc8aa4459f62ac28ebecad8, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.2660194
+      objectReference: {fileID: 0}
+    - target: {fileID: 558441491, guid: 7bdd93206fc8aa4459f62ac28ebecad8, type: 3}
+      propertyPath: m_Radius
+      value: 0.08391839
+      objectReference: {fileID: 0}
     - target: {fileID: 1646495216, guid: 7bdd93206fc8aa4459f62ac28ebecad8, type: 3}
       propertyPath: healthBar
       value: 
