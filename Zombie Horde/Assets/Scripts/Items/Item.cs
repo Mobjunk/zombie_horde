@@ -4,6 +4,7 @@
 [System.Serializable]
 public class Item : ScriptableObject
 {
+    [Header("Item Data")]
     public int itemId;
     public Sprite uiSprite;
     public string itemName;

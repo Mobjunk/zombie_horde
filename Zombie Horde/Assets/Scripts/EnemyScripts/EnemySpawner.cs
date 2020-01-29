@@ -5,23 +5,24 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
-    public EnemyObject eo;
+    public EnemyObject[] eo;
     public Transform target;
-    // Start is called before the first frame update
-    void Start()
-    {
-        InvokeRepeating("EnemySpawning", 1, 1);
-    }
+    public int days;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int startingAmount = 2;
+    public int zombiesPerDay = 2;
 
     public void EnemySpawning()
     {
-        GameObject testEnemy = Instantiate(enemy, new Vector3(Random.Range(-10.45f, 10.45f), Random.Range(4.51f, -4.51f), 0), Quaternion.identity);
-        eo.SetUp(testEnemy.GetComponent<EnemyMovement>(), target);
+        for (int i = 0; i < startingAmount + zombiesPerDay * days; i++)
+        {   
+            GameObject testEnemy = Instantiate(enemy, target.position + Quaternion.Euler(0, 0, Random.Range(0, 360)) * new Vector3(20, 0, 0), Quaternion.identity);
+            if(days < 3){
+                eo[0].SetUp(testEnemy.GetComponent<EnemyMovement>(), target);
+            }
+            if(days > 3){
+                eo[1].SetUp(testEnemy.GetComponent<EnemyMovement>(), target);
+            }
+        }
     }
 }

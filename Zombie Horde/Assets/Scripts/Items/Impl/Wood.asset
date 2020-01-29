@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd5e205ff8f256341a9ca7e72ed0bd3a, type: 3}
   m_Name: Wood
   m_EditorClassIdentifier: 
+  itemId: 0
   uiSprite: {fileID: 7827029058573366417, guid: aef19713369431f4a87c258f1893aba8,
     type: 3}
   itemName: Wood
   itemDescription: Wood used for crafting
+  stackable: 1

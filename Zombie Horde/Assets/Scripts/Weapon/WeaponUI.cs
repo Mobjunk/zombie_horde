@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class WeaponUI : MonoBehaviour
 {
-    [SerializeField] private GameObject playerObject;
     [SerializeField] private Image weaponSprite;
     [SerializeField] private Text weaponName, bullets, movementSpeed, fireRate, reloadTime;
     
@@ -14,7 +13,7 @@ public class WeaponUI : MonoBehaviour
 
     private void Awake()
     {
-        player = playerObject.GetComponent<Player>();
+        //player = GameManager.playerObject.GetComponent<Player>();
     }
 
     private void Update()

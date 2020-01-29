@@ -2,30 +2,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class Player : MonoBehaviour
 {
-    public WeaponData weapon;
+    /// <summary>
+    /// The game object for the inentory ui
+    /// </summary>
+    public GameObject invetoryUI;
+    /// <summary>
+    /// Check if the player has his inventory opened
+    /// </summary>
+    [HideInInspector] public bool invetoryOpened = false;
+    /// <summary>
+    /// The players inventory
+    /// </summary>
     public Container inventory;
+    /// <summary>
+    /// The slot currently selected in the hotbar
+    /// </summary>
+    public int inventorySlot = 0;
+    /// <summary>
+    /// Handles weapons
+    /// </summary>
+    public Weapon weapon;
 
-    private void Awake()
+    private void Start()
     {
         inventory = new Container(36);
+        weapon = new Weapon(this);
+    }
+
+    private void Update()
+    {
+        SwitchSlot();
+        OpenInventory();
+        
+        weapon.Shoot();
     }
 
     public void Add()
     {
-        inventory.Add(0);
-        foreach (var i in inventory.items)
-        {
-            if (i == null) continue;
-            
-            print($"itemName: {i.item.itemName}");
-        }
+        inventory.Add(0, 100);
+        inventory.Add(2, 10);
     }
 
-    public void Remove()
+    void OpenInventory()
     {
-        inventory.Remove(1);
+        if (!Input.GetKeyDown(KeyCode.E)) return;
+        invetoryOpened = !invetoryOpened;
+        invetoryUI.SetActive(invetoryOpened);
+    }
+    
+    void SwitchSlot()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f ) // forward
+        {
+            inventorySlot++;
+            if (inventorySlot > 8) inventorySlot = 0;
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f ) // backwards
+        {
+            inventorySlot--;
+            if (inventorySlot < 0) inventorySlot = 8;
+        }
     }
 }
