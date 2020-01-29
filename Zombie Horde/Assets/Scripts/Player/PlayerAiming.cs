@@ -19,20 +19,21 @@ public class PlayerAiming : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
-       
-   
-
+        LookAtMouse();
+        Debug.Log($"test: {inputManager.controllerConnected}");
         if (inputManager.controllerConnected)
         {
-
+            
+            //MoveCrossHairJoyStick();
         }
         else LookAtMouse();
 
 
     }
-
+    void MoveCrossHairJoyStick()
+    {
+        //transform.position = transform.position + new Vector3(inputManager.horizontalMovementRightStick, inputManager.verticalMovementRightStick, transform.position.z) * 2;
+    }
     void LookAtMouse()
     {
         mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);

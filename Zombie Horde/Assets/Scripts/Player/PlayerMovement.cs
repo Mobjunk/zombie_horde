@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     {
         instance = this;
         rb = GetComponent<Rigidbody2D>();
+        
     }
     private void FixedUpdate()
     {
@@ -22,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void HandleMovement()
     { 
-        rb.velocity = new Vector2(inputManager.horizontalMovement * speed, inputManager.verticalMovement * speed);
+        rb.velocity = new Vector2(inputManager.horizontalMovementLeftStick * speed, inputManager.verticalMovementLeftStick * speed);
     }
 
 }
