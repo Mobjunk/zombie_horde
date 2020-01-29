@@ -10,4 +10,6 @@ public class Item : ScriptableObject
     public string itemName;
     public string itemDescription;
     public bool stackable;
+    [Header("Gun reference")]
+    public GunData gun;
 }

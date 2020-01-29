@@ -19,6 +19,7 @@
           <e p="EnemyScripts" t="Include">
             <e p="EnemyAttack.cs" t="Include" />
             <e p="EnemyDisplay.cs" t="Include" />
+            <e p="EnemyHealth.cs" t="Include" />
             <e p="EnemyMovement.cs" t="Include" />
             <e p="EnemyObject.cs" t="Include" />
             <e p="EnemySpawner.cs" t="Include" />
@@ -33,6 +34,7 @@
           </e>
           <e p="LoadSceneScript.cs" t="Include" />
           <e p="Player" t="Include">
+            <e p="FistingScript.cs" t="Include" />
             <e p="Inventory" t="Include">
               <e p="Container.cs" t="Include" />
               <e p="DragHandler.cs" t="Include" />
@@ -42,12 +44,15 @@
             </e>
             <e p="Player.cs" t="Include" />
             <e p="PlayerAiming.cs" t="Include" />
+            <e p="PlayerAttack.cs" t="Include" />
+            <e p="PlayerHealth.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
           </e>
           <e p="QuitGameScript.cs" t="Include" />
           <e p="ResourceObject.cs" t="Include" />
           <e p="ResourceSystem.cs" t="Include" />
           <e p="Weapon" t="Include">
+            <e p="Bullet.cs" t="Include" />
             <e p="Guns" t="Include">
               <e p="GunData.cs" t="Include" />
             </e>
@@ -56,9 +61,11 @@
               <e p="Weapon.cs" t="Include" />
             </e>
             <e p="WeaponData.cs" t="Include" />
+            <e p="Weapons.cs" t="Include" />
             <e p="WeaponUI.cs" t="Include" />
           </e>
         </e>
+        <e p="testscriptje.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
