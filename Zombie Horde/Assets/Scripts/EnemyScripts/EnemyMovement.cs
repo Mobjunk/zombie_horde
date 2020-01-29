@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public ParticleSystem dust;
     public Rigidbody2D rb2d;
     public Transform target;
     public float speed;
@@ -28,10 +29,16 @@ public class EnemyMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 0f, rot_z);
 
             rb2d.velocity = rb2d.transform.rotation * new Vector2(speed, 0);
+            CreateDust();
         }
         else
         {
             rb2d.velocity = new Vector2(0, 0);
         }
+    }
+
+    public void CreateDust()
+    {
+        dust.Play();
     }
 }

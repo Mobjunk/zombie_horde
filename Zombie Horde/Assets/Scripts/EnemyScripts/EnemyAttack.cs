@@ -5,12 +5,13 @@ using UnityEngine.Tilemaps;
 
 public class EnemyAttack : MonoBehaviour
 {
+    PlayerHealth playerHealth => PlayerHealth.instance;
     BuildingSystem buildingSystem;
+    
     public EnemyObject enemyObject;
     public float timer;
     public bool canAttack;
     public LayerMask structure;
-    public int enemyHealth;
     public float enemyAttackSpeed;
     public float enemyAttackCooldown;
 
@@ -18,6 +19,7 @@ public class EnemyAttack : MonoBehaviour
     void Start()
     {
         buildingSystem = FindObjectOfType<BuildingSystem>();
+        
     }
 
     private void Update()
@@ -36,7 +38,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == structure)
+        if(collision.gameObject.layer == 9)
         {
             buildingSystem.DestroyStructure(collision.GetContact(0).point, 1);
         }
@@ -54,7 +56,8 @@ public class EnemyAttack : MonoBehaviour
 
     public void Attack()
     {
-        Debug.Log("attacked");
+        Debug.LogError("ererwe");
+        playerHealth.TakeDamage(10);
         timer = 0;
     }
 }

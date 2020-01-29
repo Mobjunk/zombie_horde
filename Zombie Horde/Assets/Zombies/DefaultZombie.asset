@@ -15,7 +15,7 @@ MonoBehaviour:
   health: 10
   damage: 10
   attackSpeed: 2
-  attackCooldown: 3
+  attackCooldown: 1
   speed: 4.2
   minimumDistance: 1.2
   maximumDistance: 100

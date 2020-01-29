@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public static PlayerHealth instance;
-    public GameObject scoreCanvas;
 
     public float startingHealth = 100f;
     public float currentHealth;
@@ -15,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
 
     public Image healthBar;
 
-    bool playerVuln;
+    public bool playerVuln;
 
     void Awake()
     {
