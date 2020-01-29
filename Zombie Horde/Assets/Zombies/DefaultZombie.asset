@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefaultZombie
   m_EditorClassIdentifier: 
   health: 10
-  damage: 10
+  damage: 90
   attackSpeed: 2
   attackCooldown: 1
   speed: 4.2

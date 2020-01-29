@@ -32,8 +32,7 @@ public class PlayerHealth : MonoBehaviour
             //Checks if health drops below a threshold and switches to game over scene
             if (currentHealth <= 0)
             {
-                
-                //SceneManager.LoadScene("GameOver");
+                Destroy(this.gameObject);
             }
             else
             {
@@ -57,8 +56,6 @@ public class PlayerHealth : MonoBehaviour
     }
     private void Update()
     {
-
-
         healthBar.fillAmount = currentHealth / startingHealth;
     }
 }

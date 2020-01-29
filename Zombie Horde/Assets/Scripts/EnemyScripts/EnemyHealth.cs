@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int currentHealth;
+    public float currentHealth;
+    public EnemyObject enemyObject;
 
     private void TakePlayerDamage(int amount)
     {
         currentHealth -= amount;
         if(currentHealth <= 0)
         {
-            Debug.Log("erywcgqyehj");
+            Destroy(this.gameObject);
         } 
     }
 }
