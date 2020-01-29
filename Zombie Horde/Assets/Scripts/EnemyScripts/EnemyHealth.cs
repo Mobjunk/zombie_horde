@@ -6,12 +6,15 @@ public class EnemyHealth : MonoBehaviour
 {
     public float currentHealth;
     public EnemyObject enemyObject;
+
+    public GameObject bloodParticle;
     PlayerAttack playerAttack => PlayerAttack.instance;
     private void TakePlayerDamage(int amount)
     {
         currentHealth -= amount;
         if(currentHealth <= 0)
         {
+
             Destroy(this.gameObject);
         } 
     }

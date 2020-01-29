@@ -86,7 +86,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11fbb23529c04ad41b3f0bf21139d7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 8981816547812908193, guid: aa76e59335426204ea1288429632d7a8,
+    type: 3}
+  bulletSpawnLocation: {fileID: 0}
   itemDefinition:
   - {fileID: 11400000, guid: 31b77724518efbe45879ab3f6bff2c58, type: 2}
   - {fileID: 11400000, guid: 223bf627c9fa02c49a3296acc2e469b2, type: 2}
   - {fileID: 11400000, guid: 6792ecd61fd617e43bb3439d86c4db04, type: 2}
+  - {fileID: 11400000, guid: 28f18f47209422e49865d1d85a5e0b7e, type: 2}
+  - {fileID: 11400000, guid: 01aa8dcc6b9360a4793426af872b9cf3, type: 2}
+  gunDefinition:
+  - {fileID: 11400000, guid: 0161ef1ceb4b3384985f8996b6a10029, type: 2}
