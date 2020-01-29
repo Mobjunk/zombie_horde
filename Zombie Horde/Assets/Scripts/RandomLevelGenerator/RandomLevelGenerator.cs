@@ -49,11 +49,13 @@ public class RandomLevelGenerator : MonoBehaviour
     [Header("References")]
     [SerializeField] private Tilemap backgroundTilemap;
     [SerializeField] private ResourceSystem resourceSystem;
+    [SerializeField] private Tilemap fogTilemap;
     [Space]
     [Header("Tiles")]
     [SerializeField] private Tile[] grassTiles;
     [SerializeField] private Tile[] waterTiles;
     [SerializeField] private Tile[] sandTiles;
+    [SerializeField] private Tile fogTile;
     [Space]
     [Header("Resource Tiles")]
     [SerializeField] private SpawnResourceData[] resourcesData;
@@ -84,6 +86,7 @@ public class RandomLevelGenerator : MonoBehaviour
         GenerateGrass();
         GenerateTiles();
         GenerateResources();
+        GenerateFog();
     }
 
     private void GenerateLakes()
@@ -363,6 +366,20 @@ public class RandomLevelGenerator : MonoBehaviour
                 else
                 {
                     currentChange += resourceData.chance;
+                }
+            }
+        }
+    }
+
+    private void GenerateFog()
+    {
+        for (int y = -15; y < (int)mapSize + 15; y++)
+        {
+            for (int x = -15; x < (int)mapSize + 15; x++)
+            {
+                if ((x < 0 || x >= (int)mapSize) || (y < 0 || y >= (int)mapSize))
+                {
+                    fogTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), fogTile);
                 }
             }
         }
