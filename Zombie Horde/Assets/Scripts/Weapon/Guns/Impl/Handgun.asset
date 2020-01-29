@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa1d2a9952718b8469e42620ef0c1546, type: 3}
   m_Name: Handgun
   m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 28f18f47209422e49865d1d85a5e0b7e, type: 2}
   weaponType: 1
-  uiSprite: {fileID: 5601323976189978565, guid: c320c157f79758041b51b3b0c17f1888,
-    type: 3}
   weaponSprite: {fileID: 5601323976189978565, guid: c320c157f79758041b51b3b0c17f1888,
     type: 3}
   weaponName: Handgun
@@ -23,6 +22,7 @@ MonoBehaviour:
   twoHanded: 0
   weaponDurability: 100
   weaponDamage: 1
-  bulletsInChamber: 15
-  bulletsInInventory: 90
+  bullets: {fileID: 11400000, guid: 01aa8dcc6b9360a4793426af872b9cf3, type: 2}
+  maxBullets: 15
   reloadSpeed: 2.2
+  bulletMovementSpeed: 5

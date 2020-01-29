@@ -10,78 +10,43 @@ public class InputManager : MonoBehaviour
     public bool controllerConnected
     {
         get;
-        set;
+        private set;
     }
     public float horizontalMovementLeftStick
     {
         get;
-        set;
+        private set;
     }
 
     public float verticalMovementLeftStick
     {
         get;
-        set;
+        private set;
     }
     public float horizontalMovementRightStick
     {
         get;
-        set;
+        private set;
     }
 
     public float verticalMovementRightStick
     {
         get;
-        set;
+        private set;
     }
 
-    public bool aButtonPressed
+    public bool pressedAttack
     {
         get;
-        set;
+        private set;
     }
 
-    public bool bButtonPressed
+    public bool pressedReload
     {
         get;
-        set;
+        private set;
     }
-
-    public bool xButtonPressed
-    {
-        get;
-        set;
-    }
-
-    public bool yButtonPressed
-    {
-        get;
-        set;
-    }
-
-    public bool lbButtonPressed
-    {
-        get;
-        set;
-    }
-
-    public bool rbButtonPressed
-    {
-        get;
-        set;
-    }
-
-    public bool rbButtonHeld
-    {
-        get;
-        set;
-    }
-
-    public bool quitButtonPressed
-    {
-        get;
-        set;
-    }
+    
     private void Start()
     {
         instance = this;
@@ -107,31 +72,14 @@ public class InputManager : MonoBehaviour
             verticalMovementLeftStick = Input.GetAxisRaw("LeftStickY-AxisPS4");
             horizontalMovementRightStick = Input.GetAxisRaw("RightStickX-AxisPS4");
             verticalMovementRightStick = Input.GetAxisRaw("RightStickY-AxisPS4");
-            aButtonPressed = Input.GetButtonDown("AButton");
-            bButtonPressed = Input.GetButtonDown("BButton");
-            xButtonPressed = Input.GetButtonDown("XButton");
-            yButtonPressed = Input.GetButtonDown("YButton");
-            quitButtonPressed = Input.GetButtonDown("MinusButton");
-            lbButtonPressed = Input.GetButtonDown("SLButton");
-            rbButtonPressed = Input.GetButtonDown("SRButton");
-            rbButtonHeld = Input.GetButton("SRButton");
         }
         //No controller connected so use keyboard
         else
         {
             horizontalMovementLeftStick = Input.GetAxisRaw("Horizontal");
             verticalMovementLeftStick = Input.GetAxisRaw("Vertical");
-            aButtonPressed = Input.GetButtonDown("Jump");
-            bButtonPressed = Input.GetKeyDown(KeyCode.F);
-            xButtonPressed = Input.GetKeyDown(KeyCode.R);
-            quitButtonPressed = Input.GetKeyDown(KeyCode.Escape);
-            rbButtonPressed = Input.GetKeyDown(KeyCode.LeftShift);
-            rbButtonHeld = Input.GetKey(KeyCode.LeftShift);
-        }
-
-        if (quitButtonPressed)
-        {
-            SceneManager.LoadScene("TItle Screen");
+            pressedAttack = Input.GetMouseButtonDown(0);
+            pressedReload = Input.GetKeyDown(KeyCode.R);
         }
     }
 

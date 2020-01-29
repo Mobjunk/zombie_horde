@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,9 +16,16 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     [SerializeField] private Transform startParent;
     [SerializeField] private bool enableDrag = true;
 
+    public void Start()
+    {
+        parent = transform.parent.transform.parent.transform.parent.gameObject;
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (!enableDrag) return;
+        
+        Debug.Log($"gameObject.name: {gameObject.name}");
         
         itemBeingDragged = gameObject;
         startPosition = transform.position;
@@ -42,7 +50,8 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public void ResetDrag()
     {
         if (!enableDrag) return;
-        
+     
+        Debug.Log("LLLLLLLLLLLLLLLL");
         itemBeingDragged = null;
         GetComponent<CanvasGroup>().blocksRaycasts = true;
 
@@ -52,6 +61,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         
         if (transform.parent == startParent)
         {
+            Debug.Log("FDGDFGDFGDFG");
             transform.position = startPosition;
         }
     }

@@ -154,6 +154,7 @@ public class Container
         {
             for (var index = 0; index < items.Length; index++)
             {
+                var player = GameManager.playerObject.GetComponent<Player>();
                 int childCount = ui[i].transform.childCount;
                 if (index >= childCount) continue;
                 
@@ -163,7 +164,6 @@ public class Container
                 if (index < 9 && i == 0 && ui.Length > 1)
                 {
                     var slotImage = slot.GetComponent<Image>();
-                    var player = GameManager.playerObject.GetComponent<Player>();
                     if(index != player.inventorySlot)
                      
                         slotImage.color = new Color(1, 1, 1, 0.588f);
@@ -174,6 +174,7 @@ public class Container
                 var canvas = slot.GetChild(0);
                 var image = canvas.GetChild(0);
                 var text = image.GetChild(0);
+                var bullets = image.GetChild(1);
 
                 var itemSprite = image.GetComponent<Image>();
                 var itemAmount = text.GetComponent<Text>();
@@ -182,15 +183,30 @@ public class Container
 
                 if (item == null || item.item == null)
                 {
+                    bullets.gameObject.SetActive(false);
                     itemSprite.enabled = false;
                     itemAmount.enabled = false;
                 }
                 else
                 {
+                    bullets.gameObject.SetActive(false);
                     itemSprite.enabled = true;
                     itemAmount.enabled = true;
                     itemSprite.sprite = item.item.uiSprite;
-                    itemAmount.text = $"{item.amount}";
+                    var amount = $"{item.amount}";
+                    if (player.inventory.items[index].item.gun != null)
+                    {
+                        var weapon = player.weapon.GetWeapon(player.inventory.items[index].item.gun);
+                        if (weapon != null)
+                        {
+                            var gun = weapon.gun;
+                            bullets.gameObject.SetActive(true);
+                            amount = $"{weapon.bulletsInChamber}/{player.inventory.GetAmountFromItem(gun.bullets.itemId)}";
+                        }
+                    }
+                    else
+                    if (!item.item.stackable) amount = "";
+                    itemAmount.text = amount;
                 }
             }
         }

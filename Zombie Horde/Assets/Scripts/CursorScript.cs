@@ -13,7 +13,6 @@ public class CursorScript : MonoBehaviour
     void FixedUpdate()
     {
         mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
         if (!inputManager.controllerConnected)
         {
             transform.position = new Vector3(mousePosition.x, mousePosition.y, transform.position.z);

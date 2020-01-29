@@ -6,11 +6,17 @@ using UnityEngine.UI;
 public class DragSlot : MonoBehaviour, IDropHandler
 {
     [SerializeField] private GameObject parent;
-    
+
+    private void Start()
+    {
+        parent = transform.parent.gameObject;
+    }
+
     public void OnDrop(PointerEventData eventData)
     {
+        Debug.Log("ffdgfdgfdgdfg");
         if (DragHandler.itemBeingDragged == null) return;
-
+        
         var image = DragHandler.itemBeingDragged.gameObject;
         var drag = image.GetComponent<DragHandler>();
         var slot = drag.slot;

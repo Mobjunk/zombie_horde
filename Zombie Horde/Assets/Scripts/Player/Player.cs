@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
     {
         inventory = new Container(36);
         weapon = new Weapon(this);
+
+        Add();
     }
 
     private void Update()
@@ -39,12 +41,13 @@ public class Player : MonoBehaviour
         OpenInventory();
         
         weapon.Shoot();
+        weapon.Reload();
     }
 
     public void Add()
     {
-        inventory.Add(0, 100);
-        inventory.Add(2, 10);
+        inventory.Add(3);
+        inventory.Add(4, 100);
     }
 
     void OpenInventory()
