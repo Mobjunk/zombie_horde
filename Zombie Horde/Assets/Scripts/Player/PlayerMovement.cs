@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement instance;
     InputManager inputManager => InputManager.instance;
+    PlayerAttack playerAttack => PlayerAttack.instance;
 
     float speed = 4;
     public Rigidbody2D rb;
@@ -19,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         HandleMovement();
+       playerAttack.StartSwinging();
+        
+
      
     }
     void HandleMovement()

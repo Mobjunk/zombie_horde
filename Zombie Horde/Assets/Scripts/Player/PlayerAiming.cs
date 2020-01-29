@@ -20,7 +20,7 @@ public class PlayerAiming : MonoBehaviour
     void Update()
     {
         LookAtMouse();
-        Debug.Log($"test: {inputManager.controllerConnected}");
+        
         if (inputManager.controllerConnected)
         {
             

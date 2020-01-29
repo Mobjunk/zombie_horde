@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public static PlayerHealth instance;
-    public GameObject scoreCanvas;
 
     public float startingHealth = 100f;
     public float currentHealth;
@@ -15,7 +14,8 @@ public class PlayerHealth : MonoBehaviour
 
     public Image healthBar;
 
-    bool playerVuln;
+    public bool playerVuln;
+    public bool playerAlive;
 
     void Awake()
     {
@@ -33,11 +33,12 @@ public class PlayerHealth : MonoBehaviour
             //Checks if health drops below a threshold and switches to game over scene
             if (currentHealth <= 0)
             {
-                
-                //SceneManager.LoadScene("GameOver");
+                playerAlive = false;
+                Destroy(this.gameObject, 1);
             }
             else
             {
+                playerAlive = true;
                 PlayerInvuln();
             }
         }
@@ -58,8 +59,6 @@ public class PlayerHealth : MonoBehaviour
     }
     private void Update()
     {
-
-
         healthBar.fillAmount = currentHealth / startingHealth;
     }
 }

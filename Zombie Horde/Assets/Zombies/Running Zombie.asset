@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2b97e5309d97541867c67dc58e81cd, type: 3}
   m_Name: Running Zombie
   m_EditorClassIdentifier: 
-  health: 10
+  health: 5
+  damage: 5
+  attackSpeed: 0
+  attackCooldown: 2
   speed: 8
   minimumDistance: 1.2
   maximumDistance: 100
-  enemySprite: {fileID: -761887118410055393, guid: c320c157f79758041b51b3b0c17f1888,
-    type: 3}
