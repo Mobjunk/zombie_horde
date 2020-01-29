@@ -7,5 +7,6 @@ using UnityEngine.Tilemaps;
 public class ResourceObject : ScriptableObject
 {
     public Tile[] tiles;
-    public ResourceSystem.ItemGiven[] itemsGiven;
+    public ResourceSystem.ItemGiven[] itemsGivenPerHit;
+    public int durability = 0;
 }

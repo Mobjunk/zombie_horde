@@ -965,12 +965,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e08b155b6644ef469c31cc23af24608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resources:
-  - tileNames:
-    - Tree
-    items:
-    - {fileID: 11400000, guid: 31b77724518efbe45879ab3f6bff2c58, type: 2}
-    amount: 00000000
+  resourceTilemap: {fileID: 903860017}
+  shadowTilemap: {fileID: 685994588}
+  structuresTilemap: {fileID: 434384993}
+  resourceObjects:
+  - {fileID: 11400000, guid: 43b1ef37c78585d4f8dceeb1aec26024, type: 2}
+  test: {fileID: 11400000, guid: 000a58b33f4d1714493accbf4142e896, type: 2}
 --- !u!4 &1287278943
 Transform:
   m_ObjectHideFlags: 0
