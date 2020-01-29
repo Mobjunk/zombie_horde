@@ -33,8 +33,7 @@ public class PlayerHealth : MonoBehaviour
             //Checks if health drops below a threshold and switches to game over scene
             if (currentHealth <= 0)
             {
-                scoreCanvas.SetActive(true);
-                Time.timeScale = 0;
+                
                 //SceneManager.LoadScene("GameOver");
             }
             else
