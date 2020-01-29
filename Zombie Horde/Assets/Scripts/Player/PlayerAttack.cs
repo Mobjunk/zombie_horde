@@ -17,20 +17,19 @@ public class PlayerAttack : MonoBehaviour
 
     public void StartSwinging()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKey(KeyCode.Z))
         {
-
-            Debug.Log("TEST");
             playerAnimator.SetBool("isPunching", true);
             StartCoroutine(waiter());
-            IEnumerator waiter()
-            {
-                //Wait for before performing the following action
-                yield return new WaitForSeconds(0.36f);
-                playerAnimator.SetBool("isPunching", false);
-            }
+          
         }
-        
+        IEnumerator waiter()
+        {
+            //Wait for before performing the following action
+            yield return new WaitForSeconds(0.35f);
+            playerAnimator.SetBool("isPunching", false);
+        }
+
     }
 }
 
