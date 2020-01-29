@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wandering Zombie
   m_EditorClassIdentifier: 
   health: 0
-  speed: 0
+  speed: 4
   minimumDistance: 1.2
   maximumDistance: 20
   enemySprite: {fileID: 0}

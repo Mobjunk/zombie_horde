@@ -480,7 +480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 0.00000011920929, z: -10}
+  m_LocalPosition: {x: -0.00000047683716, y: 0.00000011920929, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1849,6 +1849,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaeae97b6ec94694ca8b34755ae14c0b, type: 3}
+--- !u!114 &1397959808 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5082412508422531452, guid: 3bbeeeb83752c2242925ea1add3c827a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5082412509377628221}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbfdfabfb9827bb46a9992b2d02aabe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1585524564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,6 +1871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1585524566}
   - component: {fileID: 1585524565}
+  - component: {fileID: 1585524567}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -1879,9 +1892,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 2555954725594334354, guid: bf9917e2b923abb4daa6cb1c2e72af5f, type: 3}
-  eo: {fileID: 11400000, guid: 2ad407a89eaee46449304310f672daea, type: 2}
+  eo:
+  - {fileID: 11400000, guid: 2ad407a89eaee46449304310f672daea, type: 2}
+  - {fileID: 11400000, guid: 8814872a8c078c247bd363a8b44c6bcb, type: 2}
+  - {fileID: 11400000, guid: aa99639ad8d35e543bc7b941d3cd3b6b, type: 2}
   target: {fileID: 2049697544}
-  howManyEnemies: 2
+  days: 0
+  startingAmount: 2
+  zombiesPerDay: 2
 --- !u!4 &1585524566
 Transform:
   m_ObjectHideFlags: 0
@@ -1896,6 +1914,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1585524567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585524564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5032dbc9cba689d4b8e748d81b00861b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dnc: {fileID: 1397959808}
+  es: {fileID: 1585524565}
+  timer: 0
+  isSpawning: 0
+  hasSpawned: 0
 --- !u!1 &1617556482
 GameObject:
   m_ObjectHideFlags: 0
@@ -90334,7 +90369,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006046231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 0.00000011920929, z: -10}
+  m_LocalPosition: {x: -0.00000047683716, y: 0.00000011920929, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1018467734}
@@ -90446,7 +90481,7 @@ PrefabInstance:
     - target: {fileID: 5082412508422531452, guid: 3bbeeeb83752c2242925ea1add3c827a,
         type: 3}
       propertyPath: dayNightCycleMin
-      value: 2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5082412508422531453, guid: 3bbeeeb83752c2242925ea1add3c827a,
         type: 3}

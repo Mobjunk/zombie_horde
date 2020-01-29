@@ -36,6 +36,7 @@ public class EnemyWaveSystem : MonoBehaviour
         }
     }
 
+    // IEnumerator for spawning the enemies, will wait 2 seconds and call the fuction EnemySpawning() 
     IEnumerator SpawningEnemies()
     {
         yield return new WaitForSeconds(2);

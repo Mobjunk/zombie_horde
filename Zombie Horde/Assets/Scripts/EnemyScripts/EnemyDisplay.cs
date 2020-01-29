@@ -18,6 +18,5 @@ public class EnemyDisplay : MonoBehaviour
         speed = eo.speed;
         minimumDistance = eo.minimumDistance;
         maximumDistance = eo.maximumDistance;
-        enemySprite.sprite = eo.enemySprite;
     }
 }
