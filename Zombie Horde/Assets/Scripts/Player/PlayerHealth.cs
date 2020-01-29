@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
     public Image healthBar;
 
     public bool playerVuln;
+    public bool playerAlive;
 
     void Awake()
     {
@@ -32,10 +33,12 @@ public class PlayerHealth : MonoBehaviour
             //Checks if health drops below a threshold and switches to game over scene
             if (currentHealth <= 0)
             {
-                Destroy(this.gameObject);
+                playerAlive = false;
+                Destroy(this.gameObject, 1);
             }
             else
             {
+                playerAlive = true;
                 PlayerInvuln();
             }
         }

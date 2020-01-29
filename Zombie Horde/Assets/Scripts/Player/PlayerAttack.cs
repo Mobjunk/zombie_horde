@@ -17,7 +17,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void StartSwinging()
     {
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.Space))
         {
             playerAnimator.SetBool("isPunching", true);
             StartCoroutine(waiter());
