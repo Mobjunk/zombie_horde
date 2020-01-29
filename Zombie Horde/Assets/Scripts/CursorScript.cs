@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class CursorScript : MonoBehaviour
 {
+    float cursorSpeed = 5f;
+    InputManager inputManager => InputManager.instance;
     PlayerAiming playerAiming => PlayerAiming.instance;
-    Rigidbody2D rb;
     Vector3 mousePosition;
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        transform.position = new Vector3(mousePosition.x,mousePosition.y,transform.position.z);
+        if (!inputManager.controllerConnected)
+        {
+            transform.position = new Vector3(mousePosition.x, mousePosition.y, transform.position.z);
+        }
+        else transform.position = new Vector3(inputManager.horizontalMovementRightStick * cursorSpeed, inputManager.verticalMovementRightStick * cursorSpeed);
     }
+
 }

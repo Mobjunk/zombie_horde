@@ -12,13 +12,24 @@ public class InputManager : MonoBehaviour
         get;
         set;
     }
-    public float horizontalMovement
+    public float horizontalMovementLeftStick
     {
         get;
         set;
     }
 
-    public float verticalMovement
+    public float verticalMovementLeftStick
+    {
+        get;
+        set;
+    }
+    public float horizontalMovementRightStick
+    {
+        get;
+        set;
+    }
+
+    public float verticalMovementRightStick
     {
         get;
         set;
@@ -81,8 +92,9 @@ public class InputManager : MonoBehaviour
         //Loops though all connected joysticks
         foreach (string name in Input.GetJoystickNames())
         {
+            Debug.Log($"ControllerName: {name}");
             //Wireless gamepad = nintendo pro controller/joycons
-            if (name.Equals("Wireless Gamepad"))
+            if (name.Equals("Wireless Gamepad")||name.Equals("Wireless Controller"))
             {
                 controllerConnected = true;
             }
@@ -91,8 +103,10 @@ public class InputManager : MonoBehaviour
         //Nintendo joycon connected
         if (controllerConnected)
         {
-            horizontalMovement = Input.GetAxisRaw("LeftJoyStickHorizontalJoycon");
-            verticalMovement = Input.GetAxisRaw("LeftJoyStickVerticalJoycon");
+            horizontalMovementLeftStick = Input.GetAxisRaw("LeftStickX-AxisPS4");
+            verticalMovementLeftStick = Input.GetAxisRaw("LeftStickY-AxisPS4");
+            horizontalMovementRightStick = Input.GetAxisRaw("RightStickX-AxisPS4");
+            verticalMovementRightStick = Input.GetAxisRaw("RightStickY-AxisPS4");
             aButtonPressed = Input.GetButtonDown("AButton");
             bButtonPressed = Input.GetButtonDown("BButton");
             xButtonPressed = Input.GetButtonDown("XButton");
@@ -105,8 +119,8 @@ public class InputManager : MonoBehaviour
         //No controller connected so use keyboard
         else
         {
-            horizontalMovement = Input.GetAxisRaw("Horizontal");
-            verticalMovement = Input.GetAxisRaw("Vertical");
+            horizontalMovementLeftStick = Input.GetAxisRaw("Horizontal");
+            verticalMovementLeftStick = Input.GetAxisRaw("Vertical");
             aButtonPressed = Input.GetButtonDown("Jump");
             bButtonPressed = Input.GetKeyDown(KeyCode.F);
             xButtonPressed = Input.GetKeyDown(KeyCode.R);

@@ -155,10 +155,21 @@ public class Container
             for (var index = 0; index < items.Length; index++)
             {
                 int childCount = ui[i].transform.childCount;
-                //Debug.Log($"index: {index}, childCount: {ui[i].transform.childCount}");
                 if (index >= childCount) continue;
                 
                 var slot = ui[i].transform.GetChild(index);
+
+                //Handles highlighting the slot in the bottom inventory hotbar
+                if (index < 9 && i == 0 && ui.Length > 1)
+                {
+                    var slotImage = slot.GetComponent<Image>();
+                    var player = GameManager.playerObject.GetComponent<Player>();
+                    if(index != player.inventorySlot)
+                     
+                        slotImage.color = new Color(1, 1, 1, 0.588f);
+                    else
+                        slotImage.color = new Color(1, 1, 1, 1);
+                }
                 
                 var canvas = slot.GetChild(0);
                 var image = canvas.GetChild(0);

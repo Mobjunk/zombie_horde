@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\Nighel Nijhuis\.Rider2019.2\system\extResources" t="IncludeRecursive" />
@@ -25,11 +25,13 @@
             <e p="EnemyWaveSystem.cs" t="Include" />
           </e>
           <e p="GameManager.cs" t="Include" />
+          <e p="IdleMenuScript.cs" t="Include" />
           <e p="InputManager.cs" t="Include" />
           <e p="Items" t="Include">
             <e p="Item.cs" t="Include" />
             <e p="ItemData.cs" t="Include" />
           </e>
+          <e p="LoadSceneScript.cs" t="Include" />
           <e p="Player" t="Include">
             <e p="Inventory" t="Include">
               <e p="Container.cs" t="Include" />
@@ -42,12 +44,16 @@
             <e p="PlayerAiming.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
           </e>
+          <e p="QuitGameScript.cs" t="Include" />
+          <e p="ResourceObject.cs" t="Include" />
+          <e p="ResourceSystem.cs" t="Include" />
           <e p="Weapon" t="Include">
             <e p="Guns" t="Include">
               <e p="GunData.cs" t="Include" />
             </e>
             <e p="Tools" t="Include">
               <e p="ToolData.cs" t="Include" />
+              <e p="Weapon.cs" t="Include" />
             </e>
             <e p="WeaponData.cs" t="Include" />
             <e p="WeaponUI.cs" t="Include" />

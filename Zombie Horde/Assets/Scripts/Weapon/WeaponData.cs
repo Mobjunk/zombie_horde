@@ -3,6 +3,7 @@
 public class WeaponData : ScriptableObject
 {
     [Header("Weapon Data")]
+    public Item item;
     public WeaponType weaponType;
     public Sprite uiSprite;
     public Sprite weaponSprite;

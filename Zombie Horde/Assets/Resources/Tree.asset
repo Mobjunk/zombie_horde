@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 622cb08290c084945a0f995fdd968541, type: 3}
   m_Name: Tree
   m_EditorClassIdentifier: 
-  tileNames:
-  - Tree
-  itemsGiven:
-  - items: {fileID: 11400000, guid: 31b77724518efbe45879ab3f6bff2c58, type: 2}
-    amount: 4
+  tiles:
+  - {fileID: 11400000, guid: 000a58b33f4d1714493accbf4142e896, type: 2}
+  itemsGivenPerHit:
+  - item: {fileID: 11400000, guid: 31b77724518efbe45879ab3f6bff2c58, type: 2}
+    amount: 1
+  durability: 5
