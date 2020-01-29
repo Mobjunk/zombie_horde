@@ -14,10 +14,10 @@ public class Weapon
         var selectedItem = player.inventory.Get(player.inventorySlot);
         if (selectedItem == null || selectedItem.item == null)
         {
-            Debug.Log($"No item found.");
+            //Debug.Log($"No item found.");
             return;
         }
         
-        Debug.Log($"name: {selectedItem.item.itemName}");
+        //Debug.Log($"name: {selectedItem.item.itemName}");
     }
 }

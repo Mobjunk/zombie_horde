@@ -6,7 +6,7 @@ public class HotbarUI : MonoBehaviour
     [SerializeField] private GameObject[] inventoryHotbar;
     private Player player;
 
-    private void Awake()
+    private void Start()
     {
         player = GameManager.playerObject.GetComponent<Player>();
     }
