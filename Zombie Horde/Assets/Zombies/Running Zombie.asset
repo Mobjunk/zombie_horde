@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Running Zombie
   m_EditorClassIdentifier: 
   health: 10
-  speed: 10
+  speed: 8
   minimumDistance: 1.2
   maximumDistance: 100
   enemySprite: {fileID: -761887118410055393, guid: c320c157f79758041b51b3b0c17f1888,
