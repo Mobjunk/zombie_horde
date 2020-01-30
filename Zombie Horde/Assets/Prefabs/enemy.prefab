@@ -4863,6 +4863,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   enemyObject: {fileID: 11400000, guid: 2ad407a89eaee46449304310f672daea, type: 2}
+  bloodParticle: {fileID: 7884275824156312776, guid: 451244edbe44ed346a0e1801d9168648,
+    type: 3}
 --- !u!1 &8153941034731880835
 GameObject:
   m_ObjectHideFlags: 0

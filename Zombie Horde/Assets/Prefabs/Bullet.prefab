@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3602279767833375275}
   - component: {fileID: 839388424850864550}
   - component: {fileID: 8981816547812908194}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,10 +116,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.00017952919, y: -0.03163857}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -130,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.09491587, y: 0.18833657}
   m_EdgeRadius: 0
 --- !u!114 &839388424850864550
 MonoBehaviour:
@@ -145,7 +145,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeTime: 2.5
-  rigidBody: {fileID: 0}
+  rigidBody: {fileID: 7082718900100931775}
+  enemyHealth: {fileID: 0}
+  enemy:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!96 &8981816547812908194
 TrailRenderer:
   serializedVersion: 2

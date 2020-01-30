@@ -7,13 +7,13 @@ public class RandomLevelGenerator : MonoBehaviour
 {
     public enum MapSizes
     {
-        ExtreemlyTiny = 10,
+        ExtremelyTiny = 10,
         tiny = 50,
         Small = 100,
         Medium = 150,
         Large = 200,
         Giant = 400,
-        Extreem = 1000
+        Extreme = 1000
     }
 
     public enum TileTypes

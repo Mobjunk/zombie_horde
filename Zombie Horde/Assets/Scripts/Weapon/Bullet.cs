@@ -6,7 +6,9 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _lifeTime = 2.5f;
     [SerializeField] private Rigidbody2D rigidBody;
-    
+    [SerializeField] private EnemyHealth enemyHealth;
+    [SerializeField] private LayerMask enemy;
+
     private void Awake()
     {
         Destroy(gameObject, _lifeTime);//Makes sure missed bullets automatically get destroyed after _lifeTime seconds
@@ -20,5 +22,15 @@ public class Bullet : MonoBehaviour
         transform.rotation = rot; //rotates game object to correct position
         transform.eulerAngles = new Vector3(0,0, transform.eulerAngles.z); //remove x and y rotation along the x and y axis
         rigidBody.velocity = transform.up * gun.bulletMovementSpeed; 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == enemy)
+        {
+            enemyHealth.TakePlayerDamage(10);
+            Destroy(this.gameObject, 0.5f);
+        }
+        Destroy(this.gameObject, 0.5f);
     }
 }
