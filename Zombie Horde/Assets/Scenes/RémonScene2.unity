@@ -1972,6 +1972,18 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 642788707}
+    - target: {fileID: 313285194, guid: 7bdd93206fc8aa4459f62ac28ebecad8, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.01762557
+      objectReference: {fileID: 0}
+    - target: {fileID: 313285194, guid: 7bdd93206fc8aa4459f62ac28ebecad8, type: 3}
+      propertyPath: m_Radius
+      value: 0.3594063
+      objectReference: {fileID: 0}
+    - target: {fileID: 313285194, guid: 7bdd93206fc8aa4459f62ac28ebecad8, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.02468133
+      objectReference: {fileID: 0}
     - target: {fileID: 3287519462029026801, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
         type: 3}
       propertyPath: invetoryUI
@@ -3737,7 +3749,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8814872a8c078c247bd363a8b44c6bcb, type: 2}
   - {fileID: 11400000, guid: aa99639ad8d35e543bc7b941d3cd3b6b, type: 2}
   target: {fileID: 1646495224}
-  days: 5
+  days: 0
   startingAmount: 2
   zombiesPerDay: 2
 --- !u!4 &1585524566
@@ -35259,6 +35271,7 @@ MonoBehaviour:
   mapSize: 200
   maxLakeSize: 100
   minLakeSize: 100
+  lakeFixDirectionTries: 10
   backgroundTilemap: {fileID: 1617556485}
   resourceSystem: {fileID: 1287278942}
   fogTilemap: {fileID: 430825998}
@@ -35555,7 +35568,7 @@ PrefabInstance:
     - target: {fileID: 5082412508422531452, guid: 3bbeeeb83752c2242925ea1add3c827a,
         type: 3}
       propertyPath: dayNightCycleMin
-      value: 0.1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5082412508422531453, guid: 3bbeeeb83752c2242925ea1add3c827a,
         type: 3}
