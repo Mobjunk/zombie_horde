@@ -40,6 +40,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if(collision.gameObject.layer == 9)
         {
+            Debug.Log("fwefwe");
             buildingSystem.DestroyStructure(collision.GetContact(0).point, 1);
         }
 
