@@ -14,7 +14,10 @@ public class CraftingUI : MonoBehaviour
         foreach (var recipe in craftingRecipes)
         {
             var gameObject = Instantiate(recipePrefab);
-            gameObject.transform.SetParent(recipeParent);
+            gameObject.transform.SetParent(recipeParent.transform);
+            gameObject.transform.localScale = new Vector3(1,1,1);
+            
+            
         }
     }
 }
