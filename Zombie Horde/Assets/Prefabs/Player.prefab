@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 5868418561953072716}
   - component: {fileID: 558441492}
   - component: {fileID: 558441491}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: LeftHand
   m_TagString: PlayerFist
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 5868418562903241611}
   - component: {fileID: 22395050}
   - component: {fileID: 22395049}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: RightHand
   m_TagString: PlayerFist
   m_Icon: {fileID: 0}

@@ -49,6 +49,9 @@
             <e p="PlayerMovement.cs" t="Include" />
           </e>
           <e p="QuitGameScript.cs" t="Include" />
+          <e p="RandomLevelGenerator" t="Include">
+            <e p="RandomLevelGenerator.cs" t="Include" />
+          </e>
           <e p="ResourceObject.cs" t="Include" />
           <e p="ResourceSystem.cs" t="Include" />
           <e p="Weapon" t="Include">

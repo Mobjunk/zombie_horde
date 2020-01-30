@@ -18,5 +18,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         playerObject = GameObject.Find("Player");
+        
+        itemDefinition.Sort((a, b) => a.itemId.CompareTo(b.itemId));
     }
 }
