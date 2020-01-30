@@ -27,7 +27,6 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.layer == 11)
         {
-            Debug.LogError(collision);
             collision.GetComponentInParent<EnemyHealth>().TakePlayerDamage(10);
         }
         Destroy(this.gameObject);

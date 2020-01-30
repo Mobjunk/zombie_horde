@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
 
     public float currentHealth;
     public EnemyObject enemyObject;
+    public GameObject enemy;
     public GameObject bloodParticle;
     PlayerAttack playerAttack => PlayerAttack.instance;
     public void TakePlayerDamage(int amount)
@@ -16,7 +17,9 @@ public class EnemyHealth : MonoBehaviour
         if(currentHealth <= 0)
         {
             Destroy(gameObject);
-        } 
+            var startRot = Quaternion.LookRotation(enemy.transform.forward - enemy.transform.forward * 2);
+            Instantiate(bloodParticle, enemy.transform.position, startRot);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
