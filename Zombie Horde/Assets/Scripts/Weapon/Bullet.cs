@@ -6,8 +6,8 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _lifeTime = 2.5f;
     [SerializeField] private Rigidbody2D rigidBody;
-    [SerializeField] private EnemyHealth enemyHealth;
     [SerializeField] private LayerMask enemy;
+    public EnemyHealth enemyHealth;
 
     private void Awake()
     {
@@ -26,11 +26,11 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == enemy)
+        if (collision.gameObject.layer == 11)
         {
+            Debug.LogError(collision);
             enemyHealth.TakePlayerDamage(10);
-            Destroy(this.gameObject, 0.5f);
         }
-        Destroy(this.gameObject, 0.5f);
+        Destroy(this.gameObject);
     }
 }

@@ -56,7 +56,6 @@ public class EnemyAttack : MonoBehaviour
 
     public void Attack()
     {
-        Debug.LogError("ererwe");
         playerHealth.TakeDamage(10);
         timer = 0;
     }

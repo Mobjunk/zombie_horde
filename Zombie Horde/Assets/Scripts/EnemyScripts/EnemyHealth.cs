@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    //public static EnemyHealth instance;
+
     public float currentHealth;
     public EnemyObject enemyObject;
     public GameObject bloodParticle;
@@ -13,7 +15,6 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= amount;
         if(currentHealth <= 0)
         {
-
             Destroy(this.gameObject);
         } 
     }

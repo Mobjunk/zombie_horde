@@ -146,10 +146,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lifeTime: 2.5
   rigidBody: {fileID: 7082718900100931775}
-  enemyHealth: {fileID: 0}
   enemy:
     serializedVersion: 2
     m_Bits: 2048
+  enemyHealth: {fileID: 1788532634, guid: bf9917e2b923abb4daa6cb1c2e72af5f, type: 3}
 --- !u!96 &8981816547812908194
 TrailRenderer:
   serializedVersion: 2
