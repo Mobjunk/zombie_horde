@@ -46,6 +46,9 @@ public class RandomLevelGenerator : MonoBehaviour
     [SerializeField] private int maxLakeSize;
     [SerializeField] private int minLakeSize;
     [Space]
+    [Header("Generation Settings")]
+    [SerializeField] private int lakeFixDirectionTries = 10;
+    [Space]
     [Header("References")]
     [SerializeField] private Tilemap backgroundTilemap;
     [SerializeField] private ResourceSystem resourceSystem;
@@ -91,7 +94,7 @@ public class RandomLevelGenerator : MonoBehaviour
 
     private void GenerateLakes()
     {
-        int numberOfLakes = Mathf.RoundToInt(Random.Range(((int)mapSize * (int)mapSize) / (maxLakeSize * 24f), ((int)mapSize * (int)mapSize) / (maxLakeSize * 12f)));
+        int numberOfLakes = Mathf.RoundToInt(Random.Range((((int)mapSize * (int)mapSize) / (maxLakeSize * 12f)), ((int)mapSize * (int)mapSize) / (maxLakeSize * 24f)));
 
         for (int lake = 0; lake < numberOfLakes; lake++)
         {
@@ -104,7 +107,7 @@ public class RandomLevelGenerator : MonoBehaviour
 
                 bool newPosFound = false;
                 int tries = 0;
-                while (!newPosFound && tries < 10)
+                while (!newPosFound && tries < lakeFixDirectionTries)
                 {
                     tries++;
                     Direction4 direction = (Direction4)Random.Range(0, 4);
