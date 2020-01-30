@@ -65,7 +65,7 @@ public class BuildingSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             PlaceStrucure(Camera.main.ScreenToWorldPoint(Input.mousePosition), tempStructure);
         }

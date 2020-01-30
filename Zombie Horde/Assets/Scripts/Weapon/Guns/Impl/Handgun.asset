@@ -25,4 +25,4 @@ MonoBehaviour:
   bullets: {fileID: 11400000, guid: 01aa8dcc6b9360a4793426af872b9cf3, type: 2}
   maxBullets: 15
   reloadSpeed: 2.2
-  bulletMovementSpeed: 5
+  bulletMovementSpeed: 20

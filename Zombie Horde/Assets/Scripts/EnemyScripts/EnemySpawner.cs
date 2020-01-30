@@ -26,8 +26,8 @@ public class EnemySpawner : MonoBehaviour
             {
                 eo[0].SetUp(testEnemy.GetComponent<EnemyMovement>(), testEnemy.GetComponent<EnemyAttack>(), testEnemy.GetComponent<EnemyHealth>(), target);
             }
-            // if more than 3 days have passed than better zombies will spawn
-            if(days >= 2){
+            // if more than 4 days have passed than better zombies will spawn
+            if(days >= 4){
                 eo[1].SetUp(testEnemy.GetComponent<EnemyMovement>(), testEnemy.GetComponent<EnemyAttack>(), testEnemy.GetComponent<EnemyHealth>(), target);
             }
         }

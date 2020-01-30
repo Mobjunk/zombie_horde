@@ -105,11 +105,7 @@ public class ResourceSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            SpawnResource(Camera.main.ScreenToWorldPoint(Input.mousePosition), test);
-        }
-        else if (Input.GetKeyDown(KeyCode.Mouse2))
+        if (Input.GetKeyDown(KeyCode.Mouse2))
         {
             DestroyResource(Camera.main.ScreenToWorldPoint(Input.mousePosition), 1);
         }
