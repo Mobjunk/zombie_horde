@@ -25,8 +25,6 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     {
         if (!enableDrag) return;
         
-        Debug.Log($"gameObject.name: {gameObject.name}");
-        
         itemBeingDragged = gameObject;
         startPosition = transform.position;
         startParent = transform.parent;
@@ -51,7 +49,6 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     {
         if (!enableDrag) return;
      
-        Debug.Log("LLLLLLLLLLLLLLLL");
         itemBeingDragged = null;
         GetComponent<CanvasGroup>().blocksRaycasts = true;
 
@@ -61,7 +58,6 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         
         if (transform.parent == startParent)
         {
-            Debug.Log("FDGDFGDFGDFG");
             transform.position = startPosition;
         }
     }

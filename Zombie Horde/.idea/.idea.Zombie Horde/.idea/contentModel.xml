@@ -13,6 +13,7 @@
           </e>
           <e p="Crafting" t="Include">
             <e p="CraftingRecipe.cs" t="Include" />
+            <e p="CraftingUI.cs" t="Include" />
           </e>
           <e p="CursorScript.cs" t="Include" />
           <e p="DayNightCycle.cs" t="Include" />

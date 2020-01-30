@@ -194,9 +194,9 @@ public class Container
                     itemAmount.enabled = true;
                     itemSprite.sprite = item.item.uiSprite;
                     var amount = $"{item.amount}";
-                    if (player.inventory.items[index].item.gun != null)
+                    if (item.item.gun != null)
                     {
-                        var weapon = player.weapon.GetWeapon(player.inventory.items[index].item.gun);
+                        var weapon = player.weapon.GetWeapon(item.item.gun);
                         if (weapon != null)
                         {
                             var gun = weapon.gun;

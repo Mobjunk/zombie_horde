@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8975019670818409377}
   - component: {fileID: 6437288990198247162}
   - component: {fileID: 707333549569929579}
+  - component: {fileID: 7499313197917639885}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -92,3 +93,15 @@ MonoBehaviour:
   itemDefinition: []
   gunDefinition:
   - {fileID: 11400000, guid: 0161ef1ceb4b3384985f8996b6a10029, type: 2}
+--- !u!114 &7499313197917639885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8855366034490432718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93ded2acd5ccbe4388cd9dce537077a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

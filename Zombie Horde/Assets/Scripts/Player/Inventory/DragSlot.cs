@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class DragSlot : MonoBehaviour, IDropHandler
 {
     [SerializeField] private GameObject parent;
-
+    [SerializeField] private bool allowDrag = true;
+    
     private void Start()
     {
         parent = transform.parent.gameObject;
@@ -14,8 +15,7 @@ public class DragSlot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("ffdgfdgfdgdfg");
-        if (DragHandler.itemBeingDragged == null) return;
+        if (DragHandler.itemBeingDragged == null || !allowDrag) return;
         
         var image = DragHandler.itemBeingDragged.gameObject;
         var drag = image.GetComponent<DragHandler>();

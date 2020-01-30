@@ -61,12 +61,12 @@ public class Player : MonoBehaviour
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0f ) // forward
         {
-            inventorySlot++;
+            inventorySlot--;
             if (inventorySlot > 8) inventorySlot = 0;
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0f ) // backwards
         {
-            inventorySlot--;
+            inventorySlot++;
             if (inventorySlot < 0) inventorySlot = 8;
         }
     }

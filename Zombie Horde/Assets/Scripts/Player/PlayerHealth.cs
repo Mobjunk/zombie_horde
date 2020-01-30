@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
 
 
     public Image healthBar;
+    public Text healthText;
 
     public bool playerVuln;
     public bool playerAlive;
@@ -60,5 +61,6 @@ public class PlayerHealth : MonoBehaviour
     private void Update()
     {
         healthBar.fillAmount = currentHealth / startingHealth;
+        healthText.text = $"{currentHealth}/{startingHealth}";
     }
 }
