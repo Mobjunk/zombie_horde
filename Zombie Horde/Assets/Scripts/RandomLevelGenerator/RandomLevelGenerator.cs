@@ -41,6 +41,14 @@ public class RandomLevelGenerator : MonoBehaviour
         public TileTypes[] placedOn;
     }
 
+    public struct TileData
+    {
+        public Tile[] fulltileVariants;
+        public Tile[] straighttileVariants;
+        public Tile[] outerCornertileVariants;
+        public Tile[] innerCornertileVariants;
+    }
+
     [Header("Map Settings")]
     [SerializeField] private MapSizes mapSize;
     [SerializeField] private int maxLakeSize;
@@ -385,6 +393,32 @@ public class RandomLevelGenerator : MonoBehaviour
                     fogTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), fogTile);
                 }
             }
+        }
+    }
+
+    private void GenerateTile(int x, int y, TileTypes thisTileType, TileTypes checkinnerTileType, TileTypes checkOuterTileType, TileData tileData)
+    {
+        if (
+            mapTypes[y + 1,x] == thisTileType &&
+            mapTypes[y - 1, x] == thisTileType &&
+            mapTypes[y, x + 1] == thisTileType &&
+            mapTypes[y, x - 1] == thisTileType &&
+            mapTypes[y + 1, x + 1] == thisTileType &&
+            mapTypes[y + 1, x - 1] == thisTileType &&
+            mapTypes[y - 1, x - 1] == thisTileType &&
+            mapTypes[y - 1, x + 1] == thisTileType
+            )
+        {
+            backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tileData.fulltileVariants[Random.Range(0, tileData.fulltileVariants.Length)]);
+        }
+        else if (
+            mapTypes[y + 1, x] == checkOuterTileType &&
+            mapTypes[y - 1, x] == checkinnerTileType
+            )
+        {
+            Tile tile = tileData.fulltileVariants[Random.Range(0, tileData.fulltileVariants.Length)];
+            tile.transform.SetTRS(new Vector3(), Quaternion.Euler(0,0,0), new Vector3(0,0,0));
+            backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
         }
     }
 }
