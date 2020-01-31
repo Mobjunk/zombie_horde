@@ -3822,8 +3822,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aa99639ad8d35e543bc7b941d3cd3b6b, type: 2}
   target: {fileID: 620218091}
   days: 0
-  startingAmount: 2
-  zombiesPerDay: 2
+  startingAmount: 5
+  zombiesPerDay: 5
 --- !u!4 &1585524566
 Transform:
   m_ObjectHideFlags: 0
@@ -4362,6 +4362,11 @@ PrefabInstance:
         type: 3}
       propertyPath: shadowsOpacity.m_Curve.Array.data[4].time
       value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082412508422531452, guid: 3bbeeeb83752c2242925ea1add3c827a,
+        type: 3}
+      propertyPath: dayNightCycleMin
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5082412508422531453, guid: 3bbeeeb83752c2242925ea1add3c827a,
         type: 3}

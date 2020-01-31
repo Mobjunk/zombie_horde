@@ -10,11 +10,14 @@ public class EnemySpawner : MonoBehaviour
     public Transform target;
     public int days;
 
+    int random;
+
     public int startingAmount = 2;
     public int zombiesPerDay = 2;
 
     public void EnemySpawning()
     {
+        random = Random.Range(0, 10);
         Debug.Log(startingAmount + zombiesPerDay * days);
         //every night it will run this for loop and spawns the amount of zombies. (startingAmount + zombiesPerDay * days)
         for (int i = 0; i < startingAmount + zombiesPerDay * days; i++)
@@ -28,7 +31,11 @@ public class EnemySpawner : MonoBehaviour
             }
             // if more than 4 days have passed than better zombies will spawn
             if(days >= 4){
-                eo[1].SetUp(testEnemy.GetComponent<EnemyMovement>(), testEnemy.GetComponent<EnemyAttack>(), testEnemy.GetComponent<EnemyHealth>(), target);
+                eo[0].SetUp(testEnemy.GetComponent<EnemyMovement>(), testEnemy.GetComponent<EnemyAttack>(), testEnemy.GetComponent<EnemyHealth>(), target);
+                if(random >= 5)
+                {
+                    eo[1].SetUp(testEnemy.GetComponent<EnemyMovement>(), testEnemy.GetComponent<EnemyAttack>(), testEnemy.GetComponent<EnemyHealth>(), target);
+                }
             }
         }
     }

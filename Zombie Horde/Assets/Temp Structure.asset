@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c96e72bb8e492d24988ed3c254937ad2, type: 3}
   m_Name: Temp Structure
   m_EditorClassIdentifier: 
-  structureHealth: 10
+  structureHealth: 1
   tile: {fileID: 11400000, guid: 7b058941b9a19734994339c8793dca15, type: 2}
