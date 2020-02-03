@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   damage: 10
-  attackSpeed: 2
-  attackCooldown: 1
+  attackSpeed: 1
+  attackCooldown: 2
   speed: 3.7
   minimumDistance: 0.7
   maximumDistance: 100

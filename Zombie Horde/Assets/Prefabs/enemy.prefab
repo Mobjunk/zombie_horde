@@ -4754,6 +4754,74 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &1555488195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1555488196}
+  - component: {fileID: 1555488197}
+  - component: {fileID: 1288043660}
+  m_Layer: 11
+  m_Name: attack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1555488196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555488195}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.777, y: 0.005, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2555954725594334355}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!58 &1555488197
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555488195}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0000000085056495, y: -0.07135057}
+  serializedVersion: 2
+  m_Radius: 0.37291756
+--- !u!114 &1288043660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555488195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd0728bd09634349b6d452906031f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyObject: {fileID: 11400000, guid: 2ad407a89eaee46449304310f672daea, type: 2}
+  enemy: {fileID: 1555488195}
+  timer: 0
+  canAttack: 0
+  structure:
+    serializedVersion: 2
+    m_Bits: 512
+  enemyAttackSpeed: 0
 --- !u!1 &2555954725594334354
 GameObject:
   m_ObjectHideFlags: 0
@@ -4765,7 +4833,6 @@ GameObject:
   - component: {fileID: 2555954725594334355}
   - component: {fileID: 2555954725594334358}
   - component: {fileID: 2555954725594334357}
-  - component: {fileID: 5281986584495305844}
   - component: {fileID: 1788532634}
   m_Layer: 11
   m_Name: enemy
@@ -4787,6 +4854,7 @@ Transform:
   m_Children:
   - {fileID: 6993333412858621035}
   - {fileID: 193636312}
+  - {fileID: 1555488196}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4805,9 +4873,9 @@ MonoBehaviour:
   dust: {fileID: 193636314}
   rb2d: {fileID: 2555954725594334357}
   target: {fileID: 0}
-  speed: 10
-  minimumDistance: 0
-  maximumDistance: 0
+  speed: 4
+  minimumDistance: 1
+  maximumDistance: 100
 --- !u!50 &2555954725594334357
 Rigidbody2D:
   serializedVersion: 4
@@ -4829,26 +4897,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5281986584495305844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2555954725594334354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dd0728bd09634349b6d452906031f39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyObject: {fileID: 11400000, guid: 2ad407a89eaee46449304310f672daea, type: 2}
-  timer: 0
-  canAttack: 0
-  structure:
-    serializedVersion: 2
-    m_Bits: 512
-  enemyAttackSpeed: 0
-  enemyAttackCooldown: 0
 --- !u!114 &1788532634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4861,7 +4909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5295408bb7db8d479ca2a0ed80ac8b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
+  currentHealth: 10
   enemyObject: {fileID: 11400000, guid: 2ad407a89eaee46449304310f672daea, type: 2}
   enemy: {fileID: 2555954725594334354}
   bloodParticle: {fileID: 7884275824156312776, guid: 451244edbe44ed346a0e1801d9168648,

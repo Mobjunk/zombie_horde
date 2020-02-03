@@ -14,9 +14,8 @@ public class EnemyObject : ScriptableObject
     public float minimumDistance;
     public float maximumDistance;
 
-    public void SetUp(EnemyMovement enemyMovement, EnemyAttack enemyAttack, EnemyHealth enemyHealth, Transform target)
+    public void SetUp(EnemyMovement enemyMovement, EnemyHealth enemyHealth, Transform target)
     {
-        enemyAttack.enemyAttackCooldown = attackCooldown;
         enemyHealth.currentHealth = health;
         enemyMovement.speed = speed;
         enemyMovement.target = target;
