@@ -1993,6 +1993,11 @@ PrefabInstance:
       propertyPath: invetoryUI
       value: 
       objectReference: {fileID: 845251792}
+    - target: {fileID: 5868418563330530513, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
+        type: 3}
+      propertyPath: backgroundTilemap
+      value: 
+      objectReference: {fileID: 1617556485}
     - target: {fileID: 5868418563330530515, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
         type: 3}
       propertyPath: m_Name
@@ -3766,6 +3771,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aa99639ad8d35e543bc7b941d3cd3b6b, type: 2}
   target: {fileID: 1646495224}
   days: 0
+  backgroundTilemap: {fileID: 1617556485}
   startingAmount: 1
   zombiesPerDay: 1
 --- !u!4 &1585524566
@@ -35285,19 +35291,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021e0539aa2b6a647a8e481f693e42d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapSize: 10
+  mapSize: 150
   maxLakeSize: 100
-  minLakeSize: 100
-  lakeFixDirectionTries: 10
+  minLakeSize: 30
+  lakeFixDirectionTries: 150
   backgroundTilemap: {fileID: 1617556485}
   resourceSystem: {fileID: 1287278942}
   fogTilemap: {fileID: 430825998}
   grassTiles:
-  - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}
+    fulltileVariants:
+    - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}
+    straighttileVariants:
+    - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}
+    outerCornertileVariants:
+    - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}
+    innerCornertileVariants:
+    - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}
   waterTiles:
-  - {fileID: 11400000, guid: 32bf7962aa704d34c8272dbd41c3ebad, type: 2}
+    fulltileVariants:
+    - {fileID: 11400000, guid: 32bf7962aa704d34c8272dbd41c3ebad, type: 2}
+    straighttileVariants:
+    - {fileID: 11400000, guid: 32bf7962aa704d34c8272dbd41c3ebad, type: 2}
+    outerCornertileVariants:
+    - {fileID: 11400000, guid: 32bf7962aa704d34c8272dbd41c3ebad, type: 2}
+    innerCornertileVariants:
+    - {fileID: 11400000, guid: 32bf7962aa704d34c8272dbd41c3ebad, type: 2}
   sandTiles:
-  - {fileID: 11400000, guid: 224e11cbd2b98eb468d562af1c655566, type: 2}
+    fulltileVariants:
+    - {fileID: 11400000, guid: 224e11cbd2b98eb468d562af1c655566, type: 2}
+    straighttileVariants:
+    - {fileID: 11400000, guid: dd53b5f6bc4a2244b91120683226f350, type: 2}
+    outerCornertileVariants:
+    - {fileID: 11400000, guid: 55319368108a519448da7c45dec2e04b, type: 2}
+    innerCornertileVariants:
+    - {fileID: 11400000, guid: 3447723fbb051a245b439f5a8a3c23f2, type: 2}
   fogTile: {fileID: 11400000, guid: 87edadb7d48fd7d488e66a237f9a36ba, type: 2}
   resourcesData:
   - name: Tree
