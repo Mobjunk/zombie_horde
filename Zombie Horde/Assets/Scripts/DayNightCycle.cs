@@ -48,7 +48,7 @@ public class DayNightCycle : MonoBehaviour
             timeOfDay += 24 / dayNightCycleMin / 60 * Time.deltaTime;
         }
     }
-
+     
     private void ChangeColorsDarknessShadows()
     {
         // changes the color and opacity of a canvas panel to make it look darker or a different color.
