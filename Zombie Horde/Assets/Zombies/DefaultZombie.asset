@@ -16,8 +16,8 @@ MonoBehaviour:
   damage: 10
   attackSpeed: 1
   attackCooldown: 2
-  speed: 3.7
-  slowSpeed: 0.925
+  speed: 2
+  slowSpeed: 0.5
   slowTiles:
   - {fileID: 11400000, guid: 32bf7962aa704d34c8272dbd41c3ebad, type: 2}
   minimumDistance: 0.7

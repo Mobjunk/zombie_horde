@@ -1421,6 +1421,7 @@ MonoBehaviour:
   structuresTilemap: {fileID: 434384993}
   shadowTilemap: {fileID: 685994588}
   resourcesTilemap: {fileID: 903860017}
+  backgroundTilemap: {fileID: 0}
   tempStructure: {fileID: 11400000, guid: 3727ed591600c4545bb5c6b497d26d6e, type: 2}
 --- !u!4 &504599687
 Transform:
@@ -35607,7 +35608,7 @@ PrefabInstance:
     - target: {fileID: 5082412508422531452, guid: 3bbeeeb83752c2242925ea1add3c827a,
         type: 3}
       propertyPath: dayNightCycleMin
-      value: 2
+      value: 0.24
       objectReference: {fileID: 0}
     - target: {fileID: 5082412508422531453, guid: 3bbeeeb83752c2242925ea1add3c827a,
         type: 3}
