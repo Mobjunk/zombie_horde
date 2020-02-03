@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Tilemaps;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     public EnemyObject[] eo;
     public Transform target;
     public int days;
+    [SerializeField] private Tilemap backgroundTilemap;
 
     int random;
 
@@ -27,11 +29,11 @@ public class EnemySpawner : MonoBehaviour
             // if less then 3 days have passed then normal zombies will spawn
             if(days < 3)
             {
-                eo[0].SetUp(testEnemy.GetComponent<EnemyMovement>(), testEnemy.GetComponent<EnemyHealth>(), target);
+                eo[0].SetUp(testEnemy.GetComponent<EnemyMovement>(), testEnemy.GetComponent<EnemyHealth>(), target, backgroundTilemap);
             }
             // if more than 4 days have passed than better zombies will spawn
             if(days >= 4){
-                eo[1].SetUp(testEnemy.GetComponent<EnemyMovement>(), testEnemy.GetComponent<EnemyHealth>(), target);
+                eo[1].SetUp(testEnemy.GetComponent<EnemyMovement>(), testEnemy.GetComponent<EnemyHealth>(), target, backgroundTilemap);
             }
         }
     }

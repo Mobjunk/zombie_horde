@@ -3400,7 +3400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1585524565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3415,11 +3415,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 2555954725594334354, guid: bf9917e2b923abb4daa6cb1c2e72af5f, type: 3}
   eo:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 2ad407a89eaee46449304310f672daea, type: 2}
+  - {fileID: 11400000, guid: 8814872a8c078c247bd363a8b44c6bcb, type: 2}
+  - {fileID: 11400000, guid: aa99639ad8d35e543bc7b941d3cd3b6b, type: 2}
   target: {fileID: 0}
   days: 0
+  backgroundTilemap: {fileID: 1617556485}
   startingAmount: 2
   zombiesPerDay: 2
 --- !u!4 &1585524566

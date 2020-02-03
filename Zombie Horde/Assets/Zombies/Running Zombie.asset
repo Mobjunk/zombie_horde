@@ -17,5 +17,8 @@ MonoBehaviour:
   attackSpeed: 0
   attackCooldown: 2
   speed: 8
+  slowSpeed: 2
+  slowTiles:
+  - {fileID: 11400000, guid: 32bf7962aa704d34c8272dbd41c3ebad, type: 2}
   minimumDistance: 1.2
   maximumDistance: 100
