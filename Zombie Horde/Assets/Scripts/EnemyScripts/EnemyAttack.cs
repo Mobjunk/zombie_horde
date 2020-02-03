@@ -9,11 +9,11 @@ public class EnemyAttack : MonoBehaviour
     BuildingSystem buildingSystem;
     
     public EnemyObject enemyObject;
+    public GameObject enemy;
     public float timer;
     public bool canAttack;
     public LayerMask structure;
     public float enemyAttackSpeed;
-    public float enemyAttackCooldown;
 
     // Start is called before the first frame update
     void Start()
@@ -36,28 +36,32 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == 9)
+        if (collision.gameObject.layer == 9)
         {
-            Debug.Log("fwefwe");
-            buildingSystem.DestroyStructure(collision.GetContact(0).point, 1);
+            Debug.Log("refa");
+            if(canAttack == true)
+            {
+                buildingSystem.DestroyStructure(this.GetComponent<CircleCollider2D>().gameObject.transform.position, 1);
+                
+            }
         }
 
-        if(collision.gameObject.layer == 10)
+        if (collision.gameObject.layer == 10)
         {
             if (canAttack == true)
             {
                 Attack();
             }
 
-                    
+
         }
     }
 
     public void Attack()
     {
-        playerHealth.TakeDamage(10);
+        playerHealth.TakeDamage(5);
         timer = 0;
     }
 }
