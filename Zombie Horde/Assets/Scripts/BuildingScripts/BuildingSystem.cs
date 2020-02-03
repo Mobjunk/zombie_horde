@@ -22,10 +22,19 @@ public class BuildingSystem : MonoBehaviour
     [SerializeField] private Tilemap structuresTilemap;
     [SerializeField] private Tilemap shadowTilemap;
     [SerializeField] private Tilemap resourcesTilemap;
+    [SerializeField] private Tilemap backgroundTilemap;
     public BuildingObject tempStructure;
 
     public void PlaceStrucure(Vector3 position, BuildingObject buildingObject)
     {
+        //foreach (var item in collection)
+        {
+
+        }
+        //if (backgroundTilemap.GetTile(backgroundTilemap.WorldToCell(position)).name != )
+        {
+            //return;
+        }
         // Checks if the tile doesn't have a resource on the resource tile map
         if (resourcesTilemap.GetTile(resourcesTilemap.WorldToCell(position)) == null)
         {

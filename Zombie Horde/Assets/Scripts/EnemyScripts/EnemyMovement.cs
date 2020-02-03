@@ -54,11 +54,11 @@ public class EnemyMovement : MonoBehaviour
         {
             if (slowTile.name == tile.name)
             {
-                rb2d.velocity = new Vector2(rb2d.rotation * slowSpeed, 0);
+                rb2d.velocity = rb2d.transform.rotation * new Vector2(slowSpeed, 0);
                 return;
             }
         }
-        rb2d.velocity = new Vector2(rb2d.rotation * speed, 0);
+        rb2d.velocity = rb2d.transform.rotation * new Vector2(speed, 0);
     }
 
     public void CreateDust()
