@@ -27,26 +27,25 @@ public class BuildingSystem : MonoBehaviour
 
     public void PlaceStrucure(Vector3 position, BuildingObject buildingObject)
     {
-        //foreach (var item in collection)
+        foreach (var tileToBuildOn in buildingObject.tilesToBuildOn)
         {
-
-        }
-        //if (backgroundTilemap.GetTile(backgroundTilemap.WorldToCell(position)).name != )
-        {
-            //return;
-        }
-        // Checks if the tile doesn't have a resource on the resource tile map
-        if (resourcesTilemap.GetTile(resourcesTilemap.WorldToCell(position)) == null)
-        {
-            Vector3Int gridPosition = structuresTilemap.WorldToCell(position);
-            // Checks if there isn't already a structure on the tile.
-            if (structuresTilemap.GetTile(gridPosition) == null)
+            if (backgroundTilemap.GetTile(backgroundTilemap.WorldToCell(position)).name == tileToBuildOn.name)
             {
-                // Changes the tiles in the tilemaps
-                structuresTilemap.SetTile(gridPosition, buildingObject.tile);
-                shadowTilemap.SetTile(shadowTilemap.WorldToCell(position + shadowTilemap.transform.position), buildingObject.tile);
-                // Adds the structure to a list of placedstructures to keep track of hp
-                placedBuildings.Add(new Building(gridPosition, buildingObject.structureHealth));
+                // Checks if the tile doesn't have a resource on the resource tile map
+                if (resourcesTilemap.GetTile(resourcesTilemap.WorldToCell(position)) == null)
+                {
+                    Vector3Int gridPosition = structuresTilemap.WorldToCell(position);
+                    // Checks if there isn't already a structure on the tile.
+                    if (structuresTilemap.GetTile(gridPosition) == null)
+                    {
+                        // Changes the tiles in the tilemaps
+                        structuresTilemap.SetTile(gridPosition, buildingObject.tile);
+                        shadowTilemap.SetTile(shadowTilemap.WorldToCell(position + shadowTilemap.transform.position), buildingObject.tile);
+                        // Adds the structure to a list of placedstructures to keep track of hp
+                        placedBuildings.Add(new Building(gridPosition, buildingObject.structureHealth));
+                    }
+                }
+                return;
             }
         }
     }

@@ -14,3 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   structureHealth: 1
   tile: {fileID: 11400000, guid: 7b058941b9a19734994339c8793dca15, type: 2}
+  tilesToBuildOn:
+  - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}
+  - {fileID: 11400000, guid: 224e11cbd2b98eb468d562af1c655566, type: 2}
+  - {fileID: 11400000, guid: 3447723fbb051a245b439f5a8a3c23f2, type: 2}
+  - {fileID: 11400000, guid: 55319368108a519448da7c45dec2e04b, type: 2}
+  - {fileID: 11400000, guid: dd53b5f6bc4a2244b91120683226f350, type: 2}
