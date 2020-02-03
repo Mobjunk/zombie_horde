@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public Tilemap backgroundTilemap;
+    public Tile[] slowTiles;
     PlayerHealth playerHealth => PlayerHealth.instance;
     public ParticleSystem dust;
     public Rigidbody2D rb2d;
     public Transform target;
     public float speed;
+    public float slowSpeed;
     public float minimumDistance;
     public float maximumDistance;
     // Start is called before the first frame update
@@ -31,7 +35,7 @@ public class EnemyMovement : MonoBehaviour
 
                 transform.rotation = Quaternion.Euler(0f, 0f, rot_z);
 
-                rb2d.velocity = rb2d.transform.rotation * new Vector2(speed, 0);
+                Move();
                 CreateDust();
             }
             else if (target)
@@ -40,6 +44,21 @@ public class EnemyMovement : MonoBehaviour
             }
         } 
        
+    }
+
+    private void Move()
+    {
+        Vector3Int gridPosition = backgroundTilemap.WorldToCell(this.transform.position);
+        TileBase tile = backgroundTilemap.GetTile(gridPosition);
+        foreach (var slowTile in slowTiles)
+        {
+            if (slowTile.name == tile.name)
+            {
+                rb2d.velocity = new Vector2(rb2d.rotation * slowSpeed, 0);
+                return;
+            }
+        }
+        rb2d.velocity = new Vector2(rb2d.rotation * speed, 0);
     }
 
     public void CreateDust()

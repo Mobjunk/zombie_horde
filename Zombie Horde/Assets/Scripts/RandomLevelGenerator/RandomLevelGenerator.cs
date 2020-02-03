@@ -41,6 +41,7 @@ public class RandomLevelGenerator : MonoBehaviour
         public TileTypes[] placedOn;
     }
 
+    [System.Serializable]
     public struct TileData
     {
         public Tile[] fulltileVariants;
@@ -63,9 +64,9 @@ public class RandomLevelGenerator : MonoBehaviour
     [SerializeField] private Tilemap fogTilemap;
     [Space]
     [Header("Tiles")]
-    [SerializeField] private Tile[] grassTiles;
-    [SerializeField] private Tile[] waterTiles;
-    [SerializeField] private Tile[] sandTiles;
+    [SerializeField] private TileData grassTiles;
+    [SerializeField] private TileData waterTiles;
+    [SerializeField] private TileData sandTiles;
     [SerializeField] private Tile fogTile;
     [Space]
     [Header("Resource Tiles")]
@@ -76,7 +77,6 @@ public class RandomLevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.LogError((int)mapSize);
         GenerateMap();
     }
 
@@ -320,13 +320,13 @@ public class RandomLevelGenerator : MonoBehaviour
                 switch (mapTypes[y, x])
                 {
                     case TileTypes.Grass:
-                        backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), grassTiles[Random.Range(0, grassTiles.Length)]);
+                        GenerateTile(x, y, TileTypes.Grass, TileTypes.NotSet, TileTypes.NotSet, grassTiles);
                         break;
                     case TileTypes.Water:
-                        backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), waterTiles[Random.Range(0, waterTiles.Length)]);
+                        GenerateTile(x, y, TileTypes.Water, TileTypes.NotSet, TileTypes.NotSet, waterTiles);
                         break;
                     case TileTypes.Sand:
-                        backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), sandTiles[Random.Range(0, sandTiles.Length)]);
+                        GenerateTile(x, y, TileTypes.Sand, TileTypes.Water, TileTypes.Grass, sandTiles);
                         break;
                     case TileTypes.NotSet:
                         Debug.LogError("Error");
@@ -398,27 +398,220 @@ public class RandomLevelGenerator : MonoBehaviour
 
     private void GenerateTile(int x, int y, TileTypes thisTileType, TileTypes checkinnerTileType, TileTypes checkOuterTileType, TileData tileData)
     {
-        if (
-            mapTypes[y + 1,x] == thisTileType &&
-            mapTypes[y - 1, x] == thisTileType &&
-            mapTypes[y, x + 1] == thisTileType &&
-            mapTypes[y, x - 1] == thisTileType &&
-            mapTypes[y + 1, x + 1] == thisTileType &&
-            mapTypes[y + 1, x - 1] == thisTileType &&
-            mapTypes[y - 1, x - 1] == thisTileType &&
-            mapTypes[y - 1, x + 1] == thisTileType
-            )
+        if (checkinnerTileType != TileTypes.NotSet && checkOuterTileType != TileTypes.NotSet)
         {
-            backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tileData.fulltileVariants[Random.Range(0, tileData.fulltileVariants.Length)]);
+            if (y > 0 && y < (int)mapSize - 1 && x > 0 && x < (int)mapSize - 1)
+            {
+                if (
+                mapTypes[y + 1, x] == checkOuterTileType &&
+                mapTypes[y, x - 1] == checkOuterTileType &&
+                mapTypes[y - 1, x + 1] == checkinnerTileType 
+                )
+                {
+                    Tile tile = tileData.outerCornertileVariants[Random.Range(0, tileData.outerCornertileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, 0), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+                if (
+                mapTypes[y - 1, x] == checkOuterTileType &&
+                mapTypes[y, x + 1] == checkOuterTileType &&
+                mapTypes[y + 1, x - 1] == checkinnerTileType
+                )
+                {
+                    Tile tile = tileData.outerCornertileVariants[Random.Range(0, tileData.outerCornertileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, 180), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+                if (
+                mapTypes[y - 1, x] == checkOuterTileType &&
+                mapTypes[y, x - 1] == checkOuterTileType &&
+                mapTypes[y + 1, x + 1] == checkinnerTileType
+                )
+                {
+                    Tile tile = tileData.outerCornertileVariants[Random.Range(0, tileData.outerCornertileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, 90), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+                if (
+                mapTypes[y + 1, x] == checkOuterTileType &&
+                mapTypes[y, x + 1] == checkOuterTileType &&
+                mapTypes[y - 1, x - 1] == checkinnerTileType
+                )
+                {
+                    Tile tile = tileData.outerCornertileVariants[Random.Range(0, tileData.outerCornertileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, -90), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+
+                if (
+                mapTypes[y + 1, x] == checkinnerTileType &&
+                mapTypes[y, x - 1] == checkinnerTileType &&
+                mapTypes[y - 1, x + 1] == checkOuterTileType
+                )
+                {
+                    Tile tile = tileData.innerCornertileVariants[Random.Range(0, tileData.innerCornertileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, 180), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+                if (
+                mapTypes[y - 1, x] == checkinnerTileType &&
+                mapTypes[y, x + 1] == checkinnerTileType &&
+                mapTypes[y + 1, x - 1] == checkOuterTileType
+                )
+                {
+                    Tile tile = tileData.innerCornertileVariants[Random.Range(0, tileData.innerCornertileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, 0), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+                if (
+                mapTypes[y - 1, x] == checkinnerTileType &&
+                mapTypes[y, x - 1] == checkinnerTileType &&
+                mapTypes[y + 1, x + 1] == checkOuterTileType
+                )
+                {
+                    Tile tile = tileData.innerCornertileVariants[Random.Range(0, tileData.innerCornertileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, -90), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+                if (
+                mapTypes[y + 1, x] == checkinnerTileType &&
+                mapTypes[y, x + 1] == checkinnerTileType &&
+                mapTypes[y - 1, x - 1] == checkOuterTileType
+                )
+                {
+                    Tile tile = tileData.innerCornertileVariants[Random.Range(0, tileData.innerCornertileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, 90), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+
+                if (
+                mapTypes[y - 1, x] == checkOuterTileType &&
+                mapTypes[y + 1, x] == checkinnerTileType
+                )
+                {
+                    Tile tile = tileData.straighttileVariants[Random.Range(0, tileData.straighttileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, 180), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+                if (
+                mapTypes[y + 1, x] == checkOuterTileType &&
+                mapTypes[y - 1, x] == checkinnerTileType
+                )
+                {
+                    Tile tile = tileData.straighttileVariants[Random.Range(0, tileData.straighttileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, 0), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+
+                if (
+                mapTypes[y, x - 1] == checkOuterTileType &&
+                mapTypes[y, x + 1] == checkinnerTileType
+                )
+                {
+                    Tile tile = tileData.straighttileVariants[Random.Range(0, tileData.straighttileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, 90), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+                if (
+                mapTypes[y, x + 1] == checkOuterTileType &&
+                mapTypes[y, x - 1] == checkinnerTileType
+                )
+                {
+                    Tile tile = tileData.straighttileVariants[Random.Range(0, tileData.straighttileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, -90), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+                {
+                    Tile tile = tileData.fulltileVariants[Random.Range(0, tileData.fulltileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, 0), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+            }
+            if (y > 0 && y < (int)mapSize - 1)
+            {
+                if (
+                mapTypes[y - 1, x] == checkOuterTileType &&
+                mapTypes[y + 1, x] == checkinnerTileType
+                )
+                {
+                    Tile tile = tileData.straighttileVariants[Random.Range(0, tileData.straighttileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, 180), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+                if (
+                mapTypes[y + 1, x] == checkOuterTileType &&
+                mapTypes[y - 1, x] == checkinnerTileType
+                )
+                {
+                    Tile tile = tileData.straighttileVariants[Random.Range(0, tileData.straighttileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, 0), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+                {
+                    Tile tile = tileData.fulltileVariants[Random.Range(0, tileData.fulltileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, 0), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+            }
+            if (x > 0 && x < (int)mapSize - 1)
+            {
+                if (
+                mapTypes[y, x - 1] == checkOuterTileType &&
+                mapTypes[y, x + 1] == checkinnerTileType
+                )
+                {
+                    Tile tile = tileData.straighttileVariants[Random.Range(0, tileData.straighttileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, 90), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+                if (
+                mapTypes[y, x + 1] == checkOuterTileType &&
+                mapTypes[y, x - 1] == checkinnerTileType
+                )
+                {
+                    Tile tile = tileData.straighttileVariants[Random.Range(0, tileData.straighttileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, -90), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+                {
+                    Tile tile = tileData.fulltileVariants[Random.Range(0, tileData.fulltileVariants.Length)];
+                    tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, 0), Vector3.one);
+                    backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                    return;
+                }
+            }
+            else
+            {
+                Tile tile = tileData.fulltileVariants[Random.Range(0, tileData.fulltileVariants.Length)];
+                tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, 0), Vector3.one);
+                backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+                return;
+            }
         }
-        else if (
-            mapTypes[y + 1, x] == checkOuterTileType &&
-            mapTypes[y - 1, x] == checkinnerTileType
-            )
+        else
         {
             Tile tile = tileData.fulltileVariants[Random.Range(0, tileData.fulltileVariants.Length)];
-            tile.transform.SetTRS(new Vector3(), Quaternion.Euler(0,0,0), new Vector3(0,0,0));
+            tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, 0), Vector3.one);
             backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+            return;
         }
     }
 }
