@@ -37,8 +37,6 @@ public class ResourceSystem : MonoBehaviour
     private List<Resource> resources = new List<Resource>();
     private Player player;
 
-    public Tile test;
-
     private void Start()
     {
         player = GameManager.playerObject.GetComponent<Player>();

@@ -1872,10 +1872,20 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 3447723fbb051a245b439f5a8a3c23f2, type: 2}
   fogTile: {fileID: 11400000, guid: 87edadb7d48fd7d488e66a237f9a36ba, type: 2}
   resourcesData:
-  - name: Tree
+  - name: Tree Large
     tileVariants:
     - {fileID: 11400000, guid: 000a58b33f4d1714493accbf4142e896, type: 2}
-    chance: 10
+    chance: 3
+    placedOn: 01000000
+  - name: Tree Small
+    tileVariants:
+    - {fileID: 11400000, guid: 2ec70545f2f11c4449843d13f487b050, type: 2}
+    chance: 5
+    placedOn: 01000000
+  - name: Rock
+    tileVariants:
+    - {fileID: 11400000, guid: bedd50865d2d8d74f9336a276c8ca350, type: 2}
+    chance: 1
     placedOn: 01000000
 --- !u!4 &611057192
 Transform:
@@ -3965,7 +3975,8 @@ MonoBehaviour:
   structuresTilemap: {fileID: 434384993}
   resourceObjects:
   - {fileID: 11400000, guid: 43b1ef37c78585d4f8dceeb1aec26024, type: 2}
-  test: {fileID: 11400000, guid: 000a58b33f4d1714493accbf4142e896, type: 2}
+  - {fileID: 11400000, guid: aa5d04aa39759a54d856e3e149b71655, type: 2}
+  - {fileID: 11400000, guid: d7708bdbe33c58c4999a27a46d4d50a8, type: 2}
 --- !u!4 &1287278943
 Transform:
   m_ObjectHideFlags: 0
