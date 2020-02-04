@@ -216,7 +216,7 @@ PrefabInstance:
     - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
         type: 3}
       propertyPath: itemDefinition.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
         type: 3}
@@ -253,6 +253,12 @@ PrefabInstance:
       propertyPath: bulletSpawnLocation
       value: 
       objectReference: {fileID: 2076518231}
+    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
+      propertyPath: itemDefinition.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8300e80d897c30e468b4adfc37305a42,
+        type: 2}
     - target: {fileID: 6437288990198247162, guid: 48ded8577040b69479ec7a6cbb560225,
         type: 3}
       propertyPath: inventoryUI
