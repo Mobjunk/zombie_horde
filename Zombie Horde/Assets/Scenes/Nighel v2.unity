@@ -151,12 +151,12 @@ PrefabInstance:
     - target: {fileID: 5812840581564918687, guid: ef9239fc790a1fa4bb4c819187ad485e,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5812840581564918687, guid: ef9239fc790a1fa4bb4c819187ad485e,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5812840581564918687, guid: ef9239fc790a1fa4bb4c819187ad485e,
         type: 3}
@@ -191,7 +191,7 @@ PrefabInstance:
     - target: {fileID: 5812840582725994442, guid: ef9239fc790a1fa4bb4c819187ad485e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5812840582725994443, guid: ef9239fc790a1fa4bb4c819187ad485e,
         type: 3}
@@ -36763,6 +36763,11 @@ PrefabInstance:
       propertyPath: invetoryUI
       value: 
       objectReference: {fileID: 1837774032}
+    - target: {fileID: 3287519462029026801, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
+        type: 3}
+      propertyPath: craftingUI
+      value: 
+      objectReference: {fileID: 1848858538}
     - target: {fileID: 5868418561953072718, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
         type: 3}
       propertyPath: m_Layer
@@ -36882,6 +36887,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2082590332667991843, guid: bef03940a822e6449bc87b602debb29c,
     type: 3}
   m_PrefabInstance: {fileID: 986282945}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1848858538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5812840582725994442, guid: ef9239fc790a1fa4bb4c819187ad485e,
+    type: 3}
+  m_PrefabInstance: {fileID: 72071187}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1899456931
 GameObject:
