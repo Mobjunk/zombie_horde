@@ -57,6 +57,7 @@ public class ResourceSystem : MonoBehaviour
                 {
                     if (resourceTile == tile)
                     {
+                        tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, Random.Range(0, 360)), Vector3.one);
                         resourceTilemap.SetTile(gridPosition, tile);
                         shadowTilemap.SetTile(resourceTilemap.WorldToCell(position + resourceTilemap.transform.position), tile);
                         resources.Add(new Resource(resourceObject, gridPosition));
