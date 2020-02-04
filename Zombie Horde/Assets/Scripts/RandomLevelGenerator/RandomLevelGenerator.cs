@@ -357,7 +357,7 @@ public class RandomLevelGenerator : MonoBehaviour
 
     private void GenerateResource(int y, int x)
     {
-        float change = Random.Range(0, 100);
+        float change = Random.Range(0, 1000);
         float currentChange = 0;
 
         foreach (var resourceData in resourcesData)
@@ -374,14 +374,14 @@ public class RandomLevelGenerator : MonoBehaviour
 
             if (canPlaceOnTile)
             {
-                if (change < resourceData.chance + currentChange)
+                if (change < resourceData.chance * 10 + currentChange)
                 {
                     resourceSystem.SpawnResource(new Vector3(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), resourceData.tileVariants[Random.Range(0, resourceData.tileVariants.Length)]);
                     return;
                 }
                 else
                 {
-                    currentChange += resourceData.chance;
+                    currentChange += resourceData.chance * 10;
                 }
             }
         }

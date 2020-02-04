@@ -1882,11 +1882,16 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 2ec70545f2f11c4449843d13f487b050, type: 2}
     chance: 5
     placedOn: 01000000
-  - name: Rock
+  - name: Rock Small
     tileVariants:
     - {fileID: 11400000, guid: bedd50865d2d8d74f9336a276c8ca350, type: 2}
     chance: 1
     placedOn: 01000000
+  - name: Scrappile Small
+    tileVariants:
+    - {fileID: 11400000, guid: eb16b863dd7265b4cb5ef047a92c9fd8, type: 2}
+    chance: 0.001
+    placedOn: 0100000003000000
 --- !u!4 &611057192
 Transform:
   m_ObjectHideFlags: 0
@@ -3977,6 +3982,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 43b1ef37c78585d4f8dceeb1aec26024, type: 2}
   - {fileID: 11400000, guid: aa5d04aa39759a54d856e3e149b71655, type: 2}
   - {fileID: 11400000, guid: d7708bdbe33c58c4999a27a46d4d50a8, type: 2}
+  - {fileID: 11400000, guid: 429faecce4a7a7f449e7a13562b5f6cb, type: 2}
 --- !u!4 &1287278943
 Transform:
   m_ObjectHideFlags: 0
