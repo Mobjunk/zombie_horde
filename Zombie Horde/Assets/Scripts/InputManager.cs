@@ -46,6 +46,60 @@ public class InputManager : MonoBehaviour
         get;
         private set;
     }
+
+    public bool pressedOne
+    {
+        get;
+        private set;
+    }
+
+    public bool pressedTwo
+    {
+        get;
+        private set;
+    }
+
+    public bool pressedThree
+    {
+        get;
+        private set;
+    }
+
+    public bool pressedFour
+    {
+        get;
+        private set;
+    }
+
+    public bool pressedFive
+    {
+        get;
+        private set;
+    }
+
+    public bool pressedSix
+    {
+        get;
+        private set;
+    }
+
+    public bool pressedSeven
+    {
+        get;
+        private set;
+    }
+
+    public bool pressedEight
+    {
+        get;
+        private set;
+    }
+
+    public bool pressedNine
+    {
+        get;
+        private set;
+    }
     
     private void Start()
     {
@@ -57,7 +111,7 @@ public class InputManager : MonoBehaviour
         //Loops though all connected joysticks
         foreach (string name in Input.GetJoystickNames())
         {
-            Debug.Log($"ControllerName: {name}");
+            //Debug.Log($"ControllerName: {name}");
             //Wireless gamepad = nintendo pro controller/joycons
             if (name.Equals("Wireless Gamepad")||name.Equals("Wireless Controller"))
             {
@@ -80,6 +134,16 @@ public class InputManager : MonoBehaviour
             verticalMovementLeftStick = Input.GetAxisRaw("Vertical");
             pressedAttack = Input.GetMouseButtonDown(0);
             pressedReload = Input.GetKeyDown(KeyCode.R);
+
+            pressedOne = Input.GetKeyDown(KeyCode.Alpha1);
+            pressedTwo = Input.GetKeyDown(KeyCode.Alpha2);
+            pressedThree = Input.GetKeyDown(KeyCode.Alpha3);
+            pressedFour = Input.GetKeyDown(KeyCode.Alpha4);
+            pressedFive = Input.GetKeyDown(KeyCode.Alpha5);
+            pressedSix = Input.GetKeyDown(KeyCode.Alpha6);
+            pressedSeven = Input.GetKeyDown(KeyCode.Alpha7);
+            pressedEight = Input.GetKeyDown(KeyCode.Alpha8);
+            pressedNine = Input.GetKeyDown(KeyCode.Alpha9);
         }
     }
 

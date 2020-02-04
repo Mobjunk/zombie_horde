@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c69c9713d882043a2450a4ab5c2a07, type: 3}
   m_Name: Stone pickaxe
   m_EditorClassIdentifier: 
-  craftedItem: {fileID: 11400000, guid: 6792ecd61fd617e43bb3439d86c4db04, type: 2}
+  craftedItem:
+    item: {fileID: 11400000, guid: 6792ecd61fd617e43bb3439d86c4db04, type: 2}
+    amount: 1
   items:
   - item: {fileID: 11400000, guid: 31b77724518efbe45879ab3f6bff2c58, type: 2}
     amount: 1

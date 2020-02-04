@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,6 +34,11 @@ public class Container
     public bool Contains(int itemId, int amount = 1)
     {
         return items.Where(i => i != null && i.item != null).Any(i => i.item.itemId == itemId && i.amount >= amount);
+    }
+
+    public bool ContainsAll(List<ItemData> itemsData)
+    {
+        return itemsData.All(item => Contains(item.item.itemId, item.amount));
     }
 
     public int GetSlot(int id)
@@ -122,7 +128,7 @@ public class Container
         if (itemToRemove.stackable)
         {
             if (item == null || item.item == null) return false;
-            if (item.amount >= amount)
+            if (item.amount > amount)
                 item.amount -= amount;
             else
             {
