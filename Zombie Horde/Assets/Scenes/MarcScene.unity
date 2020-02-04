@@ -1441,7 +1441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021e0539aa2b6a647a8e481f693e42d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapSize: 1000
+  mapSize: 150
   maxLakeSize: 100
   minLakeSize: 30
   lakeFixDirectionTries: 150
@@ -3442,15 +3442,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 2555954725594334354, guid: bf9917e2b923abb4daa6cb1c2e72af5f, type: 3}
-  eo:
-  - {fileID: 11400000, guid: 2ad407a89eaee46449304310f672daea, type: 2}
-  - {fileID: 11400000, guid: 8814872a8c078c247bd363a8b44c6bcb, type: 2}
-  - {fileID: 11400000, guid: aa99639ad8d35e543bc7b941d3cd3b6b, type: 2}
   target: {fileID: 620218091}
-  days: 0
   backgroundTilemap: {fileID: 1617556485}
-  startingAmount: 2
-  zombiesPerDay: 2
 --- !u!4 &1585524566
 Transform:
   m_ObjectHideFlags: 0
@@ -3477,11 +3470,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5032dbc9cba689d4b8e748d81b00861b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dnc: {fileID: 658510009}
-  es: {fileID: 1585524565}
+  dayNightCycle: {fileID: 658510009}
+  enemySpawner: {fileID: 1585524565}
   timer: 0
   isSpawning: 0
   hasSpawned: 0
+  enemySpawnDatas:
+  - enemyObject: {fileID: 11400000, guid: 2ad407a89eaee46449304310f672daea, type: 2}
+    chance: 80
+    spawnAfterDays: 0
+  - enemyObject: {fileID: 11400000, guid: 8814872a8c078c247bd363a8b44c6bcb, type: 2}
+    chance: 20
+    spawnAfterDays: 4
+  day: 0
+  startingAmount: 2
+  zombiesPerDay: 2
 --- !u!1 &1617556482
 GameObject:
   m_ObjectHideFlags: 0

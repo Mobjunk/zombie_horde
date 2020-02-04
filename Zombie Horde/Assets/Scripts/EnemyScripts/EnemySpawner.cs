@@ -7,34 +7,12 @@ using UnityEngine.Tilemaps;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
-    public EnemyObject[] eo;
     public Transform target;
-    public int days;
     [SerializeField] private Tilemap backgroundTilemap;
 
-    int random;
-
-    public int startingAmount = 2;
-    public int zombiesPerDay = 2;
-
-    public void EnemySpawning()
+    public void EnemySpawning(EnemyObject enemyObject)
     {
-        random = Random.Range(0, 10);
-        Debug.Log(startingAmount + zombiesPerDay * days);
-        //every night it will run this for loop and spawns the amount of zombies. (startingAmount + zombiesPerDay * days)
-        for (int i = 0; i < startingAmount + zombiesPerDay * days; i++)
-        {   
-            GameObject testEnemy = Instantiate(enemy, target.position + Quaternion.Euler(0, 0, Random.Range(0, 360)) * new Vector3(20, 0, 0), Quaternion.identity);
-           
-            // if less then 3 days have passed then normal zombies will spawn
-            if(days < 3)
-            {
-                eo[0].SetUp(testEnemy.GetComponent<EnemyMovement>(), testEnemy.GetComponent<EnemyHealth>(), target, backgroundTilemap);
-            }
-            // if more than 4 days have passed than better zombies will spawn
-            if(days >= 4){
-                eo[1].SetUp(testEnemy.GetComponent<EnemyMovement>(), testEnemy.GetComponent<EnemyHealth>(), target, backgroundTilemap);
-            }
-        }
+        GameObject testEnemy = Instantiate(enemy, target.position + Quaternion.Euler(0, 0, Random.Range(0, 360)) * new Vector3(20, 0, 0), Quaternion.identity);
+        enemyObject.SetUp(testEnemy.GetComponent<EnemyMovement>(), testEnemy.GetComponent<EnemyHealth>(), target, backgroundTilemap);
     }
 }

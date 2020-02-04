@@ -9,9 +9,9 @@ public class DayNightCycle : MonoBehaviour
     [Header("Time")]
     [SerializeField] [Range(0,24)]private float timeOfDay = 7;
     [SerializeField] private int daysPassed = 0;
-    [SerializeField] [Range(0.05f, 240)] private float dayNightCycleMin = 2;
-    [SerializeField] [Range(0, 24)] private float startNight = 20;
-    [SerializeField] [Range(0, 24)] private float endNight = 6;
+    [Range(0.05f, 240)] public float dayNightCycleMin = 2;
+    [Range(0, 24)] public float startNight = 20;
+    [Range(0, 24)] public float endNight = 6;
     [Space]
     [Header("Color")]
     [SerializeField] private AnimationCurve darknessTime;

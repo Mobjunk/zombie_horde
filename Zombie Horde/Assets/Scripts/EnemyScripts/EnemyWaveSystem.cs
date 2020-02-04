@@ -4,33 +4,46 @@ using UnityEngine;
 
 public class EnemyWaveSystem : MonoBehaviour
 {
-    [SerializeField] private DayNightCycle dnc;
-    [SerializeField] private EnemySpawner es;
+    [System.Serializable]
+    public class EnemySpawnData
+    {
+        public EnemyObject enemyObject;
+        public float chance = 0;
+        public int spawnAfterDays = 0;
+    }
+
+    [SerializeField] private DayNightCycle dayNightCycle;
+    [SerializeField] private EnemySpawner enemySpawner;
     [SerializeField] private float timer = 0;
     [SerializeField] private bool isSpawning = false;
     [SerializeField] private bool hasSpawned = false;
-    
+    [SerializeField] private EnemySpawnData[] enemySpawnDatas;
+    [SerializeField] private int day = 0;
+
+    [SerializeField] private int startingAmount = 2;
+    [SerializeField] private int zombiesPerDay = 2;
 
     // Start is called before the first frame update
     void Start()
     {
-        dnc.GetComponent<DayNightCycle>();
+        dayNightCycle.GetComponent<DayNightCycle>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (dnc.IsNight())
+        if (dayNightCycle.IsNight())
         {
             if(hasSpawned == false){
                 if (isSpawning == false)
                 {
-                    StartCoroutine(SpawningEnemies());
+                    Debug.Log("start wave");
                     isSpawning = true;
+                    StartCoroutine(SpawningEnemies());
                 }
             }
         }
-        if (!dnc.IsNight())
+        if (!dayNightCycle.IsNight())
         {
             hasSpawned = false;
         }
@@ -39,11 +52,38 @@ public class EnemyWaveSystem : MonoBehaviour
     // IEnumerator for spawning the enemies, will wait 2 seconds and call the fuction EnemySpawning() 
     IEnumerator SpawningEnemies()
     {
-        yield return new WaitForSeconds(2);
-        es.EnemySpawning();
-        es.days++;
         hasSpawned = true;
+        for (int i = 0; i < startingAmount + zombiesPerDay * day; i++)
+        {
+            SpawnEnemy();
+            Debug.LogError(dayNightCycle.dayNightCycleMin * (1f / 24f * ((24 - dayNightCycle.startNight) + dayNightCycle.endNight)) * 60f / (startingAmount + zombiesPerDay * day));
+            yield return new WaitForSeconds(dayNightCycle.dayNightCycleMin * (1f / 24f * ((24 - dayNightCycle.startNight) + dayNightCycle.endNight)) * 60f / (startingAmount + zombiesPerDay * day));
+        }
         isSpawning = false;
-        
+        day++;
+    }
+
+    private void SpawnEnemy()
+    {
+        float change = Random.Range(0, 100);
+        float currentChange = 0;
+
+        foreach (var enemySpawnData in enemySpawnDatas)
+        {
+            if (enemySpawnData.spawnAfterDays >= day)
+            {
+                if (change < enemySpawnData.chance + currentChange)
+                {
+                    enemySpawner.EnemySpawning(enemySpawnData.enemyObject);
+                    return;
+                }
+                else
+                {
+                    currentChange += enemySpawnData.chance;
+                }
+            }
+        }
+
+        enemySpawner.EnemySpawning(enemySpawnDatas[0].enemyObject);
     }
 }
