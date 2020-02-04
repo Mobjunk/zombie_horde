@@ -59,15 +59,10 @@ public class Player : MonoBehaviour
     
     void SwitchSlot()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f ) // forward
-        {
-            inventorySlot--;
-            if (inventorySlot > 8) inventorySlot = 0;
-        }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f ) // backwards
-        {
-            inventorySlot++;
-            if (inventorySlot < 0) inventorySlot = 8;
-        }
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f ) inventorySlot--;
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f ) inventorySlot++;
+        
+        if (inventorySlot > 8) inventorySlot = 0;
+        else if (inventorySlot < 0) inventorySlot = 8;
     }
 }
