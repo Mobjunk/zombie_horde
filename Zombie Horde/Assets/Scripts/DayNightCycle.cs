@@ -8,7 +8,7 @@ public class DayNightCycle : MonoBehaviour
 {
     [Header("Time")]
     [SerializeField] [Range(0,24)]private float timeOfDay = 7;
-    [SerializeField] private int daysPassed = 0;
+    public int daysPassed = 0;
     [Range(0.05f, 240)] public float dayNightCycleMin = 2;
     [Range(0, 24)] public float startNight = 20;
     [Range(0, 24)] public float endNight = 6;

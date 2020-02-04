@@ -18,13 +18,13 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerHealth.playerAlive = true;
+        PlayerHealth.playerAlive = true;
         rb2d.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
-    {   if (playerHealth.playerAlive == true)
+    {   if (PlayerHealth.playerAlive == true)
         {
             if (Vector2.Distance(this.transform.position, target.position) > minimumDistance && Vector2.Distance(this.transform.position, target.position) < maximumDistance)
             {

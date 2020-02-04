@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void HandleMovement()
     {
-        if (player.invetoryOpened) return;
+        if (player.invetoryOpened || OpenPauseMenu.pauseMenuOpen) return;
 
         Vector3Int gridPosition = backgroundTilemap.WorldToCell(this.transform.position);
         TileBase tile = backgroundTilemap.GetTile(gridPosition);

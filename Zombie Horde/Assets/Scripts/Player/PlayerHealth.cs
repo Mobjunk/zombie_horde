@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -16,13 +17,16 @@ public class PlayerHealth : MonoBehaviour
     public Text healthText;
 
     public bool playerVuln;
-    public bool playerAlive;
+    public static bool playerAlive;
+
+    [SerializeField] private UnityEvent OnPlayerDie = new UnityEvent();
 
     void Awake()
     {
         instance = this;
         currentHealth = startingHealth;
         playerVuln = true;
+        playerAlive = true;
         //Find the HP bar object and retrieve the image component
     }
 
@@ -35,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
             if (currentHealth <= 0)
             {
                 playerAlive = false;
+                OnPlayerDie.Invoke();
                 Destroy(this.gameObject, 0.2f);
             }
             else
