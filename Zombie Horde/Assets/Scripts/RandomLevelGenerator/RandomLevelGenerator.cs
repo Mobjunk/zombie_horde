@@ -87,7 +87,6 @@ public class RandomLevelGenerator : MonoBehaviour
     public void GenerateMap()
     {
         mapTypes = new TileTypes[(int)mapSize, (int)mapSize];
-        Debug.LogError((int)mapSize);
 
         for (int y = 0; y < (int)mapSize; y++)
         {
