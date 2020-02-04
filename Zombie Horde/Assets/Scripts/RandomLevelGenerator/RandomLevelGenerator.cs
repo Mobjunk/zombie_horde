@@ -7,8 +7,7 @@ public class RandomLevelGenerator : MonoBehaviour
 {
     public enum MapSizes
     {
-        ExtremelyTiny = 10,
-        tiny = 50,
+        Tiny = 50,
         Small = 100,
         Medium = 150,
         Large = 200,
@@ -62,6 +61,7 @@ public class RandomLevelGenerator : MonoBehaviour
     [SerializeField] private Tilemap backgroundTilemap;
     [SerializeField] private ResourceSystem resourceSystem;
     [SerializeField] private Tilemap fogTilemap;
+    [SerializeField] private SetMapSizeScript setMapSizeScript;
     [Space]
     [Header("Tiles")]
     [SerializeField] private TileData grassTiles;
@@ -77,12 +77,17 @@ public class RandomLevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (setMapSizeScript)
+        {
+            mapSize = setMapSizeScript.SetMapSize();
+        }
         GenerateMap();
     }
 
     public void GenerateMap()
     {
         mapTypes = new TileTypes[(int)mapSize, (int)mapSize];
+        Debug.LogError((int)mapSize);
 
         for (int y = 0; y < (int)mapSize; y++)
         {

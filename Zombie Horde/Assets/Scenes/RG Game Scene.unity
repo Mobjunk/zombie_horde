@@ -1492,7 +1492,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426421926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 0.00000011920929, z: -10}
+  m_LocalPosition: {x: -0.00000047683716, y: 0.00000011920929, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 66858390}
@@ -1799,7 +1799,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 0.00000011920929, z: -10}
+  m_LocalPosition: {x: -0.00000047683716, y: 0.00000011920929, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1815,6 +1815,7 @@ GameObject:
   m_Component:
   - component: {fileID: 611057192}
   - component: {fileID: 611057191}
+  - component: {fileID: 611057193}
   m_Layer: 0
   m_Name: MapGenerator
   m_TagString: Untagged
@@ -1841,6 +1842,7 @@ MonoBehaviour:
   backgroundTilemap: {fileID: 1617556485}
   resourceSystem: {fileID: 1287278942}
   fogTilemap: {fileID: 2101828243}
+  setMapSizeScript: {fileID: 611057193}
   grassTiles:
     fulltileVariants:
     - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}
@@ -1889,6 +1891,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &611057193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611057190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b1b98a258bd004eae3b75fb1319187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &620218091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5868418563330530519, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
