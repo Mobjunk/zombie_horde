@@ -15,6 +15,6 @@ MonoBehaviour:
   tiles:
   - {fileID: 11400000, guid: eb16b863dd7265b4cb5ef047a92c9fd8, type: 2}
   itemsGivenPerHit:
-  - item: {fileID: 11400000, guid: 223bf627c9fa02c49a3296acc2e469b2, type: 2}
+  - item: {fileID: 11400000, guid: 8300e80d897c30e468b4adfc37305a42, type: 2}
     amount: 1
   durability: 5
