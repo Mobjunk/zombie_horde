@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ca1ebebb304dcd40ac76681333c9653, type: 3}
-  m_Name: Starter pickaxe
+  m_Name: Stone pickaxe
   m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 6792ecd61fd617e43bb3439d86c4db04, type: 2}
   weaponType: 0
-  uiSprite: {fileID: 0}
-  weaponSprite: {fileID: 0}
-  weaponName: 
-  weaponSpeed: 0
-  movementSpeed: 0
-  twoHanded: 0
-  weaponDurability: 0
-  weaponDamage: 0
-  resourceType: 0
+  weaponSprite: {fileID: -7974677730666233881, guid: c4332602fc136bb43836266582549c07,
+    type: 3}
+  weaponName: Stone Pickaxe
+  weaponSpeed: 3
+  movementSpeed: 10
+  twoHanded: 1
+  weaponDurability: 100
+  weaponDamage: 2
+  resourceType: 1

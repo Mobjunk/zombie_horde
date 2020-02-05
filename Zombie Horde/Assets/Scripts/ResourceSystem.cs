@@ -5,6 +5,9 @@ using UnityEngine.Tilemaps;
 
 public class ResourceSystem : MonoBehaviour
 {
+    public static ResourceSystem instance;
+    [SerializeField, Range(1, 5)] float gatherRange = 2f;
+    
     public class Resource
     {
         public Resource(ResourceObject resourceObject, Vector3 Position)
@@ -36,10 +39,13 @@ public class ResourceSystem : MonoBehaviour
 
     private List<Resource> resources = new List<Resource>();
     private Player player;
+    private Transform playerTrans;
 
     private void Start()
     {
+        instance = this;
         player = GameManager.playerObject.GetComponent<Player>();
+        playerTrans = GameManager.playerObject.transform;
     }
 
     // This spawns a resource and keeps track of it in a list
@@ -70,6 +76,14 @@ public class ResourceSystem : MonoBehaviour
     // Destroys resource if durability is 0 and gives resources
     public void DestroyResource(Vector3 position, int damage)
     {
+        var distance = Vector2.Distance(playerTrans.position, position);
+
+        if (distance > gatherRange)
+        {
+            Debug.Log("Out side the range");
+            return;
+        }
+        
         Vector3Int gridPosition = resourceTilemap.WorldToCell(position);
         if (resourceTilemap.GetTile(gridPosition) != null)
         {
@@ -102,11 +116,11 @@ public class ResourceSystem : MonoBehaviour
         }
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse2))
         {
             DestroyResource(Camera.main.ScreenToWorldPoint(Input.mousePosition), 1);
         }
-    }
+    }*/
 }
