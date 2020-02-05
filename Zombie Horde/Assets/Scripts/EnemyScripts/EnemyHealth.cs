@@ -10,12 +10,16 @@ public class EnemyHealth : MonoBehaviour
     public EnemyObject enemyObject;
     public GameObject enemy;
     public GameObject bloodParticle;
+    public SpriteRenderer shadow;
+    public DayNightCycle dayNightCycle;
+
     PlayerAttack playerAttack => PlayerAttack.instance;
     public void TakePlayerDamage(int amount)
     {
         currentHealth -= amount;
         if(currentHealth <= 0)
         {
+            dayNightCycle.movingShadows.Remove(shadow);
             Destroy(gameObject);
             var startRot = Quaternion.LookRotation(enemy.transform.forward - enemy.transform.forward * 2);
             Instantiate(bloodParticle, enemy.transform.position, startRot);

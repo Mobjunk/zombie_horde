@@ -71,7 +71,7 @@ public class EnemyWaveSystem : MonoBehaviour
             {
                 if (change < enemySpawnData.chance * 10 + currentChange)
                 {
-                    enemySpawner.EnemySpawning(enemySpawnData.enemyObject);
+                    enemySpawner.EnemySpawning(enemySpawnData.enemyObject, dayNightCycle);
                     return;
                 }
                 else
@@ -81,7 +81,6 @@ public class EnemyWaveSystem : MonoBehaviour
             }
         }
 
-        Debug.LogError("didn't find one");
-        enemySpawner.EnemySpawning(enemySpawnDatas[0].enemyObject);
+        enemySpawner.EnemySpawning(enemySpawnDatas[0].enemyObject, dayNightCycle);
     }
 }

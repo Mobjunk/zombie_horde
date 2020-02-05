@@ -23,7 +23,7 @@ public class EnemyObject : ScriptableObject
     [SerializeField] private Sprite[] zombieVariants;
     [SerializeField] private Vector3 size;
 
-    public void SetUp(EnemyMovement enemyMovement, EnemyHealth enemyHealth, Transform target, Tilemap backgroundTilemap, GameObject enemy, EnemyAttack enemyAttack)
+    public void SetUp(EnemyMovement enemyMovement, EnemyHealth enemyHealth, Transform target, Tilemap backgroundTilemap, GameObject enemy, EnemyAttack enemyAttack, DayNightCycle dayNightCycle)
     {
         enemyHealth.currentHealth = health;
 
@@ -36,8 +36,14 @@ public class EnemyObject : ScriptableObject
         enemyMovement.backgroundTilemap = backgroundTilemap;
 
         enemy.transform.localScale = size;
-        enemy.GetComponentInChildren<SpriteRenderer>().sprite = zombieVariants[Random.Range(0, zombieVariants.Length)];
+        Sprite zombieVariant = zombieVariants[Random.Range(0, zombieVariants.Length)];
+        enemy.GetComponentInChildren<SpriteRenderer>().sprite = zombieVariant;
         enemy.name = this.name;
+        SpriteRenderer shadowSprite = enemy.transform.GetChild(1).GetComponent<SpriteRenderer>();
+        shadowSprite.sprite = zombieVariant;
+        dayNightCycle.movingShadows.Add(shadowSprite);
+        enemyHealth.shadow = shadowSprite;
+        enemyHealth.dayNightCycle = dayNightCycle;
 
         enemyAttack.damage = damage;
         enemyAttack.attackCooldown = attackCooldown;

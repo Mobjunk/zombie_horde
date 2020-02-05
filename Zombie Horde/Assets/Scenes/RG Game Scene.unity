@@ -4475,6 +4475,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6158465514030912696, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9008550542681894926, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
         type: 3}
       propertyPath: _camera
@@ -4482,6 +4487,12 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bdd93206fc8aa4459f62ac28ebecad8, type: 3}
+--- !u!212 &1633910862 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6158465514030912696, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1633910861}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1648161674 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4691915335409615982, guid: bef03940a822e6449bc87b602debb29c,
@@ -4780,6 +4791,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5082412508422531452, guid: 3bbeeeb83752c2242925ea1add3c827a,
         type: 3}
+      propertyPath: movingShadows.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082412508422531452, guid: 3bbeeeb83752c2242925ea1add3c827a,
+        type: 3}
       propertyPath: shadowsTilemap
       value: 
       objectReference: {fileID: 685994586}
@@ -4801,13 +4817,18 @@ PrefabInstance:
     - target: {fileID: 5082412508422531452, guid: 3bbeeeb83752c2242925ea1add3c827a,
         type: 3}
       propertyPath: dayNightCycleMin
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5082412508422531452, guid: 3bbeeeb83752c2242925ea1add3c827a,
         type: 3}
       propertyPath: daysPassed
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5082412508422531452, guid: 3bbeeeb83752c2242925ea1add3c827a,
+        type: 3}
+      propertyPath: movingShadows.Array.data[0]
+      value: 
+      objectReference: {fileID: 1633910862}
     - target: {fileID: 5082412508422531453, guid: 3bbeeeb83752c2242925ea1add3c827a,
         type: 3}
       propertyPath: m_LocalPosition.x

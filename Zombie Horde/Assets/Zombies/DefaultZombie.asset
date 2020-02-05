@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   damage: 10
-  attackSpeed: 1
   attackCooldown: 2
   speed: 2
   slowSpeed: 0.5
@@ -23,5 +22,7 @@ MonoBehaviour:
   minimumDistance: 0.7
   maximumDistance: 100
   zombieVariants:
-  - {fileID: 21300000, guid: 0787767e95b601d40b5bf44ff86bbbe5, type: 3}
+  - {fileID: 4174866431905101710, guid: 881f27612f69c8543a468ec7f3a180f1, type: 3}
+  - {fileID: 5093695192268335082, guid: 881f27612f69c8543a468ec7f3a180f1, type: 3}
+  - {fileID: 3122859666585403997, guid: 881f27612f69c8543a468ec7f3a180f1, type: 3}
   size: {x: 1, y: 1, z: 1}

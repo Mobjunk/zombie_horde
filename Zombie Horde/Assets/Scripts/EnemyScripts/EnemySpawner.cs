@@ -10,9 +10,9 @@ public class EnemySpawner : MonoBehaviour
     public Transform target;
     [SerializeField] private Tilemap backgroundTilemap;
 
-    public void EnemySpawning(EnemyObject enemyObject)
+    public void EnemySpawning(EnemyObject enemyObject, DayNightCycle dayNightCycle)
     {
         GameObject spawnedEnemy = Instantiate(enemy, target.position + Quaternion.Euler(0, 0, Random.Range(0, 360)) * new Vector3(20, 0, 0), Quaternion.identity);
-        enemyObject.SetUp(spawnedEnemy.GetComponent<EnemyMovement>(), spawnedEnemy.GetComponent<EnemyHealth>(), target, backgroundTilemap, spawnedEnemy, spawnedEnemy.GetComponentInChildren<EnemyAttack>());
+        enemyObject.SetUp(spawnedEnemy.GetComponent<EnemyMovement>(), spawnedEnemy.GetComponent<EnemyHealth>(), target, backgroundTilemap, spawnedEnemy, spawnedEnemy.GetComponentInChildren<EnemyAttack>(), dayNightCycle);
     }
 }

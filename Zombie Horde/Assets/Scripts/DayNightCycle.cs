@@ -27,6 +27,7 @@ public class DayNightCycle : MonoBehaviour
     [SerializeField] private Image darknessImage;
     [SerializeField] private Transform shadowsTilemap;
     [SerializeField] private Tilemap shadowImage;
+    public List<SpriteRenderer> movingShadows = new List<SpriteRenderer>();
 
     // Update is called once per frame
     void Update()
@@ -57,6 +58,8 @@ public class DayNightCycle : MonoBehaviour
         shadowsTilemap.position = new Vector3(shadowsXPosition.Evaluate(timeOfDay), 0, 0);
         // changes the opicaty of the shadows so you don't have shadows in the night.
         shadowImage.color = new Color(0, 0, 0, shadowsOpacity.Evaluate(timeOfDay));
+
+        MoveMovingShadows();
     }
 
     public bool IsNight()
@@ -68,6 +71,15 @@ public class DayNightCycle : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    private void MoveMovingShadows()
+    {
+        foreach (var movingShadow in movingShadows)
+        {
+            movingShadow.transform.position = movingShadow.transform.parent.position + new Vector3(shadowsXPosition.Evaluate(timeOfDay), 0, 0);
+            movingShadow.color = new Color(0, 0, 0, shadowsOpacity.Evaluate(timeOfDay));
         }
     }
 }
