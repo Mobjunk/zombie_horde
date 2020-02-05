@@ -1631,7 +1631,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426421926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000047683716, y: 0.00000011920929, z: -10}
+  m_LocalPosition: {x: -0.00000023841858, y: 0.00000011920929, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 66858390}
@@ -1938,7 +1938,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000047683716, y: 0.00000011920929, z: -10}
+  m_LocalPosition: {x: -0.00000023841858, y: 0.00000011920929, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1986,7 +1986,7 @@ MonoBehaviour:
     fulltileVariants:
     - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}
     - {fileID: 11400000, guid: a5da7d7bb59c0fa4387f66d629ce7b34, type: 2}
-    - {fileID: 11400000, guid: 2b0f680aca9e93d48acc949c273366a8, type: 2}
+    - {fileID: 11400000, guid: 0b2b28b1135c5a74286978f414916608, type: 2}
     - {fileID: 11400000, guid: 4a4ad0a6264f799459c4b750aad36b95, type: 2}
     - {fileID: 11400000, guid: 0ce785b9c9848dd4eb61363f75ed6962, type: 2}
     - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}
@@ -4088,6 +4088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e08b155b6644ef469c31cc23af24608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gatherRange: 2
   resourceTilemap: {fileID: 903860017}
   shadowTilemap: {fileID: 685994588}
   structuresTilemap: {fileID: 434384993}

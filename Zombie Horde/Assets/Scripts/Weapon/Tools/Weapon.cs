@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Weapon
 {
@@ -24,9 +25,12 @@ public class Weapon
     /// A list of all the weapons the player has
     /// </summary>
     private List<Weapons> weapons = new List<Weapons>();
+
+    private GameObject inventoryHotbar;
     
     public Weapon(Player player)
     {
+        inventoryHotbar = GameObject.Find("Inventory Hotbar");
         this.player = player;
     }
     
@@ -67,6 +71,19 @@ public class Weapon
         if (!weapon.reloading && (inputManager.pressedReload && !player.invetoryOpened)) weapon.reloading = true;
 
         if (!weapon.reloading) return;
+        
+        var opacity = -(1 - (1 / gun.reloadSpeed) * reloadTimer) + 1;
+        
+        var slot = inventoryHotbar.transform.GetChild(player.inventorySlot);
+        var canvas = slot.GetChild(0);
+        var itemSprite = canvas.GetChild(0);
+        var bullets = itemSprite.GetChild(1);
+
+        for (int index = 0; index < 3; index++)
+        {
+            var image = bullets.GetChild(index).GetComponent<Image>();
+            image.color = new Color(image.color.r, image.color.g, image.color.b, opacity);
+        }
         
         reloadTimer += Time.deltaTime;
         if (!(reloadTimer >= gun.reloadSpeed)) return;

@@ -59,6 +59,8 @@
           <e p="ResourceObject.cs" t="Include" />
           <e p="ResourceSystem.cs" t="Include" />
           <e p="SetMapSizeScript.cs" t="Include" />
+          <e p="ToolTip.cs" t="Include" />
+          <e p="ToolTipSystem.cs" t="Include" />
           <e p="Weapon" t="Include">
             <e p="Bullet.cs" t="Include" />
             <e p="Guns" t="Include">
