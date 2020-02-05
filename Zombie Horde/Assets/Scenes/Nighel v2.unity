@@ -36742,6 +36742,11 @@ PrefabInstance:
       propertyPath: craftingUI
       value: 
       objectReference: {fileID: 1848858538}
+    - target: {fileID: 3287519462029026801, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
+        type: 3}
+      propertyPath: inventoryUI
+      value: 
+      objectReference: {fileID: 1837774032}
     - target: {fileID: 5868418561953072718, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
         type: 3}
       propertyPath: m_Layer

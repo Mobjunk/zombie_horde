@@ -59,22 +59,20 @@ public class Player : MonoBehaviour
     {
         inventory.Add(3);
         inventory.Add(4, 100);
-        inventory.Add(0, 10);
-        inventory.Add(1, 10);
     }
 
     void OpenInventory()
     {
-        if (!Input.GetKeyDown(KeyCode.E)) return;
-        craftingOpened = !craftingOpened;
-        inventoryUI.SetActive(craftingOpened);
+        if (!Input.GetKeyDown(KeyCode.E) || craftingOpened) return;
+        invetoryOpened = !invetoryOpened;
+        inventoryUI.SetActive(invetoryOpened);
     }
 
     void OpenCrafting()
     {
-        if (!Input.GetKeyDown(KeyCode.C)) return;
-        invetoryOpened = !invetoryOpened;
-        craftingUI.SetActive(invetoryOpened);
+        if (!Input.GetKeyDown(KeyCode.C) || invetoryOpened) return;
+        craftingOpened = !craftingOpened;
+        craftingUI.SetActive(craftingOpened);
     }
 
     private bool AllowedToScroll()
