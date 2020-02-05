@@ -215,50 +215,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
         type: 3}
-      propertyPath: itemDefinition.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
-      propertyPath: itemDefinition.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 01aa8dcc6b9360a4793426af872b9cf3,
-        type: 2}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
-      propertyPath: itemDefinition.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 28f18f47209422e49865d1d85a5e0b7e,
-        type: 2}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
-      propertyPath: itemDefinition.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 6792ecd61fd617e43bb3439d86c4db04,
-        type: 2}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
-      propertyPath: itemDefinition.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 223bf627c9fa02c49a3296acc2e469b2,
-        type: 2}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
-      propertyPath: itemDefinition.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 31b77724518efbe45879ab3f6bff2c58,
-        type: 2}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
       propertyPath: bulletSpawnLocation
       value: 
       objectReference: {fileID: 2076518231}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
-      propertyPath: itemDefinition.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 8300e80d897c30e468b4adfc37305a42,
-        type: 2}
     - target: {fileID: 6437288990198247162, guid: 48ded8577040b69479ec7a6cbb560225,
         type: 3}
       propertyPath: inventoryUI
@@ -1655,7 +1614,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426421926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 0.00000011920929, z: -10}
+  m_LocalPosition: {x: -0.00000047683716, y: 0.00000011920929, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 66858390}
@@ -1962,7 +1921,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 0.00000011920929, z: -10}
+  m_LocalPosition: {x: -0.00000047683716, y: 0.00000011920929, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4433,6 +4392,11 @@ PrefabInstance:
       propertyPath: craftingUI
       value: 
       objectReference: {fileID: 179214379}
+    - target: {fileID: 3287519462029026801, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
+        type: 3}
+      propertyPath: inventoryUI
+      value: 
+      objectReference: {fileID: 1837774032}
     - target: {fileID: 5868418563330530513, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
         type: 3}
       propertyPath: slowTiles.Array.size

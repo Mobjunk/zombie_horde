@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Stone Pickaxe
   m_EditorClassIdentifier: 
   itemId: 2
-  uiSprite: {fileID: -2689026045669087484, guid: aef19713369431f4a87c258f1893aba8,
+  uiSprite: {fileID: -7974677730666233881, guid: c4332602fc136bb43836266582549c07,
     type: 3}
   itemName: Stone pickaxe
   itemDescription: This is a stone pickaxe.
   stackable: 0
+  gun: {fileID: 0}

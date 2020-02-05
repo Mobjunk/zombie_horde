@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd5e205ff8f256341a9ca7e72ed0bd3a, type: 3}
-  m_Name: Handgun
+  m_Name: Stone axe
   m_EditorClassIdentifier: 
-  itemId: 3
-  uiSprite: {fileID: 21300000, guid: fe579941f8807ba4c830fe0fe0ba4bc9, type: 3}
-  itemName: Handgun
-  itemDescription: This is a handgun to shoot with.
+  itemId: 6
+  uiSprite: {fileID: -5222295263699582268, guid: c4332602fc136bb43836266582549c07,
+    type: 3}
+  itemName: Stone pickaxe
+  itemDescription: This is a stone axe.
   stackable: 0
-  gun: {fileID: 11400000, guid: 0161ef1ceb4b3384985f8996b6a10029, type: 2}
+  gun: {fileID: 0}

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Stone
   m_EditorClassIdentifier: 
   itemId: 1
-  uiSprite: {fileID: -8913737552123147707, guid: aef19713369431f4a87c258f1893aba8,
+  uiSprite: {fileID: -2807977589719194297, guid: c4332602fc136bb43836266582549c07,
     type: 3}
   itemName: Stone
   itemDescription: Stone used for crafting.
   stackable: 1
+  gun: {fileID: 0}

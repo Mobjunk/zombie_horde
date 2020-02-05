@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Wood
   m_EditorClassIdentifier: 
   itemId: 0
-  uiSprite: {fileID: 7827029058573366417, guid: aef19713369431f4a87c258f1893aba8,
-    type: 3}
+  uiSprite: {fileID: 329440636611476855, guid: c4332602fc136bb43836266582549c07, type: 3}
   itemName: Wood
   itemDescription: Wood used for crafting
   stackable: 1
+  gun: {fileID: 0}
