@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Tile[] slowTiles;
 
     InputManager inputManager => InputManager.instance;
-    PlayerAttack playerAttack => PlayerAttack.instance;
 
     [SerializeField] private float speed = 4;
     [SerializeField] private float slowSpeed = 2;
@@ -30,11 +29,10 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         HandleMovement();
-        playerAttack.StartSwinging();
     }
     void HandleMovement()
     {
-        if (player.invetoryOpened || OpenPauseMenu.pauseMenuOpen) return;
+        if (player.invetoryOpened || player.craftingOpened || OpenPauseMenu.pauseMenuOpen) return;
 
         Vector3Int gridPosition = backgroundTilemap.WorldToCell(this.transform.position);
         TileBase tile = backgroundTilemap.GetTile(gridPosition);

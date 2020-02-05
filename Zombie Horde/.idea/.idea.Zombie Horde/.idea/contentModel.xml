@@ -39,7 +39,6 @@
           <e p="MapSizeSelector.cs" t="Include" />
           <e p="OpenPauseMenu.cs" t="Include" />
           <e p="Player" t="Include">
-            <e p="FistingScript.cs" t="Include" />
             <e p="Inventory" t="Include">
               <e p="Container.cs" t="Include" />
               <e p="DragHandler.cs" t="Include" />

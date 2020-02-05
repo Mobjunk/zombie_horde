@@ -30,17 +30,19 @@ public class Weapon
         this.player = player;
     }
     
-    public void Shoot()
+    public bool Shoot()
     {
-        if (!inputManager.pressedAttack || player.invetoryOpened) return;
+        if (!inputManager.pressedAttack || player.invetoryOpened || player.craftingOpened) return true;
 
         var weapon = GetWeapon(GetGun());
-        if (weapon == null || weapon.reloading) return;
+        if (weapon == null || weapon.reloading) return false;
 
-        if (weapon.bulletsInChamber <= 0) return;
+        if (weapon.bulletsInChamber <= 0) return true;
         
         weapon.bulletsInChamber--;
         SpawnBullet(weapon.gun);
+
+        return true;
     }
 
     public void SpawnBullet(GunData gun, int totalBullets = 1)

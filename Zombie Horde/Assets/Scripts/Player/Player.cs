@@ -7,6 +7,8 @@ using UnityEngine.PlayerLoop;
 public class Player : MonoBehaviour
 {
     InputManager inputManager => InputManager.instance;
+    PlayerAttack playerAttack => PlayerAttack.instance;
+    ResourceSystem resourceSystem => ResourceSystem.instance;
     
     /// <summary>
     /// The game object for the inventory ui
@@ -50,9 +52,17 @@ public class Player : MonoBehaviour
         SwitchSlot();
         OpenInventory();
         OpenCrafting();
-        
-        weapon.Shoot();
-        weapon.Reload();
+
+        if (AllowedToScroll())
+        {
+            if (!weapon.Shoot())
+            {
+                playerAttack.StartSwinging();
+                resourceSystem.DestroyResource(Camera.main.ScreenToWorldPoint(Input.mousePosition), 1);
+            }
+            weapon.Reload();
+        }
+
     }
 
     public void Add()
@@ -75,7 +85,7 @@ public class Player : MonoBehaviour
         craftingUI.SetActive(craftingOpened);
     }
 
-    private bool AllowedToScroll()
+    public bool AllowedToScroll()
     {
         return !invetoryOpened && !craftingOpened;
     }
