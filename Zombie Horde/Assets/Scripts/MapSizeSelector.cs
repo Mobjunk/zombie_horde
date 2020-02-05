@@ -19,7 +19,14 @@ public class MapSizeSelector : MonoBehaviour
         }
 
         mapSizeDropdown.AddOptions(options);
-        mapSizeDropdown.value = PlayerPrefs.GetInt("MapSizeDropDown");
+        if (PlayerPrefs.HasKey("MapSizeDropDown"))
+        {
+            mapSizeDropdown.value = PlayerPrefs.GetInt("MapSizeDropDown");
+        }
+        else
+        {
+            mapSizeDropdown.value = 1;
+        }
     }
 
     public void SetMapSize()
