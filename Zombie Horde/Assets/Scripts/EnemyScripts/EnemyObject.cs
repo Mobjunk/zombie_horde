@@ -7,19 +7,27 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu(fileName = "Enemy", menuName = "New Enemy")]
 public class EnemyObject : ScriptableObject
 {
-    public float health;
-    public float damage;
-    public float attackSpeed;
-    public float attackCooldown;
-    public float speed;
-    public float slowSpeed;
-    public Tile[] slowTiles;
-    public float minimumDistance;
-    public float maximumDistance;
+    [Header("Health/Damage")]
+    [SerializeField] private float health;
+    [SerializeField] private float damage;
+    [SerializeField] private float attackSpeed;
+    [SerializeField] private float attackCooldown;
+    [Space]
+    [Header("Movement")]
+    [SerializeField] private float speed;
+    [SerializeField] private float slowSpeed;
+    [SerializeField] private Tile[] slowTiles;
+    [SerializeField] private float minimumDistance;
+    [SerializeField] private float maximumDistance;
+    [Space]
+    [Header("Visual")]
+    [SerializeField] private Sprite[] zombieVariants;
+    [SerializeField] private Vector3 size;
 
-    public void SetUp(EnemyMovement enemyMovement, EnemyHealth enemyHealth, Transform target, Tilemap backgroundTilemap)
+    public void SetUp(EnemyMovement enemyMovement, EnemyHealth enemyHealth, Transform target, Tilemap backgroundTilemap, GameObject enemy, EnemyAttack enemyAttack)
     {
         enemyHealth.currentHealth = health;
+
         enemyMovement.speed = speed;
         enemyMovement.target = target;
         enemyMovement.minimumDistance = minimumDistance;
@@ -27,5 +35,8 @@ public class EnemyObject : ScriptableObject
         enemyMovement.slowTiles = slowTiles;
         enemyMovement.slowSpeed = slowSpeed;
         enemyMovement.backgroundTilemap = backgroundTilemap;
+
+        enemy.transform.localScale = size;
+        enemy.GetComponentInChildren<SpriteRenderer>().sprite = zombieVariants[Random.Range(0, zombieVariants.Length)];
     }
 }
