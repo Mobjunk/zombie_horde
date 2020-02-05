@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5959a9730a56b864c8398dce8acc98b1, type: 3}
-  m_Name: OpenInventory
+  m_Name: ReloadGun
   m_EditorClassIdentifier: 
-  toolTipName: Open inventory
-  toolTipDescription: Press [E] to open and close your inventory.
-  keyToCloseTip: 101
+  toolTipName: Reload gun
+  toolTipDescription: Press [R] to reload your gun
+  keyToCloseTip: 114
