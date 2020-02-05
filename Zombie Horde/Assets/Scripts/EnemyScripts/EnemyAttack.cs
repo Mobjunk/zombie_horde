@@ -13,7 +13,8 @@ public class EnemyAttack : MonoBehaviour
     public float timer;
     public bool canAttack;
     public LayerMask structure;
-    public float enemyAttackSpeed;
+    public float attackCooldown;
+    public float damage;
     [SerializeField] private LayerMask layerMask;
 
     // Start is called before the first frame update
@@ -27,11 +28,11 @@ public class EnemyAttack : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(timer >= enemyObject.attackCooldown)
+        if(timer >= attackCooldown)
         {
             canAttack = true;
         }
-        if(timer < enemyObject.attackCooldown)
+        if(timer < attackCooldown)
         {
             canAttack = false;
         }
@@ -66,7 +67,7 @@ public class EnemyAttack : MonoBehaviour
 
     public void Attack()
     {
-        playerHealth.TakeDamage(enemyObject.damage);
+        playerHealth.TakeDamage(damage);
         timer = 0;
     }
 
