@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Scrap
   m_EditorClassIdentifier: 
   itemId: 5
-  uiSprite: {fileID: 21300000, guid: 9c37774afb788e442ae5121101dc7e23, type: 3}
+  uiSprite: {fileID: 5079902987488840881, guid: c4332602fc136bb43836266582549c07,
+    type: 3}
   itemName: Scrap
   itemDescription: Scrap used for crafting.
   stackable: 1

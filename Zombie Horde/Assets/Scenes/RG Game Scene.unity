@@ -4218,12 +4218,14 @@ MonoBehaviour:
   hasSpawned: 0
   enemySpawnDatas:
   - enemyObject: {fileID: 11400000, guid: 2ad407a89eaee46449304310f672daea, type: 2}
-    chance: 80
+    chance: 60
     spawnAfterDays: 0
-  - enemyObject: {fileID: 11400000, guid: 8814872a8c078c247bd363a8b44c6bcb, type: 2}
+  - enemyObject: {fileID: 11400000, guid: 773761579f048cd4ca54c925224771fd, type: 2}
+    chance: 1
+    spawnAfterDays: 5
+  - enemyObject: {fileID: 11400000, guid: 76d77498486f5cc45a75831d8e73dae2, type: 2}
     chance: 20
     spawnAfterDays: 3
-  day: 0
   startingAmount: 2
   zombiesPerDay: 2
 --- !u!1 &1617556482
@@ -4800,6 +4802,11 @@ PrefabInstance:
         type: 3}
       propertyPath: dayNightCycleMin
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082412508422531452, guid: 3bbeeeb83752c2242925ea1add3c827a,
+        type: 3}
+      propertyPath: daysPassed
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5082412508422531453, guid: 3bbeeeb83752c2242925ea1add3c827a,
         type: 3}

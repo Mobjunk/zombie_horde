@@ -10,7 +10,6 @@ public class EnemyObject : ScriptableObject
     [Header("Health/Damage")]
     [SerializeField] private float health;
     [SerializeField] private float damage;
-    [SerializeField] private float attackSpeed;
     [SerializeField] private float attackCooldown;
     [Space]
     [Header("Movement")]

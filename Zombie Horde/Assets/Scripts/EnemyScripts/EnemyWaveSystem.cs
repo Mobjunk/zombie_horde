@@ -18,7 +18,6 @@ public class EnemyWaveSystem : MonoBehaviour
     [SerializeField] private bool isSpawning = false;
     [SerializeField] private bool hasSpawned = false;
     [SerializeField] private EnemySpawnData[] enemySpawnDatas;
-    [SerializeField] private int day = 0;
 
     [SerializeField] private int startingAmount = 2;
     [SerializeField] private int zombiesPerDay = 2;
@@ -53,13 +52,12 @@ public class EnemyWaveSystem : MonoBehaviour
     IEnumerator SpawningEnemies()
     {
         hasSpawned = true;
-        for (int i = 0; i < startingAmount + zombiesPerDay * day; i++)
+        for (int i = 0; i < startingAmount + zombiesPerDay * dayNightCycle.daysPassed; i++)
         {
             SpawnEnemy();
-            yield return new WaitForSeconds(dayNightCycle.dayNightCycleMin * (1f / 24f * ((24 - dayNightCycle.startNight) + dayNightCycle.endNight)) * 60f / (startingAmount + zombiesPerDay * day));
+            yield return new WaitForSeconds(dayNightCycle.dayNightCycleMin * (1f / 24f * ((24 - dayNightCycle.startNight) + dayNightCycle.endNight)) * 60f / (startingAmount + zombiesPerDay * dayNightCycle.daysPassed));
         }
         isSpawning = false;
-        day++;
     }
 
     private void SpawnEnemy()
@@ -69,7 +67,7 @@ public class EnemyWaveSystem : MonoBehaviour
 
         foreach (var enemySpawnData in enemySpawnDatas)
         {
-            if (enemySpawnData.spawnAfterDays >= day)
+            if (enemySpawnData.spawnAfterDays >= dayNightCycle.daysPassed)
             {
                 if (change < enemySpawnData.chance + currentChange)
                 {
