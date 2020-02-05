@@ -12,6 +12,13 @@ public class GameOverScript : MonoBehaviour
     public void OpenGameoverMenu()
     {
         gameoverMenu.SetActive(true);
-        gameoverText.text = "You died after " + dayNightCycle.daysPassed + " days.";
+        if (dayNightCycle.daysPassed == 1)
+        {
+            gameoverText.text = "You died after " + dayNightCycle.daysPassed + " day.";
+        }
+        else
+        {
+            gameoverText.text = "You died after " + dayNightCycle.daysPassed + " days.";
+        }
     }
 }

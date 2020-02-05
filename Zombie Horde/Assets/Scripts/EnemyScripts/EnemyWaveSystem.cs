@@ -56,7 +56,6 @@ public class EnemyWaveSystem : MonoBehaviour
         for (int i = 0; i < startingAmount + zombiesPerDay * day; i++)
         {
             SpawnEnemy();
-            Debug.LogError(dayNightCycle.dayNightCycleMin * (1f / 24f * ((24 - dayNightCycle.startNight) + dayNightCycle.endNight)) * 60f / (startingAmount + zombiesPerDay * day));
             yield return new WaitForSeconds(dayNightCycle.dayNightCycleMin * (1f / 24f * ((24 - dayNightCycle.startNight) + dayNightCycle.endNight)) * 60f / (startingAmount + zombiesPerDay * day));
         }
         isSpawning = false;
