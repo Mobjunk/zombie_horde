@@ -22,6 +22,7 @@ MonoBehaviour:
   twoHanded: 0
   weaponDurability: 100
   weaponDamage: 1
+  tooltip: {fileID: 11400000, guid: ac7e57138f8742b4e8783551c62d30cb, type: 2}
   bullets: {fileID: 11400000, guid: 01aa8dcc6b9360a4793426af872b9cf3, type: 2}
   maxBullets: 15
   reloadSpeed: 2.2

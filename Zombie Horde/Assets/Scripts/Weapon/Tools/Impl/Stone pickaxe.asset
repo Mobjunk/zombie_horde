@@ -22,4 +22,6 @@ MonoBehaviour:
   twoHanded: 1
   weaponDurability: 100
   weaponDamage: 2
-  resourceType: 1
+  resourceType:
+  - {fileID: 11400000, guid: aa5d04aa39759a54d856e3e149b71655, type: 2}
+  - {fileID: 11400000, guid: 429faecce4a7a7f449e7a13562b5f6cb, type: 2}

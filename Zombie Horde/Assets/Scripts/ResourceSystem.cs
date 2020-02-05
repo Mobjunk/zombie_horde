@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -48,6 +49,26 @@ public class ResourceSystem : MonoBehaviour
         playerTrans = GameManager.playerObject.transform;
     }
 
+    private Resource GetResource()
+    {
+        Vector3Int gridPosition = resourceTilemap.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        if (resourceTilemap.GetTile(gridPosition) != null)
+        {
+            foreach (var resource in resources.Where(resource => resource.position == gridPosition))
+            {
+                return resource;
+            }
+        }
+
+        return null;
+    }
+
+    public bool CorrectTool(ToolData tool)
+    {
+        var resource = GetResource();
+        return resource != null && tool.resourceType.Contains(resource.resourceObject);
+    }
+
     // This spawns a resource and keeps track of it in a list
     public void SpawnResource(Vector3 position, Tile tile)
     {
@@ -74,15 +95,12 @@ public class ResourceSystem : MonoBehaviour
     }
 
     // Destroys resource if durability is 0 and gives resources
-    public void DestroyResource(Vector3 position, int damage)
+    public void DestroyResource(int damage)
     {
+        var position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         var distance = Vector2.Distance(playerTrans.position, position);
 
-        if (distance > gatherRange)
-        {
-            Debug.Log("Out side the range");
-            return;
-        }
+        if (distance > gatherRange) return;
         
         Vector3Int gridPosition = resourceTilemap.WorldToCell(position);
         if (resourceTilemap.GetTile(gridPosition) != null)

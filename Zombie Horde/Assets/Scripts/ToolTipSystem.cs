@@ -29,6 +29,7 @@ public class ToolTipSystem : MonoBehaviour
 
     private float tooltipDelay = 0;
     private ToolTip currentToolTip;
+    public static bool showReload = false;
 
     private void Start()
     {
@@ -53,6 +54,11 @@ public class ToolTipSystem : MonoBehaviour
                 openCrafting.shown = openCrafting.toolTip.ButtonAlreadyPressed();
             }
 
+            if (!reloadGun.shown)
+            {
+                reloadGun.shown = reloadGun.toolTip.ButtonAlreadyPressed();
+            }
+
             if (Time.time > tooltipDelay && !toolTipHolder.activeSelf)
             {
                 float chance = Random.Range(0, 100);
@@ -65,10 +71,14 @@ public class ToolTipSystem : MonoBehaviour
                     ShowToolTip(openCrafting);
                 }
             }
+            if (showReload && !reloadGun.shown)
+            {
+                ShowToolTip(reloadGun);
+            }
         }
     }
 
-    private void ShowToolTip(ToolTipData tooltip)
+    public void ShowToolTip(ToolTipData tooltip)
     {
         toolTipHolder.SetActive(true);
         tooltip.shown = true;

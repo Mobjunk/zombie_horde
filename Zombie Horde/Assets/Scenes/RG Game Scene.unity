@@ -223,6 +223,21 @@ PrefabInstance:
       propertyPath: inventoryUI
       value: 
       objectReference: {fileID: 385003992}
+    - target: {fileID: 7117350141441837597, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
+      propertyPath: toolTipHolder
+      value: 
+      objectReference: {fileID: 1875939208}
+    - target: {fileID: 7117350141441837597, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
+      propertyPath: toolTipNameText
+      value: 
+      objectReference: {fileID: 1477326645}
+    - target: {fileID: 7117350141441837597, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
+      propertyPath: toolTipDescriptionText
+      value: 
+      objectReference: {fileID: 836544901}
     - target: {fileID: 7499313197917639885, guid: 48ded8577040b69479ec7a6cbb560225,
         type: 3}
       propertyPath: recipeParent
@@ -1812,6 +1827,9 @@ MonoBehaviour:
   resourcesTilemap: {fileID: 903860017}
   backgroundTilemap: {fileID: 1617556485}
   tempStructure: {fileID: 11400000, guid: 3727ed591600c4545bb5c6b497d26d6e, type: 2}
+  structures:
+  - {fileID: 11400000, guid: dad97048d0b5cb643b8614f430f794c4, type: 2}
+  - {fileID: 11400000, guid: b22d2942407e8ad4aa90ad80c7e32387, type: 2}
 --- !u!4 &504599687
 Transform:
   m_ObjectHideFlags: 0
@@ -3380,6 +3398,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4691915335409615982, guid: bef03940a822e6449bc87b602debb29c,
+        type: 3}
+      propertyPath: m_Name
+      value: Inventory Hotbar (inv)
+      objectReference: {fileID: 0}
     - target: {fileID: 4710777337008672107, guid: bef03940a822e6449bc87b602debb29c,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -4856,41 +4879,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693664506}
   m_CullTransparentMesh: 0
---- !u!1 &1741498003 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8855366034490432718, guid: 48ded8577040b69479ec7a6cbb560225,
-    type: 3}
-  m_PrefabInstance: {fileID: 87913400}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1741498004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1741498003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62cccb0094782d740a0e9712cbb2804b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toolTipHolder: {fileID: 1875939208}
-  toolTipNameText: {fileID: 1477326645}
-  toolTipDescriptionText: {fileID: 836544901}
-  reloadGun:
-    toolTip: {fileID: 0}
-    shown: 0
-  openInventory:
-    toolTip: {fileID: 11400000, guid: 40acbcf3d1940e4459cffffc3dfd6300, type: 2}
-    shown: 0
-  openCrafting:
-    toolTip: {fileID: 11400000, guid: da9457bafd371f045b3b9a334a9c62c1, type: 2}
-    shown: 0
-  movement:
-    toolTip: {fileID: 11400000, guid: de3aef745d6392c479f0733b2439fefb, type: 2}
-    shown: 0
-  toolTipCooldownSec: 5
-  toolTipShowTimeSec: 15
 --- !u!1 &1837774032 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2082590332667991843, guid: bef03940a822e6449bc87b602debb29c,

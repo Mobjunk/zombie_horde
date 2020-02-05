@@ -62,17 +62,20 @@
           <e p="ToolTip.cs" t="Include" />
           <e p="ToolTipSystem.cs" t="Include" />
           <e p="Weapon" t="Include">
-            <e p="Bullet.cs" t="Include" />
             <e p="Guns" t="Include">
+              <e p="Bullet.cs" t="Include" />
+              <e p="Gun.cs" t="Include" />
               <e p="GunData.cs" t="Include" />
+              <e p="Guns.cs" t="Include" />
+              <e p="WeaponData.cs" t="Include" />
+              <e p="WeaponUI.cs" t="Include" />
             </e>
+            <e p="Tool.cs" t="Include" />
             <e p="Tools" t="Include">
               <e p="ToolData.cs" t="Include" />
-              <e p="Weapon.cs" t="Include" />
+              <e p="Tools.cs" t="Include" />
             </e>
-            <e p="WeaponData.cs" t="Include" />
-            <e p="Weapons.cs" t="Include" />
-            <e p="WeaponUI.cs" t="Include" />
+            <e p="Weapon.cs" t="Include" />
           </e>
         </e>
         <e p="testscriptje.cs" t="Include" />

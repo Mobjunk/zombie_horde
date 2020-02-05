@@ -19,3 +19,4 @@ MonoBehaviour:
   itemDescription: This is a stone pickaxe.
   stackable: 0
   gun: {fileID: 0}
+  tool: {fileID: 11400000, guid: bc2a0a08d0fc76045b2ce359fb0cf459, type: 2}

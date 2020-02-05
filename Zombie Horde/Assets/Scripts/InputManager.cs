@@ -47,6 +47,24 @@ public class InputManager : MonoBehaviour
         private set;
     }
 
+    public bool pressedInventory
+    {
+        get;
+        private set;
+    }
+
+    public bool pressedCrafting
+    {
+        get;
+        private set;
+    }
+
+    public bool placeStructure
+    {
+        get;
+        private set;
+    }
+
     public bool pressedOne
     {
         get;
@@ -144,6 +162,11 @@ public class InputManager : MonoBehaviour
             pressedSeven = Input.GetKeyDown(KeyCode.Alpha7);
             pressedEight = Input.GetKeyDown(KeyCode.Alpha8);
             pressedNine = Input.GetKeyDown(KeyCode.Alpha9);
+            
+            pressedInventory = Input.GetKeyDown(KeyCode.E);
+            pressedCrafting = Input.GetKeyDown(KeyCode.C);
+
+            placeStructure = Input.GetKeyDown(KeyCode.Mouse1);
         }
     }
 

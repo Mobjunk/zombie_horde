@@ -4,6 +4,7 @@
 public class GunData : WeaponData
 {
     [Header("Gun Data")]
+    public ToolTip tooltip;
     public Item bullets;
     public int maxBullets;
     public float reloadSpeed;

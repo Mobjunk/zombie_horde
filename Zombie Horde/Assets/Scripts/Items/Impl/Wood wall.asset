@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd5e205ff8f256341a9ca7e72ed0bd3a, type: 3}
-  m_Name: Stone axe
+  m_Name: Wood wall
   m_EditorClassIdentifier: 
-  itemId: 6
-  uiSprite: {fileID: -5222295263699582268, guid: c4332602fc136bb43836266582549c07,
+  itemId: 7
+  uiSprite: {fileID: -7963366471572989131, guid: aef19713369431f4a87c258f1893aba8,
     type: 3}
-  itemName: Stone axe
-  itemDescription: This is a stone axe.
-  stackable: 0
+  itemName: Wood wall
+  itemDescription: A structure for building walls.
+  stackable: 1
   gun: {fileID: 0}
-  tool: {fileID: 11400000, guid: 27bdfa7f56435584480a8ffd38f2f36d, type: 2}

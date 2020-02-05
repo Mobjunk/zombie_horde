@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c96e72bb8e492d24988ed3c254937ad2, type: 3}
-  m_Name: Temp Structure
+  m_Name: Stone wall
   m_EditorClassIdentifier: 
   item:
-    item: {fileID: 11400000, guid: 31b77724518efbe45879ab3f6bff2c58, type: 2}
+    item: {fileID: 11400000, guid: eb39901faf2094549a015b506525d9aa, type: 2}
     amount: 1
-  structureHealth: 1
+  structureHealth: 10
   tile: {fileID: 11400000, guid: 7b058941b9a19734994339c8793dca15, type: 2}
   tilesToBuildOn:
   - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}

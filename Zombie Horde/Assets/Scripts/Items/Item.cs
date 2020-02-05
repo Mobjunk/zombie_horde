@@ -12,4 +12,6 @@ public class Item : ScriptableObject
     public bool stackable;
     [Header("Gun reference")]
     public GunData gun;
+    [Header("Tool reference")]
+    public ToolData tool;
 }

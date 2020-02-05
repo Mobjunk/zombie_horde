@@ -19,9 +19,3 @@ public enum WeaponType
     MELEE,
     RANGED
 }
-
-public enum ResourceType
-{
-    WOOD,
-    STONE
-}

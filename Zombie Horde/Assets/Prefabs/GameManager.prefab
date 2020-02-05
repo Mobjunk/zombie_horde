@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6437288990198247162}
   - component: {fileID: 707333549569929579}
   - component: {fileID: 7499313197917639885}
+  - component: {fileID: 7117350141441837597}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -98,6 +99,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 31b77724518efbe45879ab3f6bff2c58, type: 2}
   - {fileID: 11400000, guid: 8300e80d897c30e468b4adfc37305a42, type: 2}
   - {fileID: 11400000, guid: 02fe4d647d93e834580358b66d1663bb, type: 2}
+  - {fileID: 11400000, guid: 23bd9a1f04b352842a6db4fc2ef4e29e, type: 2}
+  - {fileID: 11400000, guid: eb39901faf2094549a015b506525d9aa, type: 2}
   gunDefinition:
   - {fileID: 11400000, guid: 0161ef1ceb4b3384985f8996b6a10029, type: 2}
 --- !u!114 &7499313197917639885
@@ -113,9 +116,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   craftingRecipes:
+  - {fileID: 11400000, guid: 83e3c142535db184e910b224c8a7e776, type: 2}
+  - {fileID: 11400000, guid: 30abad2a53edfdf44a059734b9cf246d, type: 2}
   - {fileID: 11400000, guid: adfcf3ca91a062545ab8e5e89551880d, type: 2}
   - {fileID: 11400000, guid: df4c2505364bfdd4293f787500fca26c, type: 2}
   recipePrefab: {fileID: 5186648893404696448, guid: 9f8534419e05bdb4cb30d8f3b907aa6f,
     type: 3}
   recipeParent: {fileID: 0}
   player: {fileID: 0}
+--- !u!114 &7117350141441837597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8855366034490432718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62cccb0094782d740a0e9712cbb2804b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toolTipHolder: {fileID: 0}
+  toolTipNameText: {fileID: 0}
+  toolTipDescriptionText: {fileID: 0}
+  reloadGun:
+    toolTip: {fileID: 11400000, guid: ac7e57138f8742b4e8783551c62d30cb, type: 2}
+    shown: 0
+  openInventory:
+    toolTip: {fileID: 11400000, guid: 40acbcf3d1940e4459cffffc3dfd6300, type: 2}
+    shown: 0
+  openCrafting:
+    toolTip: {fileID: 11400000, guid: da9457bafd371f045b3b9a334a9c62c1, type: 2}
+    shown: 0
+  movement:
+    toolTip: {fileID: 11400000, guid: de3aef745d6392c479f0733b2439fefb, type: 2}
+    shown: 0
+  toolTipCooldownSec: 5
+  toolTipShowTimeSec: 15

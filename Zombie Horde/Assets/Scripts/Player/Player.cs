@@ -35,14 +35,27 @@ public class Player : MonoBehaviour
     /// </summary>
     public int inventorySlot = 0;
     /// <summary>
-    /// Handles weapons
+    /// Handles the gun
     /// </summary>
-    public Weapon weapon;
+    public Gun gun;
+
+    public Tool tool;
+    
+    /// <summary>
+    /// A list of all the weapons the player has
+    /// </summary>
+    [HideInInspector] public List<Guns> guns = new List<Guns>();
+
+    /// <summary>
+    /// A listt of all the tools the player has
+    /// </summary>
+    [HideInInspector]public List<Tools> tools = new List<Tools>();
 
     private void Start()
     {
         inventory = new Container(36);
-        weapon = new Weapon(this);
+        gun = new Gun(this);
+        tool = new Tool(this);
 
         Add();
     }
@@ -55,34 +68,44 @@ public class Player : MonoBehaviour
 
         if (AllowedToScroll())
         {
-            if (!weapon.Shoot())
+            int damage = 1;
+            if (gun.CanUse())
+            {
+                gun.Use();
+                gun.Reload();
+            }
+            else if (tool.CanUse())
+            {
+                tool.Use();
+            }
+            else if (inputManager.pressedAttack && !invetoryOpened && !craftingOpened)
             {
                 playerAttack.StartSwinging();
-                resourceSystem.DestroyResource(Camera.main.ScreenToWorldPoint(Input.mousePosition), 1);
+                resourceSystem.DestroyResource(damage);
             }
-            weapon.Reload();
         }
-
     }
 
     public void Add()
     {
-        inventory.Add(3);
-        inventory.Add(4, 100);
+        inventory.Add(3, 1, 2);
+        inventory.Add(4, 100, 3);
     }
 
     void OpenInventory()
     {
-        if (!Input.GetKeyDown(KeyCode.E) || craftingOpened || OpenPauseMenu.pauseMenuOpen) return;
+        if (!inputManager.pressedInventory || craftingOpened || OpenPauseMenu.pauseMenuOpen) return;
         invetoryOpened = !invetoryOpened;
         inventoryUI.SetActive(invetoryOpened);
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     void OpenCrafting()
     {
-        if (!Input.GetKeyDown(KeyCode.C) || invetoryOpened || OpenPauseMenu.pauseMenuOpen) return;
+        if (!inputManager.pressedCrafting || invetoryOpened || OpenPauseMenu.pauseMenuOpen) return;
         craftingOpened = !craftingOpened;
         craftingUI.SetActive(craftingOpened);
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     public bool AllowedToScroll()

@@ -1,10 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class BuildingSystem : MonoBehaviour
 {
+    [SerializeField, Range(1, 5)] float gatherRange = 2f;
+    
+    InputManager inputManager => InputManager.instance;
+    private Player player;
+    private Transform playerTrans;
+
     public class Building
     {
         public Building(Vector3 Position, float StructureHealth)
@@ -24,9 +31,22 @@ public class BuildingSystem : MonoBehaviour
     [SerializeField] private Tilemap resourcesTilemap;
     [SerializeField] private Tilemap backgroundTilemap;
     public BuildingObject tempStructure;
+    public List<BuildingObject> structures = new List<BuildingObject>();
 
-    public void PlaceStrucure(Vector3 position, BuildingObject buildingObject)
+    private void Start()
     {
+        player = GameManager.playerObject.GetComponent<Player>();
+        playerTrans = GameManager.playerObject.transform;
+    }
+
+    public void PlaceStrucure(BuildingObject buildingObject)
+    {
+        var position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        
+        var distance = Vector2.Distance(playerTrans.position, position);
+
+        if (distance > gatherRange) return;
+        
         foreach (var tileToBuildOn in buildingObject.tilesToBuildOn)
         {
             if (backgroundTilemap.GetTile(backgroundTilemap.WorldToCell(position)).name == tileToBuildOn.name)
@@ -38,6 +58,9 @@ public class BuildingSystem : MonoBehaviour
                     // Checks if there isn't already a structure on the tile.
                     if (structuresTilemap.GetTile(gridPosition) == null)
                     {
+                        //Remove all the items from the player his inventory
+                        player.inventory.Remove(buildingObject.item.item.itemId, buildingObject.item.amount);
+                        
                         // Changes the tiles in the tilemaps
                         structuresTilemap.SetTile(gridPosition, buildingObject.tile);
                         shadowTilemap.SetTile(shadowTilemap.WorldToCell(position + shadowTilemap.transform.position), buildingObject.tile);
@@ -73,9 +96,27 @@ public class BuildingSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (inputManager.placeStructure)
         {
-            PlaceStrucure(Camera.main.ScreenToWorldPoint(Input.mousePosition), tempStructure);
+            var building = GetBuilding();
+            if (building == null) return;
+            
+            PlaceStrucure(building);
         }
+    }
+
+    private BuildingObject GetBuilding()
+    {
+        foreach (var structure in structures)
+        {
+            var itemData = player.inventory.items[player.inventorySlot];
+            if (itemData == null || itemData.item == null) return null;
+            var itemId = itemData.item.itemId;
+             if (structure.item.item.itemId == itemId && player.inventory.Contains(itemId, structure.item.amount))
+            {
+                return structure;
+            }
+        }
+        return null;
     }
 }

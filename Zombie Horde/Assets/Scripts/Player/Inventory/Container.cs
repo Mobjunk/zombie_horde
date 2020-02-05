@@ -104,7 +104,7 @@ public class Container
             {
                 for (var index = 0; index < amount; index++)
                 {
-                    var item = items[FreeSlot()];
+                    var item = items[newSlot];
                     if (item.item == null) item.item = itemToAdd;
                     item.amount = 1;
                 }
@@ -202,7 +202,9 @@ public class Container
                     var amount = $"{item.amount}";
                     if (item.item.gun != null)
                     {
-                        var weapon = player.weapon.GetWeapon(item.item.gun);
+                        
+                        var weapon = player.gun.Get(player.gun.GetWeapon(index));
+                        //var weapon = player.weapon.GetWeapon(item.item.gun);
                         if (weapon != null)
                         {
                             var gun = weapon.gun;
