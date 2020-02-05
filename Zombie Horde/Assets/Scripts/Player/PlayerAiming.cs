@@ -21,12 +21,12 @@ public class PlayerAiming : MonoBehaviour
     {
         LookAtMouse();
         
-        if (inputManager.controllerConnected)
-        {
+        //if (inputManager.controllerConnected)
+        //{
             
-            //MoveCrossHairJoyStick();
-        }
-        else LookAtMouse();
+        //    //MoveCrossHairJoyStick();
+        //}
+        //else LookAtMouse();
 
 
     }
