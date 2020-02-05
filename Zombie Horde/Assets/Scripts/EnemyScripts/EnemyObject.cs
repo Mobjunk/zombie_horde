@@ -37,6 +37,7 @@ public class EnemyObject : ScriptableObject
 
         enemy.transform.localScale = size;
         enemy.GetComponentInChildren<SpriteRenderer>().sprite = zombieVariants[Random.Range(0, zombieVariants.Length)];
+        enemy.name = this.name;
 
         enemyAttack.damage = damage;
         enemyAttack.attackCooldown = attackCooldown;

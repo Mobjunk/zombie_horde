@@ -62,25 +62,26 @@ public class EnemyWaveSystem : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        float change = Random.Range(0, 100);
+        float change = Random.Range(0, 1000);
         float currentChange = 0;
 
         foreach (var enemySpawnData in enemySpawnDatas)
         {
-            if (enemySpawnData.spawnAfterDays >= dayNightCycle.daysPassed)
+            if (dayNightCycle.daysPassed >= enemySpawnData.spawnAfterDays)
             {
-                if (change < enemySpawnData.chance + currentChange)
+                if (change < enemySpawnData.chance * 10 + currentChange)
                 {
                     enemySpawner.EnemySpawning(enemySpawnData.enemyObject);
                     return;
                 }
                 else
                 {
-                    currentChange += enemySpawnData.chance;
+                    currentChange += enemySpawnData.chance * 10;
                 }
             }
         }
 
+        Debug.LogError("didn't find one");
         enemySpawner.EnemySpawning(enemySpawnDatas[0].enemyObject);
     }
 }
