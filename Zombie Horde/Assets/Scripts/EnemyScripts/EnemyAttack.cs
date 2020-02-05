@@ -14,6 +14,7 @@ public class EnemyAttack : MonoBehaviour
     public bool canAttack;
     public LayerMask structure;
     public float enemyAttackSpeed;
+    [SerializeField] private LayerMask layerMask;
 
     // Start is called before the first frame update
     void Start()
@@ -38,30 +39,51 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 9)
+        Debug.LogError("overlap");
+        if (canAttack == true)
         {
-            Debug.Log("refa");
-            if(canAttack == true)
+            
+            RaycastHit2D hit = Physics2D.Raycast(enemy.transform.position, enemy.transform.rotation * Vector2.up, 10f,layerMask);
+            //RaycastHit2D hit1 = Physics2D.Raycast(this.transform.parent.transform.position, Vector2.down + new Vector2(0, -0.5f), layerMask);
+            //RaycastHit2D hit2 = Physics2D.Raycast(this.transform.parent.transform.position, Vector2.down + new Vector2(0,0.5f), 10f, layerMask);
+            if (hit.collider != null)
             {
-                buildingSystem.DestroyStructure(this.GetComponent<CircleCollider2D>().gameObject.transform.position, 1);
-                
+                HitObject(hit);
             }
+            
+            //else if(hit1.collider != null)
+            //{
+            //    HitObject(hit1);
+            //}
+            
+            //else if(hit2.collider != null)
+            //{
+            //    HitObject(hit2);
+            //}
         }
 
-        if (collision.gameObject.layer == 10)
-        {
-            if (canAttack == true)
-            {
-                Attack();
-            }
-
-
-        }
     }
 
     public void Attack()
     {
         playerHealth.TakeDamage(enemyObject.damage);
         timer = 0;
+    }
+
+    public void HitObject(RaycastHit2D hit)
+    {
+        Debug.LogError(hit.collider.gameObject);
+        if (hit.collider.gameObject.layer == 9)
+        {
+            Debug.Log("fergsesrbgersdgdfg3erdhfweysgvauwehgfiuwegfukwsresdgfwe");
+            buildingSystem.DestroyStructure(hit.point, 1);
+            timer = 0;
+
+        }
+
+        if (hit.collider.gameObject.layer == 10)
+        {
+            Attack();
+        }
     }
 }

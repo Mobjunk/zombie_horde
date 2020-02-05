@@ -4780,7 +4780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555488195}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.777, y: 0.005, z: 0}
+  m_LocalPosition: {x: 0.4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2555954725594334355}
@@ -4799,9 +4799,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0000000085056495, y: -0.07135057}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.37291756
+  m_Radius: 0.27033532
 --- !u!114 &1288043660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4822,6 +4822,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   enemyAttackSpeed: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1536
 --- !u!1 &2555954725594334354
 GameObject:
   m_ObjectHideFlags: 0
@@ -4870,10 +4873,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5818110eeba4b4eaa51beccd66c266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundTilemap: {fileID: 0}
+  slowTiles: []
   dust: {fileID: 193636314}
   rb2d: {fileID: 2555954725594334357}
   target: {fileID: 0}
   speed: 4
+  slowSpeed: 0
   minimumDistance: 1
   maximumDistance: 100
 --- !u!50 &2555954725594334357
