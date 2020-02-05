@@ -96,6 +96,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6792ecd61fd617e43bb3439d86c4db04, type: 2}
   - {fileID: 11400000, guid: 223bf627c9fa02c49a3296acc2e469b2, type: 2}
   - {fileID: 11400000, guid: 31b77724518efbe45879ab3f6bff2c58, type: 2}
+  - {fileID: 11400000, guid: 8300e80d897c30e468b4adfc37305a42, type: 2}
+  - {fileID: 11400000, guid: 02fe4d647d93e834580358b66d1663bb, type: 2}
   gunDefinition:
   - {fileID: 11400000, guid: 0161ef1ceb4b3384985f8996b6a10029, type: 2}
 --- !u!114 &7499313197917639885
@@ -112,6 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   craftingRecipes:
   - {fileID: 11400000, guid: adfcf3ca91a062545ab8e5e89551880d, type: 2}
+  - {fileID: 11400000, guid: df4c2505364bfdd4293f787500fca26c, type: 2}
   recipePrefab: {fileID: 5186648893404696448, guid: 9f8534419e05bdb4cb30d8f3b907aa6f,
     type: 3}
   recipeParent: {fileID: 0}
+  player: {fileID: 0}

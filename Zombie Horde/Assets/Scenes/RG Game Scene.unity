@@ -215,50 +215,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
         type: 3}
-      propertyPath: itemDefinition.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
-      propertyPath: itemDefinition.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 01aa8dcc6b9360a4793426af872b9cf3,
-        type: 2}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
-      propertyPath: itemDefinition.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 28f18f47209422e49865d1d85a5e0b7e,
-        type: 2}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
-      propertyPath: itemDefinition.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 6792ecd61fd617e43bb3439d86c4db04,
-        type: 2}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
-      propertyPath: itemDefinition.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 223bf627c9fa02c49a3296acc2e469b2,
-        type: 2}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
-      propertyPath: itemDefinition.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 31b77724518efbe45879ab3f6bff2c58,
-        type: 2}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
       propertyPath: bulletSpawnLocation
       value: 
       objectReference: {fileID: 2076518231}
-    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
-      propertyPath: itemDefinition.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 8300e80d897c30e468b4adfc37305a42,
-        type: 2}
     - target: {fileID: 6437288990198247162, guid: 48ded8577040b69479ec7a6cbb560225,
         type: 3}
       propertyPath: inventoryUI
