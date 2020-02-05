@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Handgun
   m_EditorClassIdentifier: 
   itemId: 3
-  uiSprite: {fileID: 5601323976189978565, guid: c320c157f79758041b51b3b0c17f1888,
-    type: 3}
+  uiSprite: {fileID: 21300000, guid: fe579941f8807ba4c830fe0fe0ba4bc9, type: 3}
   itemName: Handgun
   itemDescription: This is a handgun to shoot with.
   stackable: 0
