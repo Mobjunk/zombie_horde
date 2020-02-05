@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     /// <summary>
     /// The game object for the inventory ui
     /// </summary>
-    public GameObject invetoryUI;
+    public GameObject inventoryUI;
     /// <summary>
     /// The game object for the crafting ui
     /// </summary>
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
     {
         if (!Input.GetKeyDown(KeyCode.E)) return;
         craftingOpened = !craftingOpened;
-        invetoryUI.SetActive(craftingOpened);
+        inventoryUI.SetActive(craftingOpened);
     }
 
     void OpenCrafting()

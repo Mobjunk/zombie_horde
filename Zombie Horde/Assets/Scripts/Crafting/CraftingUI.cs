@@ -6,25 +6,14 @@ using UnityEngine.UI;
 
 public class CraftingUI : MonoBehaviour
 {
-    [HideInInspector] public List<CraftingRecipe> craftingRecipes = new List<CraftingRecipe>();
+    public List<CraftingRecipe> craftingRecipes = new List<CraftingRecipe>();
     [SerializeField] private GameObject recipePrefab, recipeParent;
-    private Player player;
+    public Player player;
     
     private void Start()
     {
         player = GameManager.playerObject.GetComponent<Player>();
-        
-        //foreach (var recipe in craftingRecipes)
-        for(var slot = 0; slot < craftingRecipes.Count; slot++)
-        {
-            var recipe = craftingRecipes[slot];
-            var recipeObject = Instantiate(recipePrefab);
-            recipeObject.GetComponent<CraftItem>().slot = slot;
-            recipeObject.transform.SetParent(recipeParent.transform);
-            recipeObject.transform.localScale = new Vector3(1,1,1);
-
-            UpdateUI(recipeObject, recipe);
-        }
+        Init();
     }
 
     private void Update()
@@ -39,6 +28,20 @@ public class CraftingUI : MonoBehaviour
         }
     }
 
+    void Init()
+    {
+        for(var slot = 0; slot < craftingRecipes.Count; slot++)
+        {
+            var recipe = craftingRecipes[slot];
+            var recipeObject = Instantiate(recipePrefab);
+            recipeObject.GetComponent<CraftItem>().slot = slot;
+            recipeObject.transform.SetParent(recipeParent.transform);
+            recipeObject.transform.localScale = new Vector3(1,1,1);
+
+            UpdateUI(recipeObject, recipe);
+        }
+    }
+    
     void UpdateUI(GameObject recipeObject, CraftingRecipe recipe)
     {
         var itemCount = recipe.items.Count;

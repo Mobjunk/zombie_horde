@@ -298,31 +298,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5812840582725994444, guid: ef9239fc790a1fa4bb4c819187ad485e,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.5372549
-      objectReference: {fileID: 0}
-    - target: {fileID: 5812840582725994444, guid: ef9239fc790a1fa4bb4c819187ad485e,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.3647059
-      objectReference: {fileID: 0}
-    - target: {fileID: 5812840582725994444, guid: ef9239fc790a1fa4bb4c819187ad485e,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.1254902
-      objectReference: {fileID: 0}
-    - target: {fileID: 5812840582725994444, guid: ef9239fc790a1fa4bb4c819187ad485e,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.78431374
-      objectReference: {fileID: 0}
-    - target: {fileID: 5812840582725994444, guid: ef9239fc790a1fa4bb4c819187ad485e,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef9239fc790a1fa4bb4c819187ad485e, type: 3}
 --- !u!224 &72071188 stripped
@@ -5030,7 +5005,6 @@ MonoBehaviour:
   structuresTilemap: {fileID: 434384993}
   resourceObjects:
   - {fileID: 11400000, guid: 43b1ef37c78585d4f8dceeb1aec26024, type: 2}
-  test: {fileID: 11400000, guid: 000a58b33f4d1714493accbf4142e896, type: 2}
 --- !u!4 &1287278943
 Transform:
   m_ObjectHideFlags: 0
