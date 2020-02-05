@@ -73,21 +73,21 @@ public class Player : MonoBehaviour
 
     void OpenInventory()
     {
-        if (!Input.GetKeyDown(KeyCode.E) || craftingOpened) return;
+        if (!Input.GetKeyDown(KeyCode.E) || craftingOpened || OpenPauseMenu.pauseMenuOpen) return;
         invetoryOpened = !invetoryOpened;
         inventoryUI.SetActive(invetoryOpened);
     }
 
     void OpenCrafting()
     {
-        if (!Input.GetKeyDown(KeyCode.C) || invetoryOpened) return;
+        if (!Input.GetKeyDown(KeyCode.C) || invetoryOpened || OpenPauseMenu.pauseMenuOpen) return;
         craftingOpened = !craftingOpened;
         craftingUI.SetActive(craftingOpened);
     }
 
     public bool AllowedToScroll()
     {
-        return !invetoryOpened && !craftingOpened;
+        return !invetoryOpened && !craftingOpened && !OpenPauseMenu.pauseMenuOpen;
     }
     
     void SwitchSlot()
