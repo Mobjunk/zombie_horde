@@ -447,7 +447,7 @@ PrefabInstance:
     - target: {fileID: 5812840582725994443, guid: ef9239fc790a1fa4bb4c819187ad485e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5812840582725994443, guid: ef9239fc790a1fa4bb4c819187ad485e,
         type: 3}
@@ -1095,7 +1095,7 @@ PrefabInstance:
     - target: {fileID: 6772236245592340003, guid: e4c21271a97fb694f8e132ad0d684ac0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6772236245592340003, guid: e4c21271a97fb694f8e132ad0d684ac0,
         type: 3}
@@ -1994,6 +1994,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}
     - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}
     - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}
+    - {fileID: 11400000, guid: 1eb4b63fd54a24b4f95cf455255f7ba5, type: 2}
     straighttileVariants:
     - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}
     outerCornertileVariants:
@@ -2332,7 +2333,7 @@ PrefabInstance:
     - target: {fileID: 109845171978804976, guid: 85434f9834eefe54285d3fd7624cad34,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 109845171978804976, guid: 85434f9834eefe54285d3fd7624cad34,
         type: 3}
@@ -3086,7 +3087,7 @@ PrefabInstance:
     - target: {fileID: 2082590332667991842, guid: bef03940a822e6449bc87b602debb29c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2082590332667991842, guid: bef03940a822e6449bc87b602debb29c,
         type: 3}
@@ -3977,7 +3978,7 @@ PrefabInstance:
     - target: {fileID: 205528391767815282, guid: 25520dd55d412a9459a1b6ebf5a60aa6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 205528391767815282, guid: 25520dd55d412a9459a1b6ebf5a60aa6,
         type: 3}
@@ -4366,7 +4367,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1499841750
 RectTransform:
@@ -4379,13 +4380,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 291046970}
+  - {fileID: 1875939209}
   - {fileID: 361234724}
+  - {fileID: 291046970}
   - {fileID: 986282946}
+  - {fileID: 135340009}
   - {fileID: 779338145}
   - {fileID: 1002300212}
-  - {fileID: 135340009}
-  - {fileID: 1875939209}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4936,7 +4937,7 @@ RectTransform:
   m_Children:
   - {fileID: 1458701338}
   m_Father: {fileID: 1499841750}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}

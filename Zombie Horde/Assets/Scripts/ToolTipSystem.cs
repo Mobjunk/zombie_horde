@@ -38,29 +38,32 @@ public class ToolTipSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentToolTip && toolTipHolder.activeSelf)
+        if (!OpenPauseMenu.pauseMenuOpen && PlayerHealth.playerAlive)
         {
-            currentToolTip.ToolTipComplete(this);
-        }
-        if(!openInventory.shown)
-        {
-            openInventory.shown = openInventory.toolTip.ButtonAlreadyPressed();
-        }
-        if (!openCrafting.shown)
-        {
-            openCrafting.shown = openCrafting.toolTip.ButtonAlreadyPressed();
-        }
-
-        if (Time.time > tooltipDelay && !toolTipHolder.activeSelf)
-        {
-            float chance = Random.Range(0, 100);
-            if (chance < 50 && !openInventory.shown)
+            if (currentToolTip && toolTipHolder.activeSelf)
             {
-                ShowToolTip(openInventory);
+                currentToolTip.ToolTipComplete(this);
             }
-            else if (chance < 100 && !openCrafting.shown)
+            if (!openInventory.shown)
             {
-                ShowToolTip(openCrafting);
+                openInventory.shown = openInventory.toolTip.ButtonAlreadyPressed();
+            }
+            if (!openCrafting.shown)
+            {
+                openCrafting.shown = openCrafting.toolTip.ButtonAlreadyPressed();
+            }
+
+            if (Time.time > tooltipDelay && !toolTipHolder.activeSelf)
+            {
+                float chance = Random.Range(0, 100);
+                if (chance < 50 && !openInventory.shown)
+                {
+                    ShowToolTip(openInventory);
+                }
+                else if (chance < 100 && !openCrafting.shown)
+                {
+                    ShowToolTip(openCrafting);
+                }
             }
         }
     }
