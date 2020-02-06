@@ -27,7 +27,13 @@ public class DayNightCycle : MonoBehaviour
     [SerializeField] private Image darknessImage;
     [SerializeField] private Transform shadowsTilemap;
     [SerializeField] private Tilemap shadowImage;
+    [SerializeField] private Text dayCounterText;
     public List<SpriteRenderer> movingShadows = new List<SpriteRenderer>();
+
+    private void Start()
+    {
+        SetDayCounterText();
+    }
 
     // Update is called once per frame
     void Update()
@@ -43,6 +49,7 @@ public class DayNightCycle : MonoBehaviour
         {
             timeOfDay = 0;
             daysPassed++;
+            SetDayCounterText();
         }
         else
         {
@@ -81,5 +88,10 @@ public class DayNightCycle : MonoBehaviour
             movingShadow.transform.position = movingShadow.transform.parent.position + new Vector3(shadowsXPosition.Evaluate(timeOfDay), 0, 0);
             movingShadow.color = new Color(0, 0, 0, shadowsOpacity.Evaluate(timeOfDay));
         }
+    }
+
+    private void SetDayCounterText()
+    {
+        dayCounterText.text = "Day " + daysPassed;
     }
 }
