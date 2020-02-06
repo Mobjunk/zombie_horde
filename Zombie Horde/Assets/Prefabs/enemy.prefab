@@ -4765,7 +4765,7 @@ GameObject:
   - component: {fileID: 1555488196}
   - component: {fileID: 1555488197}
   - component: {fileID: 1288043660}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4817,7 +4817,6 @@ MonoBehaviour:
   enemyObject: {fileID: 11400000, guid: 2ad407a89eaee46449304310f672daea, type: 2}
   enemy: {fileID: 2555954725594334354}
   timer: 0
-  canAttack: 0
   structure:
     serializedVersion: 2
     m_Bits: 512
