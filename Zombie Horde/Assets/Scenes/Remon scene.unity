@@ -1790,11 +1790,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b80fec2007790b7428874527cfb58e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gatherRange: 2
   structuresTilemap: {fileID: 434384993}
   shadowTilemap: {fileID: 685994588}
   resourcesTilemap: {fileID: 903860017}
   backgroundTilemap: {fileID: 1617556485}
-  tempStructure: {fileID: 11400000, guid: 3727ed591600c4545bb5c6b497d26d6e, type: 2}
+  tempStructure: {fileID: 0}
+  structures: []
 --- !u!4 &504599687
 Transform:
   m_ObjectHideFlags: 0
@@ -3984,6 +3986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e08b155b6644ef469c31cc23af24608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gatherRange: 2
   resourceTilemap: {fileID: 903860017}
   shadowTilemap: {fileID: 685994588}
   structuresTilemap: {fileID: 434384993}
@@ -4006,6 +4009,83 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1372818304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1372818305}
+  - component: {fileID: 1372818307}
+  - component: {fileID: 1372818306}
+  m_Layer: 5
+  m_Name: Item name
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1372818305
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372818304}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1499841750}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0.000061035156, y: 72}
+  m_SizeDelta: {x: 250, y: 30}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &1372818306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372818304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 72db46dceace46c4d93753d09d580e2b, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Item name
+--- !u!222 &1372818307
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372818304}
+  m_CullTransparentMesh: 0
 --- !u!1 &1499841746
 GameObject:
   m_ObjectHideFlags: 0
@@ -4104,6 +4184,7 @@ RectTransform:
   - {fileID: 779338145}
   - {fileID: 1002300212}
   - {fileID: 135340009}
+  - {fileID: 1372818305}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4220,10 +4301,9 @@ MonoBehaviour:
   - enemyObject: {fileID: 11400000, guid: 2ad407a89eaee46449304310f672daea, type: 2}
     chance: 80
     spawnAfterDays: 0
-  - enemyObject: {fileID: 11400000, guid: 8814872a8c078c247bd363a8b44c6bcb, type: 2}
+  - enemyObject: {fileID: 0}
     chance: 20
     spawnAfterDays: 3
-  day: 0
   startingAmount: 2
   zombiesPerDay: 2
 --- !u!1 &1617556482
@@ -4397,6 +4477,11 @@ PrefabInstance:
       propertyPath: inventoryUI
       value: 
       objectReference: {fileID: 1837774032}
+    - target: {fileID: 3287519462029026801, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
+        type: 3}
+      propertyPath: itemName
+      value: 
+      objectReference: {fileID: 1372818306}
     - target: {fileID: 5868418563330530513, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
         type: 3}
       propertyPath: slowTiles.Array.size
