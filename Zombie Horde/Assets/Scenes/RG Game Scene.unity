@@ -2048,7 +2048,7 @@ MonoBehaviour:
   - name: Tree Small
     tileVariants:
     - {fileID: 11400000, guid: 2ec70545f2f11c4449843d13f487b050, type: 2}
-    chance: 5
+    chance: 4
     placedOn: 01000000
   - name: Rock Small
     tileVariants:
@@ -2060,6 +2060,11 @@ MonoBehaviour:
     - {fileID: 11400000, guid: eb16b863dd7265b4cb5ef047a92c9fd8, type: 2}
     chance: 0.001
     placedOn: 0100000003000000
+  - name: Tree Dead Large
+    tileVariants:
+    - {fileID: 11400000, guid: 9c93d2c4451008a45b5e8f300e8116bd, type: 2}
+    chance: 0.1
+    placedOn: 01000000
 --- !u!4 &611057192
 Transform:
   m_ObjectHideFlags: 0
@@ -2289,7 +2294,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d86051617e0e5b04db851f9f9c1e3e76, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4121,6 +4126,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aa5d04aa39759a54d856e3e149b71655, type: 2}
   - {fileID: 11400000, guid: d7708bdbe33c58c4999a27a46d4d50a8, type: 2}
   - {fileID: 11400000, guid: 429faecce4a7a7f449e7a13562b5f6cb, type: 2}
+  - {fileID: 11400000, guid: 384085d2cdba65843939b5629ff266c7, type: 2}
 --- !u!4 &1287278943
 Transform:
   m_ObjectHideFlags: 0
@@ -4534,8 +4540,8 @@ MonoBehaviour:
   - enemyObject: {fileID: 11400000, guid: 76d77498486f5cc45a75831d8e73dae2, type: 2}
     chance: 20
     spawnAfterDays: 3
-  startingAmount: 1
-  zombiesPerDay: 0
+  startingAmount: 2
+  zombiesPerDay: 2
 --- !u!1 &1617556482
 GameObject:
   m_ObjectHideFlags: 0
@@ -4862,7 +4868,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d86051617e0e5b04db851f9f9c1e3e76, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
