@@ -90,6 +90,8 @@ public class Player : MonoBehaviour
     {
         inventory.Add(3, 1, 2);
         inventory.Add(4, 100, 3);
+        inventory.Add(6);
+        inventory.Add(7, 100);
     }
 
     void OpenInventory()
