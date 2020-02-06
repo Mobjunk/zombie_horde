@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float _lifeTime = 2.5f;
     [SerializeField] private Rigidbody2D rigidBody;
     [SerializeField] private LayerMask enemy;
+    [SerializeField] private GunData gunData;
 
     private void Awake()
     {
@@ -27,7 +28,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.layer == 11)
         {
-            collision.GetComponentInParent<EnemyHealth>().TakePlayerDamage(10);
+            collision.GetComponentInParent<EnemyHealth>().TakePlayerDamage((int)gunData.weaponDamage);
         }
         Destroy(this.gameObject);
     }

@@ -149,7 +149,7 @@ MonoBehaviour:
   enemy:
     serializedVersion: 2
     m_Bits: 2048
-  enemyHealth: {fileID: 1788532634, guid: bf9917e2b923abb4daa6cb1c2e72af5f, type: 3}
+  gunData: {fileID: 11400000, guid: 0161ef1ceb4b3384985f8996b6a10029, type: 2}
 --- !u!96 &8981816547812908194
 TrailRenderer:
   serializedVersion: 2
