@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Wood wall
   m_EditorClassIdentifier: 
   itemId: 7
-  uiSprite: {fileID: -7963366471572989131, guid: aef19713369431f4a87c258f1893aba8,
+  uiSprite: {fileID: -3861431801627392865, guid: 4f32daebbfe125a4da9dcb07c3e6d842,
     type: 3}
   itemName: Wood wall
   itemDescription: A structure for building walls.
   stackable: 1
   gun: {fileID: 0}
+  tool: {fileID: 0}

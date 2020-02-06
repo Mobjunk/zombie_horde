@@ -215,9 +215,62 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
         type: 3}
+      propertyPath: itemDefinition.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
       propertyPath: bulletSpawnLocation
       value: 
       objectReference: {fileID: 2076518231}
+    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
+      propertyPath: itemDefinition.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 31b77724518efbe45879ab3f6bff2c58,
+        type: 2}
+    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
+      propertyPath: itemDefinition.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: bcc436adf14263345b44b853a1ba7979,
+        type: 2}
+    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
+      propertyPath: itemDefinition.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8300e80d897c30e468b4adfc37305a42,
+        type: 2}
+    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
+      propertyPath: itemDefinition.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 02fe4d647d93e834580358b66d1663bb,
+        type: 2}
+    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
+      propertyPath: itemDefinition.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6792ecd61fd617e43bb3439d86c4db04,
+        type: 2}
+    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
+      propertyPath: itemDefinition.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: eb39901faf2094549a015b506525d9aa,
+        type: 2}
+    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
+      propertyPath: itemDefinition.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 223bf627c9fa02c49a3296acc2e469b2,
+        type: 2}
+    - target: {fileID: 707333549569929579, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
+      propertyPath: itemDefinition.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 23bd9a1f04b352842a6db4fc2ef4e29e,
+        type: 2}
     - target: {fileID: 6437288990198247162, guid: 48ded8577040b69479ec7a6cbb560225,
         type: 3}
       propertyPath: inventoryUI
@@ -240,6 +293,11 @@ PrefabInstance:
       objectReference: {fileID: 836544901}
     - target: {fileID: 7499313197917639885, guid: 48ded8577040b69479ec7a6cbb560225,
         type: 3}
+      propertyPath: craftingRecipes.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499313197917639885, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
       propertyPath: recipeParent
       value: 
       objectReference: {fileID: 135340010}
@@ -248,6 +306,36 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 333798098}
+    - target: {fileID: 7499313197917639885, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
+      propertyPath: craftingRecipes.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: df4c2505364bfdd4293f787500fca26c,
+        type: 2}
+    - target: {fileID: 7499313197917639885, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
+      propertyPath: craftingRecipes.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 814cad3d4be7877408d4407cab318c10,
+        type: 2}
+    - target: {fileID: 7499313197917639885, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
+      propertyPath: craftingRecipes.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4ef8ba9f5e9f0e646bce0540a89b505e,
+        type: 2}
+    - target: {fileID: 7499313197917639885, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
+      propertyPath: craftingRecipes.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: adfcf3ca91a062545ab8e5e89551880d,
+        type: 2}
+    - target: {fileID: 7499313197917639885, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
+      propertyPath: craftingRecipes.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 680820c4cdc3d484b93339940ea0cb91,
+        type: 2}
     - target: {fileID: 8855366034490432712, guid: 48ded8577040b69479ec7a6cbb560225,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1460,7 +1548,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 19.105469, y: -19.10553}
+  m_AnchoredPosition: {x: 19.105469, y: -19.105469}
   m_SizeDelta: {x: 204, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &361234725
@@ -1827,7 +1915,7 @@ MonoBehaviour:
   shadowTilemap: {fileID: 685994588}
   resourcesTilemap: {fileID: 903860017}
   backgroundTilemap: {fileID: 1617556485}
-  tempStructure: {fileID: 11400000, guid: 3727ed591600c4545bb5c6b497d26d6e, type: 2}
+  tempStructure: {fileID: 0}
   structures:
   - {fileID: 11400000, guid: dad97048d0b5cb643b8614f430f794c4, type: 2}
   - {fileID: 11400000, guid: b22d2942407e8ad4aa90ad80c7e32387, type: 2}
@@ -2092,6 +2180,83 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1633910861}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &644519520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 644519521}
+  - component: {fileID: 644519523}
+  - component: {fileID: 644519522}
+  m_Layer: 5
+  m_Name: Item name
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &644519521
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644519520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1499841750}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 72}
+  m_SizeDelta: {x: 250, y: 30}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &644519522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644519520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 72db46dceace46c4d93753d09d580e2b, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Item name
+--- !u!222 &644519523
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644519520}
+  m_CullTransparentMesh: 0
 --- !u!1 &685994585
 GameObject:
   m_ObjectHideFlags: 0
@@ -4412,6 +4577,7 @@ RectTransform:
   - {fileID: 135340009}
   - {fileID: 779338145}
   - {fileID: 1002300212}
+  - {fileID: 644519521}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4687,6 +4853,11 @@ PrefabInstance:
       propertyPath: inventoryUI
       value: 
       objectReference: {fileID: 1837774032}
+    - target: {fileID: 3287519462029026801, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
+        type: 3}
+      propertyPath: itemName
+      value: 
+      objectReference: {fileID: 644519522}
     - target: {fileID: 5868418563330530513, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
         type: 3}
       propertyPath: backgroundTilemap

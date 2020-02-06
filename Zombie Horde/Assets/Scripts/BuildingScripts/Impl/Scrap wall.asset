@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c96e72bb8e492d24988ed3c254937ad2, type: 3}
-  m_Name: Wood wall
+  m_Name: Scrap wall
   m_EditorClassIdentifier: 
   item:
-    item: {fileID: 11400000, guid: 23bd9a1f04b352842a6db4fc2ef4e29e, type: 2}
+    item: {fileID: 11400000, guid: eb39901faf2094549a015b506525d9aa, type: 2}
     amount: 1
-  structureHealth: 50
-  tile: {fileID: 11400000, guid: 7b058941b9a19734994339c8793dca15, type: 2}
+  structureHealth: 150
+  tile: {fileID: 11400000, guid: 55ff9ceec6ab8724e800d4cdc2218839, type: 2}
   tilesToBuildOn:
   - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}
   - {fileID: 11400000, guid: a5da7d7bb59c0fa4387f66d629ce7b34, type: 2}

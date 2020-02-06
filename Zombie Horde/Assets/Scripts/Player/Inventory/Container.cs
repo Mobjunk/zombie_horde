@@ -181,14 +181,18 @@ public class Container
                 var image = canvas.GetChild(0);
                 var text = image.GetChild(0);
                 var bullets = image.GetChild(1);
+                var durability = image.GetChild(2);
 
                 var itemSprite = image.GetComponent<Image>();
                 var itemAmount = text.GetComponent<Text>();
+
+                var durabilityBar = durability.GetChild(1).GetComponent<Image>();
 
                 var item = items[ui.Length == 1 ? index + 9 : index];
 
                 if (item == null || item.item == null)
                 {
+                    durability.gameObject.SetActive(false);
                     bullets.gameObject.SetActive(false);
                     itemSprite.enabled = false;
                     itemAmount.enabled = false;
@@ -214,6 +218,29 @@ public class Container
                     }
                     else
                     if (!item.item.stackable) amount = "";
+
+                    if (item.item.gun != null || item.item.tool != null)
+                    {
+                        var gun = player.gun.Get(player.gun.GetWeapon(index));
+                        var tool = player.tool.Get(player.tool.GetWeapon(index));
+                        durability.gameObject.SetActive(true);
+
+                        var startDurability = 0f;
+                        var currentDurability = 0f;
+
+                        if (gun != null)
+                        {
+                            startDurability = gun.gun.weaponDurability;
+                            currentDurability = gun.gunDurability;
+                        } else if (tool != null)
+                        {
+                            startDurability = tool.tool.weaponDurability;
+                            currentDurability = tool.toolDurability;
+                        }
+                        
+                        durabilityBar.fillAmount = currentDurability / startDurability;
+                    }
+                    
                     itemAmount.text = amount;
                 }
             }

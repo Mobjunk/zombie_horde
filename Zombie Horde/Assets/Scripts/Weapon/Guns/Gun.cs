@@ -12,7 +12,16 @@ public class Gun : Weapon<GunData>
     
     public override bool CanUse()
     {
-        return Get(GetWeapon(player.inventorySlot)) != null;
+        var weapon = Get(GetWeapon(player.inventorySlot));
+        if (weapon == null)
+        {
+            foreach (var gun in player.guns.Where(gun => gun != null).Where(gun => gun.reloading))
+                ResetReload(gun);
+
+            return false;
+        }
+
+        return true;
     }
     
     public override void Use()
@@ -53,7 +62,7 @@ public class Gun : Weapon<GunData>
         if (selectedItem == null || selectedItem.item == null || selectedItem.item.gun == null) return null;
         
         if(!WeaponExists(selectedItem.item.gun))
-            player.guns.Add(new Guns(selectedItem.item.gun));
+            player.guns.Add(new Guns(selectedItem.item.gun, slot));
         
         return selectedItem.item.gun;
     }
@@ -87,19 +96,8 @@ public class Gun : Weapon<GunData>
         if (!weapon.reloading) return;
         
         var opacity = -(1 - (1 / gun.reloadSpeed) * reloadTimer) + 1;
-        
-        var slot = inventoryHotbar.transform.GetChild(player.inventorySlot);
-        var canvas = slot.GetChild(0);
-        var itemSprite = canvas.GetChild(0);
-        var bullets = itemSprite.GetChild(1);
 
-        for (var index = 0; index < 3; index++)
-        {
-            var image = bullets.GetChild(index).GetComponent<Image>();
-            var color = image.color;
-            color = new Color(color.r, color.g, color.b, opacity);
-            image.color = color;
-        }
+        SetBulletOpacity(player.inventorySlot, opacity);
         
         reloadTimer += Time.deltaTime;
         if (!(reloadTimer >= gun.reloadSpeed)) return;
@@ -116,6 +114,23 @@ public class Gun : Weapon<GunData>
     {
         reloadTimer = 0;
         gun.reloading = false;
+        SetBulletOpacity(gun.slot);
+    }
+
+    private void SetBulletOpacity(int invSlot, float opacity = 1f)
+    {
+        var slot = inventoryHotbar.transform.GetChild(invSlot);
+        var canvas = slot.GetChild(0);
+        var itemSprite = canvas.GetChild(0);
+        var bullets = itemSprite.GetChild(1);
+
+        for (var index = 0; index < 3; index++)
+        {
+            var image = bullets.GetChild(index).GetComponent<Image>();
+            var color = image.color;
+            color = new Color(color.r, color.g, color.b, opacity);
+            image.color = color;
+        }
     }
 
     private int GetBulletAmount(GunData gun)

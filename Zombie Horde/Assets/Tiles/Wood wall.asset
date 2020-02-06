@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Overworld_428
+  m_Name: Wood wall
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 2717167478443049704, guid: aef19713369431f4a87c258f1893aba8,
+  m_Sprite: {fileID: -3861431801627392865, guid: 4f32daebbfe125a4da9dcb07c3e6d842,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:

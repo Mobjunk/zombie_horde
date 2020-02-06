@@ -15,12 +15,12 @@ MonoBehaviour:
   item:
     item: {fileID: 11400000, guid: eb39901faf2094549a015b506525d9aa, type: 2}
     amount: 1
-  structureHealth: 10
-  tile: {fileID: 11400000, guid: 7b058941b9a19734994339c8793dca15, type: 2}
+  structureHealth: 100
+  tile: {fileID: 11400000, guid: b766e9be465d9e94ebaff51dd393640f, type: 2}
   tilesToBuildOn:
   - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}
   - {fileID: 11400000, guid: a5da7d7bb59c0fa4387f66d629ce7b34, type: 2}
-  - {fileID: 11400000, guid: 2b0f680aca9e93d48acc949c273366a8, type: 2}
+  - {fileID: 11400000, guid: 0b2b28b1135c5a74286978f414916608, type: 2}
   - {fileID: 11400000, guid: 4a4ad0a6264f799459c4b750aad36b95, type: 2}
   - {fileID: 11400000, guid: 0ce785b9c9848dd4eb61363f75ed6962, type: 2}
   - {fileID: 11400000, guid: 224e11cbd2b98eb468d562af1c655566, type: 2}

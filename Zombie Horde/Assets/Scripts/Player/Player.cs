@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class Player : MonoBehaviour
     /// The game object for the crafting ui
     /// </summary>
     public GameObject craftingUI;
+
+    public Text itemName;
     /// <summary>
     /// Check if the player has his inventory opened
     /// </summary>
@@ -57,7 +60,8 @@ public class Player : MonoBehaviour
         gun = new Gun(this);
         tool = new Tool(this);
 
-        Add();
+        inventory.Add(3);
+        inventory.Add(4, 100);
     }
 
     private void Update()
@@ -85,15 +89,6 @@ public class Player : MonoBehaviour
             }
         }
     }
-
-    public void Add()
-    {
-        inventory.Add(3, 1, 2);
-        inventory.Add(4, 100, 3);
-        inventory.Add(6);
-        inventory.Add(7, 100);
-    }
-
     void OpenInventory()
     {
         if (!inputManager.pressedInventory || craftingOpened || OpenPauseMenu.pauseMenuOpen) return;
@@ -132,5 +127,7 @@ public class Player : MonoBehaviour
         if(inputManager.pressedSeven) inventorySlot = 6;
         if(inputManager.pressedEight) inventorySlot = 7;
         if(inputManager.pressedNine) inventorySlot = 8;
+
+        itemName.text = inventory.items[inventorySlot].item == null ? $"" : $"{inventory.items[inventorySlot].item.itemName}";
     }
 }

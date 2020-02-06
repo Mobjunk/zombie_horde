@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8c69c9713d882043a2450a4ab5c2a07, type: 3}
-  m_Name: Stone wall
+  m_Name: 9mm
   m_EditorClassIdentifier: 
   craftedItem:
-    item: {fileID: 11400000, guid: eb39901faf2094549a015b506525d9aa, type: 2}
-    amount: 1
+    item: {fileID: 11400000, guid: 01aa8dcc6b9360a4793426af872b9cf3, type: 2}
+    amount: 5
   items:
-  - item: {fileID: 11400000, guid: 223bf627c9fa02c49a3296acc2e469b2, type: 2}
-    amount: 10
+  - item: {fileID: 11400000, guid: 8300e80d897c30e468b4adfc37305a42, type: 2}
+    amount: 1
