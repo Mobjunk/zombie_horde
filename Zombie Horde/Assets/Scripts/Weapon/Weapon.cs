@@ -34,5 +34,5 @@ public abstract class Weapon<T>
     
     public abstract T GetWeapon(int slot);
 
-    public abstract bool WeaponExists(T weapon);
+    public abstract bool WeaponExists(T weapon, int slot);
 }

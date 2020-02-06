@@ -7,14 +7,14 @@ public class Tool : Weapon<ToolData>
 
     public override bool CanUse()
     {
-        return Get(GetWeapon(player.inventorySlot)) != null;
+        return Get(GetWeapon(player.inventorySlot), player.inventorySlot) != null;
     }
 
     public override void Use()
     {
         if (!inputManager.pressedAttack || player.invetoryOpened || player.craftingOpened) return;
         
-        var weapon = Get(GetWeapon(player.inventorySlot));
+        var weapon = Get(GetWeapon(player.inventorySlot), player.inventorySlot);
         if (weapon == null) return;
 
 
@@ -26,7 +26,7 @@ public class Tool : Weapon<ToolData>
         
         if (weapon.toolDurability <= 0)
         {
-            player.inventory.Remove(weapon.tool.item.itemId);
+            player.inventory.Remove(weapon.tool.item.itemId, 1, weapon.slot);
             player.tools.Remove(weapon);
         }
         
@@ -35,7 +35,7 @@ public class Tool : Weapon<ToolData>
 
     public override float GetDamage()
     {
-        var weapon = Get(GetWeapon(player.inventorySlot));
+        var weapon = Get(GetWeapon(player.inventorySlot), player.inventorySlot);
         if (weapon == null) return 0;
         return weapon.tool.weaponDamage;
     }
@@ -45,19 +45,19 @@ public class Tool : Weapon<ToolData>
         var selectedItem = player.inventory.Get(slot);
         if (selectedItem == null || selectedItem.item == null || selectedItem.item.tool == null) return null;
         
-        if(!WeaponExists(selectedItem.item.tool))
-            player.tools.Add(new Tools(selectedItem.item.tool));
+        if(!WeaponExists(selectedItem.item.tool, slot))
+            player.tools.Add(new Tools(selectedItem.item.tool, slot));
         
         return selectedItem.item.tool;
     }
 
-    public override bool WeaponExists(ToolData tool)
+    public override bool WeaponExists(ToolData tool, int slot)
     {
-        return player.tools.Where(tools => tools != null && tools.tool != null).Any(tools => tools.tool.Equals(tool));
+        return player.tools.Where(tools => tools != null && tools.tool != null).Any(tools => tools.tool.Equals(tool) && tools.slot == slot);
     }
     
-    public Tools Get(ToolData tool)
+    public Tools Get(ToolData tool, int slot)
     {
-        return player.tools.Where(tools => tools != null && tools.tool != null).FirstOrDefault(tools => tools.tool.Equals(tool));
+        return player.tools.Where(tools => tools != null && tools.tool != null).FirstOrDefault(tools => tools.tool.Equals(tool) && tools.slot == slot);
     }
 }
