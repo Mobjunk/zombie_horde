@@ -39,6 +39,7 @@ public class EnemyObject : ScriptableObject
         Sprite zombieVariant = zombieVariants[Random.Range(0, zombieVariants.Length)];
         enemy.GetComponentInChildren<SpriteRenderer>().sprite = zombieVariant;
         enemy.name = this.name;
+
         SpriteRenderer shadowSprite = enemy.transform.GetChild(1).GetComponent<SpriteRenderer>();
         shadowSprite.sprite = zombieVariant;
         dayNightCycle.movingShadows.Add(shadowSprite);
