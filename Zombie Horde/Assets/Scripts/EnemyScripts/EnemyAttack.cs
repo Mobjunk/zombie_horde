@@ -56,7 +56,6 @@ public class EnemyAttack : MonoBehaviour
 
     public void HitObject(RaycastHit2D hit, Vector2 addedVector)
     {
-        Debug.LogError(hit.collider.gameObject);
         if (hit.collider.gameObject.layer == 9)
         {
             buildingSystem.DestroyStructure(hit.point + addedVector, damage);
