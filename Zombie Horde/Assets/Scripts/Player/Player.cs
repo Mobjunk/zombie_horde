@@ -59,9 +59,6 @@ public class Player : MonoBehaviour
         inventory = new Container(36);
         gun = new Gun(this);
         tool = new Tool(this);
-
-        inventory.Add(3);
-        inventory.Add(4, 100);
     }
 
     private void Update()
