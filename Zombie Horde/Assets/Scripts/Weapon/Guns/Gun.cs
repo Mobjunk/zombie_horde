@@ -12,7 +12,7 @@ public class Gun : Weapon<GunData>
     
     public override bool CanUse()
     {
-        var weapon = Get(GetWeapon(player.inventorySlot));
+        var weapon = Get(GetWeapon(player.inventorySlot), player.inventorySlot);
         if (weapon == null)
         {
             foreach (var gun in player.guns.Where(gun => gun != null).Where(gun => gun.reloading))
@@ -28,7 +28,7 @@ public class Gun : Weapon<GunData>
     {
         if (!inputManager.pressedAttack || player.invetoryOpened || player.craftingOpened) return;
         
-        var weapon = Get(GetWeapon(player.inventorySlot));
+        var weapon = Get(GetWeapon(player.inventorySlot), player.inventorySlot);
         if (weapon == null || weapon.reloading) return;
 
         if (weapon.bulletsInChamber <= 0)
@@ -41,7 +41,7 @@ public class Gun : Weapon<GunData>
         
         if (weapon.gunDurability <= 0)
         {
-            player.inventory.Remove(weapon.gun.item.itemId);
+            player.inventory.Remove(weapon.gun.item.itemId, 1, player.inventorySlot);
             player.guns.Remove(weapon);
         }
         
@@ -51,7 +51,7 @@ public class Gun : Weapon<GunData>
 
     public override float GetDamage()
     {
-        var weapon = Get(GetWeapon(player.inventorySlot));
+        var weapon = Get(GetWeapon(player.inventorySlot), player.inventorySlot);
         if (weapon == null) return 0;
         return weapon.gun.weaponDamage;
     }
@@ -60,16 +60,16 @@ public class Gun : Weapon<GunData>
     {
         var selectedItem = player.inventory.Get(slot);
         if (selectedItem == null || selectedItem.item == null || selectedItem.item.gun == null) return null;
-        
-        if(!WeaponExists(selectedItem.item.gun))
+
+        if(!WeaponExists(selectedItem.item.gun, slot))
             player.guns.Add(new Guns(selectedItem.item.gun, slot));
         
         return selectedItem.item.gun;
     }
 
-    public override bool WeaponExists(GunData gun)
+    public override bool WeaponExists(GunData gun, int slot)
     {
-        return player.guns.Where(weapon => weapon != null && weapon.gun != null).Any(weapon => weapon.gun.Equals(gun));
+        return player.guns.Where(weapon => weapon != null && weapon.gun != null).Any(weapon => weapon.gun.Equals(gun) && weapon.slot == slot);
     }
 
     void SpawnBullet(GunData gun, int totalBullets = 1)
@@ -85,7 +85,7 @@ public class Gun : Weapon<GunData>
 
     public void Reload()
     {
-        var weapon = Get(GetWeapon(player.inventorySlot));
+        var weapon = Get(GetWeapon(player.inventorySlot), player.inventorySlot);
         if (weapon == null) return;
         var gun = weapon.gun;
 
@@ -138,8 +138,8 @@ public class Gun : Weapon<GunData>
         return player.inventory.GetAmountFromItem(gun.bullets.itemId);
     }
     
-    public Guns Get(GunData gun)
+    public Guns Get(GunData gun, int slot)
     {
-        return player.guns.Where(weapon => weapon != null && weapon.gun != null).FirstOrDefault(weapon => weapon.gun.Equals(gun));
+        return player.guns.Where(weapon => weapon != null && weapon.gun != null).FirstOrDefault(weapon => weapon.gun.Equals(gun) && weapon.slot == slot);
     }
 }

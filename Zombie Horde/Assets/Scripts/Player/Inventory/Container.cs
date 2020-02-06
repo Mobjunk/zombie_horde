@@ -104,6 +104,7 @@ public class Container
             {
                 for (var index = 0; index < amount; index++)
                 {
+                    if (index > 0) newSlot = FreeSlot();
                     var item = items[newSlot];
                     if (item.item == null) item.item = itemToAdd;
                     item.amount = 1;
@@ -141,6 +142,11 @@ public class Container
             for (var index = 0; index < amount; index++)
             {
                 slot = GetSlot(itemId);
+                if (index == 0 && preferredSlot != -1)
+                {
+                    var inSlot = Get(preferredSlot);
+                    if (inSlot.item.itemId == itemId) slot = preferredSlot;
+                }
                 if (slot != -1)
                 {
                     item = items[slot];
@@ -207,7 +213,7 @@ public class Container
                     if (item.item.gun != null)
                     {
                         
-                        var weapon = player.gun.Get(player.gun.GetWeapon(index));
+                        var weapon = player.gun.Get(player.gun.GetWeapon(index), index);
                         //var weapon = player.weapon.GetWeapon(item.item.gun);
                         if (weapon != null)
                         {
@@ -221,8 +227,8 @@ public class Container
 
                     if (item.item.gun != null || item.item.tool != null)
                     {
-                        var gun = player.gun.Get(player.gun.GetWeapon(index));
-                        var tool = player.tool.Get(player.tool.GetWeapon(index));
+                        var gun = player.gun.Get(player.gun.GetWeapon(index), index);
+                        var tool = player.tool.Get(player.tool.GetWeapon(index), index);
                         durability.gameObject.SetActive(true);
 
                         var startDurability = 0f;
