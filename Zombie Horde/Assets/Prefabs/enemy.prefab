@@ -4780,7 +4780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555488195}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.4, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2555954725594334355}
@@ -4799,9 +4799,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.2}
   serializedVersion: 2
-  m_Radius: 0.27033532
+  m_Radius: 0.5
 --- !u!114 &1288043660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4815,7 +4815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyObject: {fileID: 11400000, guid: 2ad407a89eaee46449304310f672daea, type: 2}
-  enemy: {fileID: 1555488195}
+  enemy: {fileID: 2555954725594334354}
   timer: 0
   canAttack: 0
   structure:
@@ -4836,7 +4836,6 @@ GameObject:
   m_Component:
   - component: {fileID: 878895673035373619}
   - component: {fileID: 3451834883043975475}
-  - component: {fileID: 340348863435643644}
   m_Layer: 11
   m_Name: Shadow
   m_TagString: Untagged
@@ -4908,22 +4907,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &340348863435643644
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071192094446841139}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0000000083183505, y: 0.06977939}
-  serializedVersion: 2
-  m_Radius: 0.46977937
 --- !u!1 &2555954725594334354
 GameObject:
   m_ObjectHideFlags: 0
@@ -5020,6 +5003,8 @@ MonoBehaviour:
   enemy: {fileID: 2555954725594334354}
   bloodParticle: {fileID: 7884275824156312776, guid: 451244edbe44ed346a0e1801d9168648,
     type: 3}
+  shadow: {fileID: 0}
+  dayNightCycle: {fileID: 0}
 --- !u!1 &8153941034731880835
 GameObject:
   m_ObjectHideFlags: 0
@@ -5115,6 +5100,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0000000083183505, y: 0.06977939}
+  m_Offset: {x: 0, y: 0.05}
   serializedVersion: 2
-  m_Radius: 0.46977937
+  m_Radius: 0.45
