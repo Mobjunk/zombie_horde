@@ -27,3 +27,4 @@ MonoBehaviour:
   maxBullets: 15
   reloadSpeed: 2.2
   bulletMovementSpeed: 20
+  durabilityDamage: 1

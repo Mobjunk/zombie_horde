@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Tool : Weapon<ToolData>
 {
-    ResourceSystem resourceSystem => ResourceSystem.instance;
-    
     public Tool(Player player) : base(player) { }
 
     public override bool CanUse()
@@ -21,9 +19,18 @@ public class Tool : Weapon<ToolData>
 
 
         var correctTool = resourceSystem.CorrectTool(weapon.tool);
+
+        if (!correctTool) return;
         
-        if(correctTool)
-            resourceSystem.DestroyResource((int) GetDamage());
+        weapon.toolDurability -= resourceSystem.GetResource().resourceObject.toolDamage;
+        
+        if (weapon.toolDurability <= 0)
+        {
+            player.inventory.Remove(weapon.tool.item.itemId);
+            player.tools.Remove(weapon);
+        }
+        
+        resourceSystem.DestroyResource((int) GetDamage());
     }
 
     public override float GetDamage()

@@ -28,6 +28,14 @@ public class Gun : Weapon<GunData>
             return;
         }
         
+        weapon.gunDurability -= weapon.gun.durabilityDamage;
+        
+        if (weapon.gunDurability <= 0)
+        {
+            player.inventory.Remove(weapon.gun.item.itemId);
+            player.guns.Remove(weapon);
+        }
+        
         weapon.bulletsInChamber--;
         SpawnBullet(weapon.gun);
     }

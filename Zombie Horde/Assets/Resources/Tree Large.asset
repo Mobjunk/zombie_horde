@@ -18,3 +18,4 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 31b77724518efbe45879ab3f6bff2c58, type: 2}
     amount: 1
   durability: 15
+  toolDamage: 3

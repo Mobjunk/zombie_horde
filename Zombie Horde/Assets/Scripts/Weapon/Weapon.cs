@@ -12,6 +12,7 @@ public abstract class Weapon<T>
     /// The input system for the player
     /// </summary>
     public InputManager inputManager => InputManager.instance;
+    public ResourceSystem resourceSystem => ResourceSystem.instance;
     /// <summary>
     /// 
     /// </summary>

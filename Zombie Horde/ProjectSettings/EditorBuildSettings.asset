@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: bb10c99e5b5a8b349b225a87109cdb9f
   - enabled: 1
-    path: Assets/Scenes/Nighel v3.unity
-    guid: 60fa18f3401fd024e9b92426fb664e8e
+    path: Assets/Scenes/RG Game Scene.unity
+    guid: ccec66cc66eda5a40ba43c421115a1bb
   m_configObjects: {}

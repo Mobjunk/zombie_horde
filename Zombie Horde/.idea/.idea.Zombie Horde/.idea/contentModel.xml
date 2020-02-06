@@ -68,10 +68,9 @@
               <e p="GunData.cs" t="Include" />
               <e p="Guns.cs" t="Include" />
               <e p="WeaponData.cs" t="Include" />
-              <e p="WeaponUI.cs" t="Include" />
             </e>
-            <e p="Tool.cs" t="Include" />
             <e p="Tools" t="Include">
+              <e p="Tool.cs" t="Include" />
               <e p="ToolData.cs" t="Include" />
               <e p="Tools.cs" t="Include" />
             </e>

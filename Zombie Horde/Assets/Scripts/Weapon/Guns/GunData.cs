@@ -9,4 +9,5 @@ public class GunData : WeaponData
     public int maxBullets;
     public float reloadSpeed;
     public float bulletMovementSpeed;
+    public float durabilityDamage;
 }

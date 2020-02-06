@@ -49,7 +49,7 @@ public class ResourceSystem : MonoBehaviour
         playerTrans = GameManager.playerObject.transform;
     }
 
-    private Resource GetResource()
+    public Resource GetResource()
     {
         Vector3Int gridPosition = resourceTilemap.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         if (resourceTilemap.GetTile(gridPosition) != null)
