@@ -31,7 +31,7 @@ public class EnemyHealth : MonoBehaviour
         if(collision.gameObject.tag=="PlayerFist"&&playerAttack.playerAnimator.GetBool("isPunching")==true)
         {
             Debug.Log("hit by fists");
-            TakePlayerDamage(5);
+            TakePlayerDamage(2);
         }
 
     }
