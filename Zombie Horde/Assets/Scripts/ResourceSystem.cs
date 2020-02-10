@@ -137,9 +137,10 @@ public class ResourceSystem : MonoBehaviour
                                 player.inventory.Add(item.item.itemId, item.amount * damage);
                             }
 
-                            if (resources[i].resourceObject.name.Equals(""))
+                            if (resources[i].resourceObject.name.Equals("Tree Large"))
                             {
-                                
+                                var random = Random.Range(0, 100);
+                                if (random < 5) player.inventory.Add(10);
                             }
 
                             // Destroys resource
