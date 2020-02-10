@@ -31,7 +31,8 @@ public class ResourceSystem : MonoBehaviour
         public Item item;
         public int amount;
     }
-    
+
+    [SerializeField] private float harvestCooldown = 0.3f;
     [Header("Tilemaps")]
     [SerializeField] private Tilemap resourceTilemap;
     [SerializeField] private Tilemap shadowTilemap;
@@ -43,6 +44,7 @@ public class ResourceSystem : MonoBehaviour
     private List<Resource> resources = new List<Resource>();
     private Player player;
     private Transform playerTrans;
+    private float harvestDelay = 0;
 
     private void Start()
     {
@@ -107,37 +109,42 @@ public class ResourceSystem : MonoBehaviour
     // Destroys resource if durability is 0 and gives resources
     public void DestroyResource(int damage)
     {
-        RaycastHit2D hit = Physics2D.Raycast(playerTrans.position, Vector2FromAngle(playerTrans.eulerAngles.z + 90), gatherRange, layerMask);
-        if (hit.collider)
+        if (Time.time > harvestDelay)
         {
-            Vector3 position = hit.point + Vector2FromAngle(playerTrans.eulerAngles.z + 90) * new Vector2(0.1f, 0.1f);
-
-            Vector3Int gridPosition = resourceTilemap.WorldToCell(position);
-            if (resourceTilemap.GetTile(gridPosition) != null)
+        RaycastHit2D hit = Physics2D.Raycast(playerTrans.position, Vector2FromAngle(playerTrans.eulerAngles.z + 90), gatherRange, layerMask);
+            if (hit.collider)
             {
-                for (int i = 0; i < resources.Count; i++)
+                Vector3 position = hit.point + Vector2FromAngle(playerTrans.eulerAngles.z + 90) * new Vector2(0.1f, 0.1f);
+
+                Vector3Int gridPosition = resourceTilemap.WorldToCell(position);
+                if (resourceTilemap.GetTile(gridPosition) != null)
                 {
-                    if (resources[i].position == gridPosition)
+                    for (int i = 0; i < resources.Count; i++)
                     {
-                        if (resources[i].durability - damage <= 0)
+                        if (resources[i].position == gridPosition)
                         {
-                            damage += resources[i].durability - damage;
-                        }
+                            if (resources[i].durability - damage <= 0)
+                            {
+                                damage += resources[i].durability - damage;
+                            }
 
-                        resources[i].durability -= damage;
+                            resources[i].durability -= damage;
 
-                        // Adds items to player inventory
-                        foreach (var item in resources[i].resourceObject.itemsGivenPerHit)
-                        {
-                            player.inventory.Add(item.item.itemId, item.amount * damage);
-                        }
+                            // Adds items to player inventory
+                            foreach (var item in resources[i].resourceObject.itemsGivenPerHit)
+                            {
+                                player.inventory.Add(item.item.itemId, item.amount * damage);
+                            }
 
-                        // Destroys resource
-                        if (resources[i].durability <= 0)
-                        {
-                            resourceTilemap.SetTile(gridPosition, null);
-                            shadowTilemap.SetTile(resourceTilemap.WorldToCell(position + resourceTilemap.transform.position), null);
-                            resources.RemoveAt(i);
+                            // Destroys resource
+                            if (resources[i].durability <= 0)
+                            {
+                                resourceTilemap.SetTile(gridPosition, null);
+                                shadowTilemap.SetTile(resourceTilemap.WorldToCell(position + resourceTilemap.transform.position), null);
+                                resources.RemoveAt(i);
+                            }
+
+                            harvestDelay = Time.time + harvestCooldown;
                         }
                     }
                 }
