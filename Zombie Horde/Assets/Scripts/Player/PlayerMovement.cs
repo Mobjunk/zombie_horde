@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 4;
     [SerializeField] private float slowSpeed = 2;
 
+    float _horizontal;
+    float _vertical;
+
     public Rigidbody2D rb;
 
     private Player player;
@@ -32,6 +35,11 @@ public class PlayerMovement : MonoBehaviour
     }
     void HandleMovement()
     {
+        float _horizontal = inputManager.horizontalMovementLeftStick;
+        float _vertical = inputManager.verticalMovementLeftStick;
+        Vector2 inputVector = new Vector2(_horizontal, _vertical);
+        inputVector.Normalize();
+
         if (player.invetoryOpened || player.craftingOpened || OpenPauseMenu.pauseMenuOpen) return;
 
         Vector3Int gridPosition = backgroundTilemap.WorldToCell(this.transform.position);
@@ -40,11 +48,13 @@ public class PlayerMovement : MonoBehaviour
         {
             if (slowTile.name == tile.name)
             {
-                rb.velocity = new Vector2(inputManager.horizontalMovementLeftStick * slowSpeed, inputManager.verticalMovementLeftStick * slowSpeed);
+                rb.velocity = inputVector*slowSpeed;
                 return;
             }
         }
-        rb.velocity = new Vector2(inputManager.horizontalMovementLeftStick * speed, inputManager.verticalMovementLeftStick * speed);
+   
+        
+        rb.velocity = inputVector*speed;
     }
 
 }
