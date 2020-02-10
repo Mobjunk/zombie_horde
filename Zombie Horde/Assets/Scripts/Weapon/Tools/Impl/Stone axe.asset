@@ -16,12 +16,14 @@ MonoBehaviour:
   weaponType: 0
   weaponSprite: {fileID: -5222295263699582268, guid: c4332602fc136bb43836266582549c07,
     type: 3}
+  weaponSpriteHand: {fileID: -893572145044121764, guid: 4f32daebbfe125a4da9dcb07c3e6d842,
+    type: 3}
   weaponName: Stone axe
   weaponSpeed: 3
   movementSpeed: 10
   twoHanded: 1
   weaponDurability: 100
-  weaponDamage: 2
+  weaponDamage: 4
   resourceType:
   - {fileID: 11400000, guid: 43b1ef37c78585d4f8dceeb1aec26024, type: 2}
   - {fileID: 11400000, guid: d7708bdbe33c58c4999a27a46d4d50a8, type: 2}

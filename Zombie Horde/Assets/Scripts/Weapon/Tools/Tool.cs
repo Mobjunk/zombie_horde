@@ -17,18 +17,13 @@ public class Tool : Weapon<ToolData>
         var weapon = Get(GetWeapon(player.inventorySlot), player.inventorySlot);
         if (weapon == null) return;
 
+        player.playerAttack.StartSwinging();
 
         var correctTool = resourceSystem.CorrectTool(weapon.tool);
-
+        
         if (!correctTool) return;
-        
-        weapon.toolDurability -= resourceSystem.GetResource().resourceObject.toolDamage;
-        
-        if (weapon.toolDurability <= 0)
-        {
-            player.inventory.Remove(weapon.tool.item.itemId, 1, weapon.slot);
-            player.tools.Remove(weapon);
-        }
+
+        LoseDurability(weapon, resourceSystem.GetResource().resourceObject.toolDamage);
         
         resourceSystem.DestroyResource((int) GetDamage());
     }
@@ -59,5 +54,16 @@ public class Tool : Weapon<ToolData>
     public Tools Get(ToolData tool, int slot)
     {
         return player.tools.Where(tools => tools != null && tools.tool != null).FirstOrDefault(tools => tools.tool.Equals(tool) && tools.slot == slot);
+    }
+
+    public void LoseDurability(Tools weapon, int durabilityLost)
+    {
+        weapon.toolDurability -= durabilityLost;
+        
+        if (weapon.toolDurability <= 0)
+        {
+            player.inventory.Remove(weapon.tool.item.itemId, 1, weapon.slot);
+            player.tools.Remove(weapon);
+        }
     }
 }

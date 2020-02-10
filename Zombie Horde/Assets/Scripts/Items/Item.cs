@@ -14,4 +14,6 @@ public class Item : ScriptableObject
     public GunData gun;
     [Header("Tool reference")]
     public ToolData tool;
+    [Header("Food reference")]
+    public Food food;
 }
