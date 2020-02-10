@@ -8,6 +8,7 @@ public class ResourceSystem : MonoBehaviour
 {
     public static ResourceSystem instance;
     [SerializeField, Range(1, 5)] float gatherRange = 2f;
+    [SerializeField] private LayerMask layerMask;
     
     public class Resource
     {
@@ -97,37 +98,41 @@ public class ResourceSystem : MonoBehaviour
     // Destroys resource if durability is 0 and gives resources
     public void DestroyResource(int damage)
     {
-        var position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var distance = Vector2.Distance(playerTrans.position, position);
-
-        if (distance > gatherRange) return;
-        
-        Vector3Int gridPosition = resourceTilemap.WorldToCell(position);
-        if (resourceTilemap.GetTile(gridPosition) != null)
+        RaycastHit2D hit = Physics2D.Raycast(playerTrans.position, Vector2FromAngle(playerTrans.eulerAngles.z + 90), 100f, layerMask);
+        if (hit.collider)
         {
-            for (int i = 0; i < resources.Count; i++)
+            Vector3 position = hit.point + Vector2FromAngle(playerTrans.eulerAngles.z + 90) * new Vector2(0.1f, 0.1f);
+            var distance = Vector2.Distance(playerTrans.position, position);
+
+            if (distance > gatherRange) return;
+
+            Vector3Int gridPosition = resourceTilemap.WorldToCell(position);
+            if (resourceTilemap.GetTile(gridPosition) != null)
             {
-                if (resources[i].position == gridPosition)
+                for (int i = 0; i < resources.Count; i++)
                 {
-                    if (resources[i].durability - damage <= 0)
+                    if (resources[i].position == gridPosition)
                     {
-                        damage += resources[i].durability - damage;
-                    }
+                        if (resources[i].durability - damage <= 0)
+                        {
+                            damage += resources[i].durability - damage;
+                        }
 
-                    resources[i].durability -= damage;
+                        resources[i].durability -= damage;
 
-                    // Adds items to player inventory
-                    foreach (var item in resources[i].resourceObject.itemsGivenPerHit)
-                    {
-                        player.inventory.Add(item.item.itemId, item.amount * damage);
-                    }
+                        // Adds items to player inventory
+                        foreach (var item in resources[i].resourceObject.itemsGivenPerHit)
+                        {
+                            player.inventory.Add(item.item.itemId, item.amount * damage);
+                        }
 
-                    // Destroys resource
-                    if (resources[i].durability <= 0)
-                    {
-                        resourceTilemap.SetTile(gridPosition, null);
-                        shadowTilemap.SetTile(resourceTilemap.WorldToCell(position + resourceTilemap.transform.position), null);
-                        resources.RemoveAt(i);
+                        // Destroys resource
+                        if (resources[i].durability <= 0)
+                        {
+                            resourceTilemap.SetTile(gridPosition, null);
+                            shadowTilemap.SetTile(resourceTilemap.WorldToCell(position + resourceTilemap.transform.position), null);
+                            resources.RemoveAt(i);
+                        }
                     }
                 }
             }
@@ -141,4 +146,10 @@ public class ResourceSystem : MonoBehaviour
             DestroyResource(Camera.main.ScreenToWorldPoint(Input.mousePosition), 1);
         }
     }*/
+
+    private Vector2 Vector2FromAngle(float a)
+    {
+        a *= Mathf.Deg2Rad;
+        return new Vector2(Mathf.Cos(a), Mathf.Sin(a));
+    }
 }

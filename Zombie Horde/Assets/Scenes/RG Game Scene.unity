@@ -4195,6 +4195,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gatherRange: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
   resourceTilemap: {fileID: 903860017}
   shadowTilemap: {fileID: 685994588}
   structuresTilemap: {fileID: 434384993}
