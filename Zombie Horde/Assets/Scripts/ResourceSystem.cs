@@ -126,10 +126,11 @@ public class ResourceSystem : MonoBehaviour
                             if (resources[i].durability - damage <= 0)
                             {
                                 damage += resources[i].durability - damage;
+                               
                             }
 
                             resources[i].durability -= damage;
-
+                            Instantiate(resources[i].resourceObject.particleEffect, resources[i].position, Quaternion.identity);
                             // Adds items to player inventory
                             foreach (var item in resources[i].resourceObject.itemsGivenPerHit)
                             {

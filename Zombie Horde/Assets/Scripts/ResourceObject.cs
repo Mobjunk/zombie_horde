@@ -10,4 +10,5 @@ public class ResourceObject : ScriptableObject
     public ResourceSystem.ItemGiven[] itemsGivenPerHit;
     public int durability = 0;
     public int toolDamage;
+    public GameObject particleEffect;
 }

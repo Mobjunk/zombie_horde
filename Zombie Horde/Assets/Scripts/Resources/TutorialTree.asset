@@ -19,3 +19,5 @@ MonoBehaviour:
     amount: 1
   durability: 1000
   toolDamage: 3
+  particleEffect: {fileID: 6136025493102144356, guid: 7486475738325224eb02c00444c3690c,
+    type: 3}
