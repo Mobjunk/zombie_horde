@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (OpenPauseMenu.pauseMenuOpen) return;
         HandleMovement();
     }
     void HandleMovement()

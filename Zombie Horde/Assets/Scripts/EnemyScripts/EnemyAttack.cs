@@ -25,6 +25,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (OpenPauseMenu.pauseMenuOpen) return;
         if (Time.time > timer)
         {
             RaycastHit2D hit = Physics2D.Raycast(enemy.transform.position, Vector2FromAngle(enemy.transform.eulerAngles.z), 1f,layerMask);

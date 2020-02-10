@@ -24,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   if (PlayerHealth.playerAlive == true)
+    {   if (PlayerHealth.playerAlive == true && !OpenPauseMenu.pauseMenuOpen)
         {
             if (Vector2.Distance(this.transform.position, target.position) > minimumDistance && Vector2.Distance(this.transform.position, target.position) < maximumDistance)
             {
