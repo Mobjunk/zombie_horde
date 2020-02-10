@@ -19,6 +19,7 @@ public class PlayerAiming : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (OpenPauseMenu.pauseMenuOpen) return;
         LookAtMouse();
         
         //if (inputManager.controllerConnected)
