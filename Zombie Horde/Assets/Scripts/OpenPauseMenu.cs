@@ -6,10 +6,12 @@ public class OpenPauseMenu : MonoBehaviour
 {
     public static bool pauseMenuOpen = false;
     [SerializeField] private GameObject pauseMenu;
+    private Player player;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameManager.playerObject.GetComponent<Player>();
         pauseMenuOpen = false;
     }
 
@@ -18,7 +20,9 @@ public class OpenPauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && PlayerHealth.playerAlive)
         {
-            togglePauseMenu();
+            if (player.invetoryOpened) player.HandleInventory(false);
+            else if (player.craftingOpened) player.HandleCrafting(false);
+            else togglePauseMenu();
         }
     }
 

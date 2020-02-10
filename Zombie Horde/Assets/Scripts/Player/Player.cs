@@ -80,40 +80,48 @@ public class Player : MonoBehaviour
         {
             int damage = 1;
 
+            //Checks if the player has an useable gun or weapon
             if (gun.CanUse() || tool.CanUse())
             {
+                //Disables the left hand
                 leftHand.SetActive(false);
                 Sprite sprite = null;
+                //Handles setting the gun sprite
                 if (gun.CanUse())
                 {
                     var weapon = gun.Get(gun.GetWeapon(inventorySlot), inventorySlot);
                     if (weapon == null) return;
                     sprite = weapon.gun.weaponSpriteHand;
                     
-                } else if (tool.CanUse())
+                } 
+                //Handles setting the tool sprite
+                else if (tool.CanUse())
                 {
                     var weapon = tool.Get(tool.GetWeapon(inventorySlot), inventorySlot);
                     if (weapon == null) return;
                     sprite = weapon.tool.weaponSpriteHand;
                 }
-
+                //Assign the sprite
                 weaponRender.sprite = sprite;
             }
+            //Handles setting back the left hand
             else
             {
                 leftHand.SetActive(true);
                 weaponRender.sprite = null;
             }
-            
+            //Handles the use of the guns
             if (gun.CanUse())
             {
                 gun.Use();
                 gun.Reload();
             }
+            //Handles the use of the tools
             else if (tool.CanUse())
             {
                 tool.Use();
             }
+            //Handles the player punching
             else if (inputManager.pressedAttack && !invetoryOpened && !craftingOpened)
             {
                 playerAttack.StartSwinging();
@@ -121,19 +129,29 @@ public class Player : MonoBehaviour
             }
         }
     }
-    void OpenInventory()
+    public void OpenInventory()
     {
         if (!inputManager.pressedInventory || craftingOpened || OpenPauseMenu.pauseMenuOpen) return;
-        invetoryOpened = !invetoryOpened;
-        inventoryUI.SetActive(invetoryOpened);
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        HandleInventory(!invetoryOpened);
     }
 
     void OpenCrafting()
     {
         if (!inputManager.pressedCrafting || invetoryOpened || OpenPauseMenu.pauseMenuOpen) return;
-        craftingOpened = !craftingOpened;
-        craftingUI.SetActive(craftingOpened);
+        HandleCrafting(!craftingOpened);
+    }
+
+    public void HandleInventory(bool open)
+    {
+        invetoryOpened = open;
+        inventoryUI.SetActive(open);
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
+
+    public void HandleCrafting(bool open)
+    {
+        craftingOpened = open;
+        craftingUI.SetActive(open);
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
