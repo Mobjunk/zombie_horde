@@ -26,6 +26,9 @@
             <e p="EnemySpawner.cs" t="Include" />
             <e p="EnemyWaveSystem.cs" t="Include" />
           </e>
+          <e p="Food" t="Include">
+            <e p="Food.cs" t="Include" />
+          </e>
           <e p="GameManager.cs" t="Include" />
           <e p="GameOverScript.cs" t="Include" />
           <e p="HideCursorScript.cs" t="Include" />
@@ -50,6 +53,7 @@
             <e p="Player.cs" t="Include" />
             <e p="PlayerAiming.cs" t="Include" />
             <e p="PlayerAttack.cs" t="Include" />
+            <e p="PlayerHealing.cs" t="Include" />
             <e p="PlayerHealth.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
           </e>
@@ -61,8 +65,16 @@
           <e p="ResourceSystem.cs" t="Include" />
           <e p="SetAudioVolume.cs" t="Include" />
           <e p="SetMapSizeScript.cs" t="Include" />
+          <e p="Sounds" t="Include">
+            <e p="SoundPlayer.cs" t="Include" />
+            <e p="Sounds.cs" t="Include" />
+          </e>
           <e p="ToolTip.cs" t="Include" />
           <e p="ToolTipSystem.cs" t="Include" />
+          <e p="Tutorial" t="Include">
+            <e p="TutorialResources.cs" t="Include" />
+            <e p="TutorialSpawnZombies.cs" t="Include" />
+          </e>
           <e p="Weapon" t="Include">
             <e p="Guns" t="Include">
               <e p="Bullet.cs" t="Include" />

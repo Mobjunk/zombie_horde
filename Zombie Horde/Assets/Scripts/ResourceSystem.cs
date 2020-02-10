@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -52,21 +53,29 @@ public class ResourceSystem : MonoBehaviour
 
     public Resource GetResource()
     {
-        Vector3Int gridPosition = resourceTilemap.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        if (resourceTilemap.GetTile(gridPosition) != null)
+        RaycastHit2D hit = Physics2D.Raycast(playerTrans.position, Vector2FromAngle(playerTrans.eulerAngles.z + 90), gatherRange, layerMask);
+        if (hit.collider)
         {
-            foreach (var resource in resources.Where(resource => resource.position == gridPosition))
+            var position = hit.point + Vector2FromAngle(playerTrans.eulerAngles.z + 90) * new Vector2(0.1f, 0.1f);
+            var gridPosition = resourceTilemap.WorldToCell(position);
+            if (resourceTilemap.GetTile(gridPosition) != null)
             {
-                return resource;
+                foreach (var resource in resources.Where(resource => resource.position == gridPosition))
+                {
+                    return resource;
+                }
             }
         }
-
         return null;
     }
 
     public bool CorrectTool(ToolData tool)
     {
         var resource = GetResource();
+        if (resource != null)
+        {
+            Debug.Log($"resource: {resource.resourceObject.name}");
+        }
         return resource != null && tool.resourceType.Contains(resource.resourceObject);
     }
 
@@ -98,13 +107,10 @@ public class ResourceSystem : MonoBehaviour
     // Destroys resource if durability is 0 and gives resources
     public void DestroyResource(int damage)
     {
-        RaycastHit2D hit = Physics2D.Raycast(playerTrans.position, Vector2FromAngle(playerTrans.eulerAngles.z + 90), 100f, layerMask);
+        RaycastHit2D hit = Physics2D.Raycast(playerTrans.position, Vector2FromAngle(playerTrans.eulerAngles.z + 90), gatherRange, layerMask);
         if (hit.collider)
         {
             Vector3 position = hit.point + Vector2FromAngle(playerTrans.eulerAngles.z + 90) * new Vector2(0.1f, 0.1f);
-            var distance = Vector2.Distance(playerTrans.position, position);
-
-            if (distance > gatherRange) return;
 
             Vector3Int gridPosition = resourceTilemap.WorldToCell(position);
             if (resourceTilemap.GetTile(gridPosition) != null)

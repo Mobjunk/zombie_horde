@@ -35,8 +35,6 @@ public class PlayerHealth : MonoBehaviour
         if (playerVuln)
         {
             currentHealth -= amount;
-            healthBar.fillAmount = currentHealth / startingHealth;
-            healthText.text = $"{currentHealth}/{startingHealth}";
             //Checks if health drops below a threshold and switches to game over scene
             if (currentHealth <= 0)
             {
@@ -67,5 +65,7 @@ public class PlayerHealth : MonoBehaviour
     }
     private void Update()
     {
+        healthBar.fillAmount = currentHealth / startingHealth;
+        healthText.text = $"{currentHealth}/{startingHealth}";
     }
 }

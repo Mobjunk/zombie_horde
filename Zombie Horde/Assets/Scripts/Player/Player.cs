@@ -7,9 +7,12 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    InputManager inputManager => InputManager.instance;
-    PlayerAttack playerAttack => PlayerAttack.instance;
+    public InputManager inputManager => InputManager.instance;
+    public PlayerAttack playerAttack => PlayerAttack.instance;
     ResourceSystem resourceSystem => ResourceSystem.instance;
+
+    private GameObject leftHand, rightHand;
+    private SpriteRenderer weaponRender;
     
     /// <summary>
     /// The game object for the inventory ui
@@ -56,9 +59,15 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        leftHand = GameManager.playerObject.transform.GetChild(0).gameObject;
+        rightHand = GameManager.playerObject.transform.GetChild(1).gameObject;
+        weaponRender = rightHand.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        
         inventory = new Container(36);
         gun = new Gun(this);
         tool = new Tool(this);
+
+        inventory.Add(10, 100);
     }
 
     private void Update()
@@ -70,6 +79,32 @@ public class Player : MonoBehaviour
         if (AllowedToScroll())
         {
             int damage = 1;
+
+            if (gun.CanUse() || tool.CanUse())
+            {
+                leftHand.SetActive(false);
+                Sprite sprite = null;
+                if (gun.CanUse())
+                {
+                    var weapon = gun.Get(gun.GetWeapon(inventorySlot), inventorySlot);
+                    if (weapon == null) return;
+                    sprite = weapon.gun.weaponSpriteHand;
+                    
+                } else if (tool.CanUse())
+                {
+                    var weapon = tool.Get(tool.GetWeapon(inventorySlot), inventorySlot);
+                    if (weapon == null) return;
+                    sprite = weapon.tool.weaponSpriteHand;
+                }
+
+                weaponRender.sprite = sprite;
+            }
+            else
+            {
+                leftHand.SetActive(true);
+                weaponRender.sprite = null;
+            }
+            
             if (gun.CanUse())
             {
                 gun.Use();

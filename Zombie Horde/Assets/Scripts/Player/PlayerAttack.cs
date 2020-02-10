@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
         IEnumerator waiter()
         {
             //Wait for before performing the following action
-            yield return new WaitForSeconds(0.35f);
+            yield return new WaitForSeconds(0.30f);
             playerAnimator.SetBool("isPunching", false);
         }
 
