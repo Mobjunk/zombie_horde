@@ -14,6 +14,7 @@ public class EnemyAttack : MonoBehaviour
     public LayerMask structure;
     public float attackCooldown;
     public float damage;
+    public GameObject bloodParticle;
     [SerializeField] private LayerMask layerMask;
 
     // Start is called before the first frame update
@@ -52,6 +53,7 @@ public class EnemyAttack : MonoBehaviour
     public void Attack()
     {
         playerHealth.TakeDamage(damage);
+        Instantiate(bloodParticle, playerHealth.transform.position, Quaternion.identity);
         timer = Time.time + attackCooldown;
     }
 

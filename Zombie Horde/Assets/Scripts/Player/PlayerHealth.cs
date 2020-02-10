@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
 
     public Image healthBar;
     public Text healthText;
+    public GameObject deadParticle;
 
     public bool playerVuln;
     public static bool playerAlive;
@@ -38,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
             //Checks if health drops below a threshold and switches to game over scene
             if (currentHealth <= 0)
             {
+                Instantiate(deadParticle, this.transform.position, Quaternion.identity);
                 playerAlive = false;
                 OnPlayerDie.Invoke();
                 Destroy(this.gameObject, 0.2f);
