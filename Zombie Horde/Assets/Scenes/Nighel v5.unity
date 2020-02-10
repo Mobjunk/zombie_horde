@@ -224,11 +224,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7181571736183469808, guid: 64daf007389761b49b2115507497e9b9,
         type: 2}
-    - target: {fileID: 4689801427944551729, guid: 48ded8577040b69479ec7a6cbb560225,
-        type: 3}
-      propertyPath: audioSource
-      value: 
-      objectReference: {fileID: 1983253669}
     - target: {fileID: 6437288990198247162, guid: 48ded8577040b69479ec7a6cbb560225,
         type: 3}
       propertyPath: inventoryUI
@@ -4565,6 +4560,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
+  harvestCooldown: 0.3
   resourceTilemap: {fileID: 903860017}
   shadowTilemap: {fileID: 685994588}
   structuresTilemap: {fileID: 434384993}
@@ -5509,12 +5505,6 @@ RectTransform:
   m_AnchoredPosition: {x: -249, y: 75}
   m_SizeDelta: {x: -502, y: 60}
   m_Pivot: {x: 0.5, y: 0}
---- !u!82 &1983253669 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3465672575015524517, guid: 48ded8577040b69479ec7a6cbb560225,
-    type: 3}
-  m_PrefabInstance: {fileID: 87913400}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2076518231 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4956559198000080280, guid: 7bdd93206fc8aa4459f62ac28ebecad8,

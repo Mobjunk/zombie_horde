@@ -136,6 +136,11 @@ public class ResourceSystem : MonoBehaviour
                                 player.inventory.Add(item.item.itemId, item.amount * damage);
                             }
 
+                            if (resources[i].resourceObject.name.Equals(""))
+                            {
+                                
+                            }
+
                             // Destroys resource
                             if (resources[i].durability <= 0)
                             {
