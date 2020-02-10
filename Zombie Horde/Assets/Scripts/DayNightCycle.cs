@@ -28,6 +28,7 @@ public class DayNightCycle : MonoBehaviour
     [SerializeField] private Transform shadowsTilemap;
     [SerializeField] private Tilemap shadowImage;
     [SerializeField] private Text dayCounterText;
+    [SerializeField] private RectTransform clock;
     public List<SpriteRenderer> movingShadows = new List<SpriteRenderer>();
 
     private void Start()
@@ -40,6 +41,7 @@ public class DayNightCycle : MonoBehaviour
     {
         ChangeTimeOfDay();
         ChangeColorsDarknessShadows();
+        clockRotation();
     }
 
     private void ChangeTimeOfDay()
@@ -93,5 +95,10 @@ public class DayNightCycle : MonoBehaviour
     private void SetDayCounterText()
     {
         dayCounterText.text = "Day " + daysPassed;
+    }
+
+    private void clockRotation()
+    {
+        clock.eulerAngles = new Vector3(0,0, -360 / 24 * timeOfDay);
     }
 }
