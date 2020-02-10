@@ -14,14 +14,16 @@ public class BuildingSystem : MonoBehaviour
 
     public class Building
     {
-        public Building(Vector3 Position, float StructureHealth)
+        public Building(Vector3 Position, float StructureHealth, GameObject ParticleEffect)
         {
             position = Position;
             structureHealth = StructureHealth;
+            particleEffect = ParticleEffect;
         }
 
         public Vector3 position;
         public float structureHealth;
+        public GameObject particleEffect;
     }
 
     [HideInInspector] public List<Building> placedBuildings = new List<Building>();
@@ -65,7 +67,7 @@ public class BuildingSystem : MonoBehaviour
                         structuresTilemap.SetTile(gridPosition, buildingObject.tile);
                         shadowTilemap.SetTile(shadowTilemap.WorldToCell(position + shadowTilemap.transform.position), buildingObject.tile);
                         // Adds the structure to a list of placedstructures to keep track of hp
-                        placedBuildings.Add(new Building(gridPosition, buildingObject.structureHealth));
+                        placedBuildings.Add(new Building(gridPosition, buildingObject.structureHealth, buildingObject.particleEffect));
                     }
                 }
                 return;
@@ -82,6 +84,7 @@ public class BuildingSystem : MonoBehaviour
             if (placedBuildings[i].position == gridPosition)
             {
                 placedBuildings[i].structureHealth -= damage;
+                Instantiate(placedBuildings[i].particleEffect, placedBuildings[i].position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
                 if (placedBuildings[i].structureHealth <= 0)
                 {
                     // removes the tile when the structure has 0 hp.

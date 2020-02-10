@@ -10,5 +10,6 @@ public class BuildingObject : ScriptableObject
     public float structureHealth;
     public Tile tile;
     public Tile[] tilesToBuildOn;
+    public GameObject particleEffect;
 
 }

@@ -20,7 +20,7 @@ MonoBehaviour:
   tilesToBuildOn:
   - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}
   - {fileID: 11400000, guid: a5da7d7bb59c0fa4387f66d629ce7b34, type: 2}
-  - {fileID: 11400000, guid: 2b0f680aca9e93d48acc949c273366a8, type: 2}
+  - {fileID: 11400000, guid: 0b2b28b1135c5a74286978f414916608, type: 2}
   - {fileID: 11400000, guid: 4a4ad0a6264f799459c4b750aad36b95, type: 2}
   - {fileID: 11400000, guid: 0ce785b9c9848dd4eb61363f75ed6962, type: 2}
   - {fileID: 11400000, guid: 224e11cbd2b98eb468d562af1c655566, type: 2}
@@ -28,3 +28,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 55319368108a519448da7c45dec2e04b, type: 2}
   - {fileID: 11400000, guid: dd53b5f6bc4a2244b91120683226f350, type: 2}
   - {fileID: 11400000, guid: 1eb4b63fd54a24b4f95cf455255f7ba5, type: 2}
+  particleEffect: {fileID: 6136025493102144356, guid: 7486475738325224eb02c00444c3690c,
+    type: 3}
