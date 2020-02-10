@@ -69,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -7417376085096868495, guid: 4af1aa23fd811d248ba3dd3bac5241e3,
     type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -668,6 +668,8 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 0}
   healthText: {fileID: 0}
+  deadParticle: {fileID: 7884275824156312776, guid: 451244edbe44ed346a0e1801d9168648,
+    type: 3}
   playerVuln: 0
   OnPlayerDie:
     m_PersistentCalls:

@@ -4279,6 +4279,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
+  harvestCooldown: 0.3
   resourceTilemap: {fileID: 903860017}
   shadowTilemap: {fileID: 685994588}
   structuresTilemap: {fileID: 434384993}
@@ -4938,6 +4939,11 @@ PrefabInstance:
       propertyPath: OnPlayerDie.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 255837587, guid: 7bdd93206fc8aa4459f62ac28ebecad8, type: 3}
+      propertyPath: deadParticle
+      value: 
+      objectReference: {fileID: 7884275824156312776, guid: 451244edbe44ed346a0e1801d9168648,
+        type: 3}
     - target: {fileID: 3287519462029026801, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
         type: 3}
       propertyPath: invetoryUI
