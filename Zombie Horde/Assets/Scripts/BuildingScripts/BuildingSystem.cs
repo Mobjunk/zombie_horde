@@ -45,7 +45,7 @@ public class BuildingSystem : MonoBehaviour
         
         var distance = Vector2.Distance(playerTrans.position, position);
 
-        if (distance > gatherRange) return;
+        if (distance > gatherRange || distance < 0.7f) return;
         
         foreach (var tileToBuildOn in buildingObject.tilesToBuildOn)
         {
