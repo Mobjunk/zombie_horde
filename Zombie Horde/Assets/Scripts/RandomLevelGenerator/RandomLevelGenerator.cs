@@ -12,7 +12,8 @@ public class RandomLevelGenerator : MonoBehaviour
         Medium = 150,
         Large = 200,
         Giant = 400,
-        Extreme = 1000
+        Extreme = 1000,
+        RipPC = 2000
     }
 
     public enum TileTypes
