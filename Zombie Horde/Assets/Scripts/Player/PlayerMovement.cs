@@ -44,12 +44,15 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3Int gridPosition = backgroundTilemap.WorldToCell(this.transform.position);
         TileBase tile = backgroundTilemap.GetTile(gridPosition);
-        foreach (var slowTile in slowTiles)
+        if (tile != null)
         {
-            if (slowTile.name == tile.name)
+            foreach (var slowTile in slowTiles)
             {
-                rb.velocity = inputVector*slowSpeed;
-                return;
+                if (slowTile.name == tile.name)
+                {
+                    rb.velocity = inputVector * slowSpeed;
+                    return;
+                }
             }
         }
    

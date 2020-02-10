@@ -50,12 +50,15 @@ public class EnemyMovement : MonoBehaviour
     {
         Vector3Int gridPosition = backgroundTilemap.WorldToCell(this.transform.position);
         TileBase tile = backgroundTilemap.GetTile(gridPosition);
-        foreach (var slowTile in slowTiles)
+        if (tile != null)
         {
-            if (slowTile.name == tile.name)
+            foreach (var slowTile in slowTiles)
             {
-                rb2d.velocity = rb2d.transform.rotation * new Vector2(slowSpeed, 0);
-                return;
+                if (slowTile.name == tile.name)
+                {
+                    rb2d.velocity = rb2d.transform.rotation * new Vector2(slowSpeed, 0);
+                    return;
+                }
             }
         }
         rb2d.velocity = rb2d.transform.rotation * new Vector2(speed, 0);
