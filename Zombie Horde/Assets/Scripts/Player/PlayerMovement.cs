@@ -14,6 +14,10 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float speed = 4;
     [SerializeField] private float slowSpeed = 2;
+    [SerializeField] private float timer = 0;
+
+    public GameObject waterWalkEffect;
+    bool spawnParticle;
 
     float _horizontal;
     float _vertical;
@@ -31,6 +35,15 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        timer += Time.deltaTime;
+        if(timer > 1)
+        {
+            spawnParticle = true;
+        }
+        if(timer < 1)
+        {
+            spawnParticle = false;
+        }
         if (OpenPauseMenu.pauseMenuOpen) return;
         HandleMovement();
     }
@@ -52,12 +65,18 @@ public class PlayerMovement : MonoBehaviour
                 if (slowTile.name == tile.name)
                 {
                     rb.velocity = inputVector * slowSpeed;
+
+                    if (spawnParticle == true)
+                    {
+                        Instantiate(waterWalkEffect, this.transform.position, Quaternion.identity);
+                        timer = 0;
+
+                    }
                     return;
                 }
             }
         }
-   
-        
+
         rb.velocity = inputVector*speed;
     }
 
