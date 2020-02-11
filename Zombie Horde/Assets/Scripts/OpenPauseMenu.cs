@@ -7,6 +7,8 @@ public class OpenPauseMenu : MonoBehaviour
     public static bool pauseMenuOpen = false;
     [SerializeField] private GameObject pauseMenu;
     private Player player;
+    public GameObject[] objectsToDeactivate;
+    public GameObject controls;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +22,7 @@ public class OpenPauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && PlayerHealth.playerAlive)
         {
-            if (player.invetoryOpened) player.HandleInventory(false);
+            if (player.inventoryOpened) player.HandleInventory(false);
             else if (player.craftingOpened) player.HandleCrafting(false);
             else togglePauseMenu();
         }
@@ -28,15 +30,26 @@ public class OpenPauseMenu : MonoBehaviour
 
     public void togglePauseMenu()
     {
-        if (pauseMenuOpen)
+        if (pauseMenuOpen) //uit
         {
             pauseMenu.SetActive(false);
             pauseMenuOpen = false;
+            foreach (GameObject gameObject in objectsToDeactivate)
+            {
+                gameObject.SetActive(true);
+                print(gameObject.name);
+                controls.SetActive(false);
+            }
         }
-        else
+        else //aan
         {
             pauseMenu.SetActive(true);
             pauseMenuOpen = true;
+            foreach (GameObject gameObject in objectsToDeactivate)
+            {
+                gameObject.SetActive(false);
+                print(gameObject.name);
+            }
         }
     }
 }

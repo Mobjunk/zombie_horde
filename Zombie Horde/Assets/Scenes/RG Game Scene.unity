@@ -2879,6 +2879,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836544899}
   m_CullTransparentMesh: 0
+--- !u!1 &875547597 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 588332343, guid: 85434f9834eefe54285d3fd7624cad34,
+    type: 3}
+  m_PrefabInstance: {fileID: 779338143}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &895591389
 GameObject:
   m_ObjectHideFlags: 0
@@ -4957,6 +4963,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 779338144}
+  objectsToDeactivate:
+  - {fileID: 427394497}
+  - {fileID: 776199489}
+  controls: {fileID: 875547597}
 --- !u!114 &1499841752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4972,6 +4982,10 @@ MonoBehaviour:
   gameoverMenu: {fileID: 1197852468}
   gameoverText: {fileID: 1841072622}
   dayNightCycle: {fileID: 1577931857}
+  ObjectsToDisable:
+  - {fileID: 427394497}
+  - {fileID: 1837774032}
+  - {fileID: 776199489}
 --- !u!114 &1577931857 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5082412508422531452, guid: 3bbeeeb83752c2242925ea1add3c827a,
@@ -5329,6 +5343,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 32bf7962aa704d34c8272dbd41c3ebad,
         type: 2}
+    - target: {fileID: 5868418563330530513, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
+        type: 3}
+      propertyPath: waterWalkEffect
+      value: 
+      objectReference: {fileID: 1592977467092703709, guid: 20f55f0304ccaf44f8d6fa5005afa2ac,
+        type: 3}
     - target: {fileID: 5868418563330530515, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
         type: 3}
       propertyPath: m_Name

@@ -40,7 +40,7 @@ public class Gun : Weapon<GunData>
     
     public override void Use()
     {
-        if (!inputManager.pressedAttack || player.invetoryOpened || player.craftingOpened) return;
+        if (!inputManager.pressedAttack || player.inventoryOpened || player.craftingOpened) return;
         
         var weapon = Get(GetWeapon(player.inventorySlot), player.inventorySlot);
         if (weapon == null || weapon.reloading) return;
@@ -110,7 +110,7 @@ public class Gun : Weapon<GunData>
 
         if (weapon.bulletsInChamber >= gun.maxBullets || GetBulletAmount(gun) <= 0) return;
 
-        if (!weapon.reloading && (inputManager.pressedReload && !player.invetoryOpened)) weapon.reloading = true;
+        if (!weapon.reloading && (inputManager.pressedReload && !player.inventoryOpened)) weapon.reloading = true;
 
         if (!weapon.reloading) return;
         

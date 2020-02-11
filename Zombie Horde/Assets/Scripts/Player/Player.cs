@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     /// <summary>
     /// Check if the player has his inventory opened
     /// </summary>
-    [HideInInspector] public bool invetoryOpened = false;
+    [HideInInspector] public bool inventoryOpened = false;
     /// <summary>
     /// Check if the player has his crafting interface opened
     /// </summary>
@@ -129,7 +129,7 @@ public class Player : MonoBehaviour
                 tool.Use();
             }
             //Handles the player punching
-            else if (inputManager.pressedAttack && !invetoryOpened && !craftingOpened)
+            else if (inputManager.pressedAttack && !inventoryOpened && !craftingOpened)
             {
                 playerAttack.StartSwinging();
                 resourceSystem.DestroyResource(damage);
@@ -139,18 +139,18 @@ public class Player : MonoBehaviour
     public void OpenInventory()
     {
         if (!inputManager.pressedInventory || craftingOpened || OpenPauseMenu.pauseMenuOpen) return;
-        HandleInventory(!invetoryOpened);
+        HandleInventory(!inventoryOpened);
     }
 
     void OpenCrafting()
     {
-        if (!inputManager.pressedCrafting || invetoryOpened || OpenPauseMenu.pauseMenuOpen) return;
+        if (!inputManager.pressedCrafting || inventoryOpened || OpenPauseMenu.pauseMenuOpen) return;
         HandleCrafting(!craftingOpened);
     }
 
     public void HandleInventory(bool open)
     {
-        invetoryOpened = open;
+        inventoryOpened = open;
         inventoryUI.SetActive(open);
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
@@ -164,7 +164,7 @@ public class Player : MonoBehaviour
 
     public bool AllowedToScroll()
     {
-        return !invetoryOpened && !craftingOpened && !OpenPauseMenu.pauseMenuOpen;
+        return !inventoryOpened && !craftingOpened && !OpenPauseMenu.pauseMenuOpen;
     }
     
     void SwitchSlot()
