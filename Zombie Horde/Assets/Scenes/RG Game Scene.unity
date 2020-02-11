@@ -2065,6 +2065,11 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 9c93d2c4451008a45b5e8f300e8116bd, type: 2}
     chance: 0.1
     placedOn: 01000000
+  - name: Pebble
+    tileVariants:
+    - {fileID: 11400000, guid: 9e89cf1af1b44c048830e16ac7ff4445, type: 2}
+    chance: 10
+    placedOn: 03000000
 --- !u!4 &611057192
 Transform:
   m_ObjectHideFlags: 0
@@ -4313,6 +4318,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d7708bdbe33c58c4999a27a46d4d50a8, type: 2}
   - {fileID: 11400000, guid: 429faecce4a7a7f449e7a13562b5f6cb, type: 2}
   - {fileID: 11400000, guid: 384085d2cdba65843939b5629ff266c7, type: 2}
+  - {fileID: 11400000, guid: b69c6ee377c2bf246944de68388f56a1, type: 2}
 --- !u!4 &1287278943
 Transform:
   m_ObjectHideFlags: 0
@@ -4724,10 +4730,10 @@ MonoBehaviour:
     spawnAfterDays: 0
   - enemyObject: {fileID: 11400000, guid: 773761579f048cd4ca54c925224771fd, type: 2}
     chance: 1
-    spawnAfterDays: 5
+    spawnAfterDays: 3
   - enemyObject: {fileID: 11400000, guid: 76d77498486f5cc45a75831d8e73dae2, type: 2}
     chance: 20
-    spawnAfterDays: 3
+    spawnAfterDays: 1
   startingAmount: 2
   zombiesPerDay: 2
 --- !u!1 &1617556482
