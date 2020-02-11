@@ -109,7 +109,7 @@ public class BuildingSystem : MonoBehaviour
 
             PlaceStrucure(building);
         }
-        if (inputManager.pressedAttack)
+        if (inputManager.pressedAttack && !player.inventoryOpened && !player.craftingOpened)
         {
             RaycastHit2D hit = Physics2D.Raycast(playerTrans.position, Vector2FromAngle(playerTrans.eulerAngles.z + 90), gatherRange, layerMask);
             if (hit.collider)

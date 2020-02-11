@@ -2879,6 +2879,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836544899}
   m_CullTransparentMesh: 0
+--- !u!1 &875547597 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 588332343, guid: 85434f9834eefe54285d3fd7624cad34,
+    type: 3}
+  m_PrefabInstance: {fileID: 779338143}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &895591389
 GameObject:
   m_ObjectHideFlags: 0
@@ -4957,8 +4963,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 779338144}
-  objectsToDeactivate: []
-  controls: {fileID: 0}
+  objectsToDeactivate:
+  - {fileID: 427394497}
+  - {fileID: 776199489}
+  controls: {fileID: 875547597}
 --- !u!114 &1499841752
 MonoBehaviour:
   m_ObjectHideFlags: 0
