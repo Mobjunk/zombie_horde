@@ -1,0 +1,28 @@
+{
+    "Items": [
+        {
+            "playerName": "Nighel",
+            "daysSurvived": 0,
+            "zombiesKilled": 0,
+            "damageDealt": 0,
+            "damageTaken": 0,
+            "playerStatus": "Died"
+        },
+        {
+            "playerName": "Nighel2",
+            "daysSurvived": 0,
+            "zombiesKilled": 0,
+            "damageDealt": 0,
+            "damageTaken": 0,
+            "playerStatus": "Died"
+        },
+        {
+            "playerName": "Remon",
+            "daysSurvived": 0,
+            "zombiesKilled": 0,
+            "damageDealt": 0,
+            "damageTaken": 0,
+            "playerStatus": "DIED"
+        }
+    ]
+}

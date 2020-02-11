@@ -318,7 +318,8 @@ PrefabInstance:
       propertyPath: inventoryHotbar.Array.data[1]
       value: 
       objectReference: {fileID: 1648161674}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5874679707837103986, guid: 48ded8577040b69479ec7a6cbb560225, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 48ded8577040b69479ec7a6cbb560225, type: 3}
 --- !u!1 &122245938
 GameObject:
@@ -1983,9 +1984,13 @@ MonoBehaviour:
   gatherRange: 2
   structuresTilemap: {fileID: 434384993}
   shadowTilemap: {fileID: 685994588}
-  resourcesTilemap: {fileID: 903860017}
+  resourcesHighTilemap: {fileID: 0}
+  resourcesMediumTilemap: {fileID: 0}
+  resourcesLowTilemap: {fileID: 0}
   backgroundTilemap: {fileID: 1617556485}
-  tempStructure: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   structures:
   - {fileID: 11400000, guid: dad97048d0b5cb643b8614f430f794c4, type: 2}
   - {fileID: 11400000, guid: b22d2942407e8ad4aa90ad80c7e32387, type: 2}

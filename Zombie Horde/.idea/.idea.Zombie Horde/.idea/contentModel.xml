@@ -32,11 +32,19 @@
           <e p="GameManager.cs" t="Include" />
           <e p="GameOverScript.cs" t="Include" />
           <e p="HideCursorScript.cs" t="Include" />
+          <e p="Highscore" t="Include">
+            <e p="Highscore.cs" t="Include" />
+            <e p="HighscoreEntry.cs" t="Include" />
+          </e>
           <e p="IdleMenuScript.cs" t="Include" />
           <e p="InputManager.cs" t="Include" />
           <e p="Items" t="Include">
             <e p="Item.cs" t="Include" />
             <e p="ItemData.cs" t="Include" />
+          </e>
+          <e p="Json" t="Include">
+            <e p="JsonHandler.cs" t="Include" />
+            <e p="JsonHelper.cs" t="Include" />
           </e>
           <e p="LoadAudioVolume.cs" t="Include" />
           <e p="LoadSceneScript.cs" t="Include" />
