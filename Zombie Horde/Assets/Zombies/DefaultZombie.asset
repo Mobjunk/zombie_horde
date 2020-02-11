@@ -22,7 +22,7 @@ MonoBehaviour:
   minimumDistance: 0.7
   maximumDistance: 100
   zombieVariants:
-  - {fileID: 4174866431905101710, guid: 881f27612f69c8543a468ec7f3a180f1, type: 3}
-  - {fileID: 5093695192268335082, guid: 881f27612f69c8543a468ec7f3a180f1, type: 3}
-  - {fileID: 3122859666585403997, guid: 881f27612f69c8543a468ec7f3a180f1, type: 3}
+  - {fileID: 21300000, guid: 307b54f0a6f963147ae68e19a7603c91, type: 3}
+  - {fileID: 21300000, guid: 18c0faf92b4d14d47b2b86674648d40f, type: 3}
+  - {fileID: 21300000, guid: 1fb49f66d1b07174082c203e7c77cb82, type: 3}
   size: {x: 1, y: 1, z: 1}

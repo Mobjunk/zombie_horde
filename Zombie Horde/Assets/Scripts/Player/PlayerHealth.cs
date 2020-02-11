@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
+    GameManager gameManager => GameManager.instance;
+    
     public static PlayerHealth instance;
 
     public float startingHealth = 100f;
@@ -35,6 +37,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (playerVuln)
         {
+            gameManager.soundPlayer.PlaySound(Sounds.PLAYER_HIT);
             currentHealth -= amount;
             //Checks if health drops below a threshold and switches to game over scene
             if (currentHealth <= 0)

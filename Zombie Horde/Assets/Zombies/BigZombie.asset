@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2b97e5309d97541867c67dc58e81cd, type: 3}
   m_Name: BigZombie
   m_EditorClassIdentifier: 
-  health: 20
-  damage: 20
+  health: 40
+  damage: 40
   attackCooldown: 2
-  speed: 0.7
-  slowSpeed: 0.1
+  speed: 1.5
+  slowSpeed: 0.2
   slowTiles:
   - {fileID: 11400000, guid: 32bf7962aa704d34c8272dbd41c3ebad, type: 2}
   minimumDistance: 0.7
   maximumDistance: 100
   zombieVariants:
-  - {fileID: 4174866431905101710, guid: 881f27612f69c8543a468ec7f3a180f1, type: 3}
-  - {fileID: 5093695192268335082, guid: 881f27612f69c8543a468ec7f3a180f1, type: 3}
-  - {fileID: 3122859666585403997, guid: 881f27612f69c8543a468ec7f3a180f1, type: 3}
+  - {fileID: 21300000, guid: 307b54f0a6f963147ae68e19a7603c91, type: 3}
+  - {fileID: 21300000, guid: 18c0faf92b4d14d47b2b86674648d40f, type: 3}
+  - {fileID: 21300000, guid: 1fb49f66d1b07174082c203e7c77cb82, type: 3}
   size: {x: 2, y: 2, z: 1}

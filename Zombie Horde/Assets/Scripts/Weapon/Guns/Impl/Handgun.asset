@@ -18,7 +18,7 @@ MonoBehaviour:
   weaponSpriteHand: {fileID: 2077393603658830619, guid: 4f32daebbfe125a4da9dcb07c3e6d842,
     type: 3}
   weaponName: Handgun
-  weaponSpeed: 100
+  weaponSpeed: 5.87
   movementSpeed: 10
   twoHanded: 0
   weaponDurability: 100

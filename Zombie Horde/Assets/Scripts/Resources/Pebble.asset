@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 622cb08290c084945a0f995fdd968541, type: 3}
-  m_Name: Small Rock
+  m_Name: Pebble
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 11400000, guid: bedd50865d2d8d74f9336a276c8ca350, type: 2}
+  - {fileID: 11400000, guid: 9e89cf1af1b44c048830e16ac7ff4445, type: 2}
   itemsGivenPerHit:
   - item: {fileID: 11400000, guid: 223bf627c9fa02c49a3296acc2e469b2, type: 2}
     amount: 1
-  durability: 5
-  toolDamage: 5
+  durability: 1
+  toolDamage: 1
   particleEffect: {fileID: 8959364535396023920, guid: 23a859ca971c9364097403a698f63223,
     type: 3}
-  hasShadows: 1
-  height: 1
-  tool: {fileID: 11400000, guid: bc2a0a08d0fc76045b2ce359fb0cf459, type: 2}
+  hasShadows: 0
+  height: 2
+  tool: {fileID: 0}

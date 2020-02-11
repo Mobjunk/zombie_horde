@@ -10,10 +10,14 @@ public class Player : MonoBehaviour
     public InputManager inputManager => InputManager.instance;
     public PlayerAttack playerAttack => PlayerAttack.instance;
     ResourceSystem resourceSystem => ResourceSystem.instance;
-
+    /// <summary>
+    /// The left and right hand of the player
+    /// </summary>
     private GameObject leftHand, rightHand;
+    /// <summary>
+    /// The sprite renderer of the weapon in the players right hand
+    /// </summary>
     private SpriteRenderer weaponRender;
-    
     /// <summary>
     /// The game object for the inventory ui
     /// </summary>
@@ -44,9 +48,10 @@ public class Player : MonoBehaviour
     /// Handles the gun
     /// </summary>
     public Gun gun;
-
+    /// <summary>
+    /// Handles the tool
+    /// </summary>
     public Tool tool;
-    
     /// <summary>
     /// A list of all the weapons the player has
     /// </summary>
@@ -68,6 +73,8 @@ public class Player : MonoBehaviour
         tool = new Tool(this);
 
         inventory.Add(10, 100);
+        inventory.Add(3);
+        inventory.Add(4, 1000);
     }
 
     private void Update()
