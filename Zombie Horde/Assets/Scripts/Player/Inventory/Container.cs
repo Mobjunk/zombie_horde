@@ -194,7 +194,8 @@ public class Container
 
                 var durabilityBar = durability.GetChild(1).GetComponent<Image>();
 
-                var item = items[ui.Length == 1 ? index + 9 : index];
+                var itemSlot = ui.Length == 1 ? index + 9 : index;
+                var item = items[itemSlot];
 
                 if (item == null || item.item == null)
                 {
@@ -213,7 +214,7 @@ public class Container
                     if (item.item.gun != null)
                     {
                         
-                        var weapon = player.gun.Get(player.gun.GetWeapon(index), index);
+                        var weapon = player.gun.Get(player.gun.GetWeapon(itemSlot), itemSlot);
                         //var weapon = player.weapon.GetWeapon(item.item.gun);
                         if (weapon != null)
                         {
@@ -227,8 +228,8 @@ public class Container
 
                     if (item.item.gun != null || item.item.tool != null)
                     {
-                        var gun = player.gun.Get(player.gun.GetWeapon(index), index);
-                        var tool = player.tool.Get(player.tool.GetWeapon(index), index);
+                        var gun = player.gun.Get(player.gun.GetWeapon(itemSlot), itemSlot);
+                        var tool = player.tool.Get(player.tool.GetWeapon(itemSlot), itemSlot);
                         durability.gameObject.SetActive(true);
 
                         var startDurability = 0f;
@@ -238,7 +239,8 @@ public class Container
                         {
                             startDurability = gun.gun.weaponDurability;
                             currentDurability = gun.gunDurability;
-                        } else if (tool != null)
+                        }
+                        else if (tool != null)
                         {
                             startDurability = tool.tool.weaponDurability;
                             currentDurability = tool.toolDurability;

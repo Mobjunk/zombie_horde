@@ -1,4 +1,6 @@
-﻿public class Guns
+﻿using UnityEngine;
+
+public class Guns
 {
     public GunData gun;
     public int slot;
@@ -13,5 +15,10 @@
         this.bulletsInChamber = 0;
         this.reloading = false;
         this.gunDurability = gun.weaponDurability;
+    }
+
+    public void SetSlot(int slot)
+    {
+        this.slot = slot;
     }
 }

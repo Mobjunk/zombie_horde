@@ -1,4 +1,7 @@
-﻿public class Tools
+﻿using UnityEngine;
+
+[System.Serializable]
+public class Tools
 {
     public ToolData tool;
     public int slot;
@@ -8,6 +11,11 @@
     {
         this.tool = tool;
         this.slot = slot;
-        this.toolDurability = tool.weaponDurability;
+        toolDurability = tool.weaponDurability;
+    }
+
+    public void SetSlot(int newSlot)
+    {
+        slot = newSlot;
     }
 }

@@ -39,8 +39,8 @@ public class Tool : Weapon<ToolData>
     {
         var selectedItem = player.inventory.Get(slot);
         if (selectedItem == null || selectedItem.item == null || selectedItem.item.tool == null) return null;
-        
-        if(!WeaponExists(selectedItem.item.tool, slot))
+
+        if (!WeaponExists(selectedItem.item.tool, slot))
             player.tools.Add(new Tools(selectedItem.item.tool, slot));
         
         return selectedItem.item.tool;

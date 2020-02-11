@@ -26,7 +26,7 @@ public class PlayerHealing : MonoBehaviour
         }
         
         //Checks if the player pressed the right mouse button and there is no delay for eating
-        if (player.inputManager.placeStructure && lastEat <= 0)
+        if (player.inputManager.placeStructure && lastEat <= 0 && player.AllowedToScroll())
         {
             //Grabs the item the player has selected in his inventory
             var item = player.inventory.Get(player.inventorySlot).item;

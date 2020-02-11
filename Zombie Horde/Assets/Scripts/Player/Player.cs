@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
@@ -58,11 +59,21 @@ public class Player : MonoBehaviour
     /// </summary>
     [HideInInspector] public List<Guns> guns = new List<Guns>();
 
+    public Guns GetGun(int slot)
+    {
+        return guns.Where(gun => gun != null).FirstOrDefault(gun => gun.slot == slot);
+    }
+    
     /// <summary>
     /// A listt of all the tools the player has
     /// </summary>
-    [HideInInspector]public List<Tools> tools = new List<Tools>();
+    public List<Tools> tools = new List<Tools>();
 
+    public Tools GetTool(int slot)
+    {
+        return tools.Where(tool => tool != null).FirstOrDefault(tool => tool.slot == slot);
+    }
+    
     /// <summary>
     /// The name of the player
     /// </summary>
@@ -97,6 +108,7 @@ public class Player : MonoBehaviour
         inventory.Add(10, 100);
         inventory.Add(3);
         inventory.Add(4, 1000);
+        inventory.Add(6, 2);
     }
 
     private void Update()
