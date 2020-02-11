@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2b97e5309d97541867c67dc58e81cd, type: 3}
   m_Name: BigZombie
   m_EditorClassIdentifier: 
-  health: 20
-  damage: 20
+  health: 40
+  damage: 40
   attackCooldown: 2
-  speed: 0.7
-  slowSpeed: 0.1
+  speed: 1.5
+  slowSpeed: 0.2
   slowTiles:
   - {fileID: 11400000, guid: 32bf7962aa704d34c8272dbd41c3ebad, type: 2}
   minimumDistance: 0.7
