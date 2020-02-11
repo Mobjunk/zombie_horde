@@ -13,6 +13,8 @@ public class ResourceObject : ScriptableObject
     public GameObject particleEffect;
     public bool hasShadows = true;
     public Heights height = Heights.High;
+    [Header("Tool required")]
+    public ToolData tool;
 
     public enum Heights
     {

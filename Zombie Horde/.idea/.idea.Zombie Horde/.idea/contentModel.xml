@@ -61,8 +61,10 @@
           <e p="RandomLevelGenerator" t="Include">
             <e p="RandomLevelGenerator.cs" t="Include" />
           </e>
-          <e p="ResourceObject.cs" t="Include" />
-          <e p="ResourceSystem.cs" t="Include" />
+          <e p="Resources" t="Include">
+            <e p="ResourceObject.cs" t="Include" />
+            <e p="ResourceSystem.cs" t="Include" />
+          </e>
           <e p="SetAudioVolume.cs" t="Include" />
           <e p="SetMapSizeScript.cs" t="Include" />
           <e p="Sounds" t="Include">

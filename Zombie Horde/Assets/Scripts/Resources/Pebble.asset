@@ -22,4 +22,5 @@ MonoBehaviour:
   particleEffect: {fileID: 8959364535396023920, guid: 23a859ca971c9364097403a698f63223,
     type: 3}
   hasShadows: 0
-  height: 2
+  height: 0
+  tool: {fileID: 0}

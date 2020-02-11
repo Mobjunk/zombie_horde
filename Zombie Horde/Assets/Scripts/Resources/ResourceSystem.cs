@@ -76,10 +76,6 @@ public class ResourceSystem : MonoBehaviour
     public bool CorrectTool(ToolData tool)
     {
         var resource = GetResource();
-        if (resource != null)
-        {
-            Debug.Log($"resource: {resource.resourceObject.name}");
-        }
         return resource != null && tool.resourceType.Contains(resource.resourceObject);
     }
 
@@ -146,6 +142,8 @@ public class ResourceSystem : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(playerTrans.position, Vector2FromAngle(playerTrans.eulerAngles.z + 90), gatherRange, layerMask);
             if (hit.collider)
             {
+                var tool = player.tool.Get(player.tool.GetWeapon(player.inventorySlot), player.inventorySlot);
+                
                 Vector3 position = hit.point + Vector2FromAngle(playerTrans.eulerAngles.z + 90) * new Vector2(0.1f, 0.1f);
 
                 Vector3Int gridPosition = resourceHighTilemap.WorldToCell(position);
@@ -155,10 +153,22 @@ public class ResourceSystem : MonoBehaviour
                     {
                         if (resources[i].position == gridPosition)
                         {
+                            if (resources[i].resourceObject.tool != null)
+                            {
+                                if (tool == null)
+                                {
+                                    Debug.Log("The player has no tool.");
+                                    return;
+                                }
+                                if (!tool.tool.Equals(resources[i].resourceObject.tool))
+                                {
+                                    Debug.Log("The player does not have the correct tool.");
+                                    return;
+                                }
+                            }
                             if (resources[i].durability - damage <= 0)
                             {
                                 damage += resources[i].durability - damage;
-                               
                             }
 
                             resources[i].durability -= damage;
