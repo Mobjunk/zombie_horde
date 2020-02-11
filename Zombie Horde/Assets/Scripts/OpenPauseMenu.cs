@@ -22,7 +22,7 @@ public class OpenPauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && PlayerHealth.playerAlive)
         {
-            if (player.invetoryOpened) player.HandleInventory(false);
+            if (player.inventoryOpened) player.HandleInventory(false);
             else if (player.craftingOpened) player.HandleCrafting(false);
             else togglePauseMenu();
         }

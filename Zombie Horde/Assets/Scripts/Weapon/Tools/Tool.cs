@@ -12,7 +12,7 @@ public class Tool : Weapon<ToolData>
 
     public override void Use()
     {
-        if (!inputManager.pressedAttack || player.invetoryOpened || player.craftingOpened) return;
+        if (!inputManager.pressedAttack || player.inventoryOpened || player.craftingOpened) return;
         
         var weapon = Get(GetWeapon(player.inventorySlot), player.inventorySlot);
         if (weapon == null) return;

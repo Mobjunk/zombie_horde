@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 inputVector = new Vector2(_horizontal, _vertical);
         inputVector.Normalize();
 
-        if (player.invetoryOpened || player.craftingOpened || OpenPauseMenu.pauseMenuOpen) return;
+        if (player.inventoryOpened || player.craftingOpened || OpenPauseMenu.pauseMenuOpen) return;
 
         Vector3Int gridPosition = backgroundTilemap.WorldToCell(this.transform.position);
         TileBase tile = backgroundTilemap.GetTile(gridPosition);
