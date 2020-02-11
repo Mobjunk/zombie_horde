@@ -34,7 +34,9 @@ public class ResourceSystem : MonoBehaviour
 
     [SerializeField] private float harvestCooldown = 0.3f;
     [Header("Tilemaps")]
-    [SerializeField] private Tilemap resourceTilemap;
+    [SerializeField] private Tilemap resourceHighTilemap;
+    [SerializeField] private Tilemap resourceMediumTilemap;
+    [SerializeField] private Tilemap resourceLowTilemap;
     [SerializeField] private Tilemap shadowTilemap;
     [SerializeField] private Tilemap structuresTilemap;
     [Space]
@@ -59,8 +61,8 @@ public class ResourceSystem : MonoBehaviour
         if (hit.collider)
         {
             var position = hit.point + Vector2FromAngle(playerTrans.eulerAngles.z + 90) * new Vector2(0.1f, 0.1f);
-            var gridPosition = resourceTilemap.WorldToCell(position);
-            if (resourceTilemap.GetTile(gridPosition) != null)
+            var gridPosition = resourceHighTilemap.WorldToCell(position);
+            if (resourceHighTilemap.GetTile(gridPosition) != null || resourceMediumTilemap.GetTile(gridPosition) != null || resourceLowTilemap.GetTile(gridPosition) != null)
             {
                 foreach (var resource in resources.Where(resource => resource.position == gridPosition))
                 {
@@ -84,8 +86,8 @@ public class ResourceSystem : MonoBehaviour
     // This spawns a resource and keeps track of it in a list
     public void SpawnResource(Vector3 position, Tile tile)
     {
-        Vector3Int gridPosition = resourceTilemap.WorldToCell(position);
-        if (resourceTilemap.GetTile(gridPosition) == null && structuresTilemap.GetTile(gridPosition) == null)
+        Vector3Int gridPosition = resourceHighTilemap.WorldToCell(position);
+        if (resourceHighTilemap.GetTile(gridPosition) == null && structuresTilemap.GetTile(gridPosition) == null && resourceLowTilemap.GetTile(gridPosition) == null && resourceMediumTilemap.GetTile(gridPosition) == null)
         {
             // Checks if the tile you want to spawn is a tile from a resource
             foreach (var resourceObject in resourceObjects)
@@ -94,11 +96,41 @@ public class ResourceSystem : MonoBehaviour
                 {
                     if (resourceTile == tile)
                     {
-                        tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, Random.Range(0, 360)), Vector3.one);
-                        resourceTilemap.SetTile(gridPosition, tile);
-                        shadowTilemap.SetTile(resourceTilemap.WorldToCell(position + resourceTilemap.transform.position), tile);
-                        resources.Add(new Resource(resourceObject, gridPosition));
-                        return;
+                        switch (resourceObject.height)
+                        {
+                            case ResourceObject.Heights.High:
+                                tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, Random.Range(0, 360)), Vector3.one);
+                                resourceHighTilemap.SetTile(gridPosition, tile);
+                                if (resourceObject.hasShadows)
+                                {
+                                    shadowTilemap.SetTile(shadowTilemap.WorldToCell(position + shadowTilemap.transform.position), tile);
+                                }
+                                resources.Add(new Resource(resourceObject, gridPosition));
+                                return;
+
+                            case ResourceObject.Heights.Medium:
+                                tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, Random.Range(0, 360)), Vector3.one);
+                                resourceMediumTilemap.SetTile(gridPosition, tile);
+                                if (resourceObject.hasShadows)
+                                {
+                                    shadowTilemap.SetTile(shadowTilemap.WorldToCell(position + shadowTilemap.transform.position), tile);
+                                }
+                                resources.Add(new Resource(resourceObject, gridPosition));
+                                return;
+
+                            case ResourceObject.Heights.Low:
+                                tile.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, Random.Range(0, 360)), Vector3.one);
+                                resourceLowTilemap.SetTile(gridPosition, tile);
+                                if (resourceObject.hasShadows)
+                                {
+                                    shadowTilemap.SetTile(shadowTilemap.WorldToCell(position + shadowTilemap.transform.position), tile);
+                                }
+                                resources.Add(new Resource(resourceObject, gridPosition));
+                                return;
+
+                            default:
+                                break;
+                        }
                     }
                 }
             }
@@ -116,8 +148,8 @@ public class ResourceSystem : MonoBehaviour
             {
                 Vector3 position = hit.point + Vector2FromAngle(playerTrans.eulerAngles.z + 90) * new Vector2(0.1f, 0.1f);
 
-                Vector3Int gridPosition = resourceTilemap.WorldToCell(position);
-                if (resourceTilemap.GetTile(gridPosition) != null)
+                Vector3Int gridPosition = resourceHighTilemap.WorldToCell(position);
+                if (resourceHighTilemap.GetTile(gridPosition) != null || resourceLowTilemap.GetTile(gridPosition) == null || resourceMediumTilemap.GetTile(gridPosition) == null)
                 {
                     for (int i = 0; i < resources.Count; i++)
                     {
@@ -146,9 +178,35 @@ public class ResourceSystem : MonoBehaviour
                             // Destroys resource
                             if (resources[i].durability <= 0)
                             {
-                                resourceTilemap.SetTile(gridPosition, null);
-                                shadowTilemap.SetTile(resourceTilemap.WorldToCell(position + resourceTilemap.transform.position), null);
-                                resources.RemoveAt(i);
+                                switch (resources[i].resourceObject.height)
+                                {
+                                    case ResourceObject.Heights.High:
+                                        resourceHighTilemap.SetTile(gridPosition, null);
+                                        if (resources[i].resourceObject.hasShadows)
+                                        {
+                                            shadowTilemap.SetTile(shadowTilemap.WorldToCell(position + shadowTilemap.transform.position), null);
+                                        }
+                                        resources.RemoveAt(i);
+                                        break;
+                                    case ResourceObject.Heights.Medium:
+                                        resourceMediumTilemap.SetTile(gridPosition, null);
+                                        if (resources[i].resourceObject.hasShadows)
+                                        {
+                                            shadowTilemap.SetTile(shadowTilemap.WorldToCell(position + shadowTilemap.transform.position), null);
+                                        }
+                                        resources.RemoveAt(i);
+                                        break;
+                                    case ResourceObject.Heights.Low:
+                                        resourceLowTilemap.SetTile(gridPosition, null);
+                                        if (resources[i].resourceObject.hasShadows)
+                                        {
+                                            shadowTilemap.SetTile(shadowTilemap.WorldToCell(position + shadowTilemap.transform.position), null);
+                                        }
+                                        resources.RemoveAt(i);
+                                        break;
+                                    default:
+                                        break;
+                                }
                             }
 
                             harvestDelay = Time.time + harvestCooldown;

@@ -11,4 +11,13 @@ public class ResourceObject : ScriptableObject
     public int durability = 0;
     public int toolDamage;
     public GameObject particleEffect;
+    public bool hasShadows = true;
+    public Heights height = Heights.High;
+
+    public enum Heights
+    {
+        High,
+        Medium,
+        Low
+    }
 }
