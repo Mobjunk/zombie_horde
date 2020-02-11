@@ -7,7 +7,7 @@ using UnityEngine.Tilemaps;
 public class BuildingSystem : MonoBehaviour
 {
     [SerializeField, Range(1, 5)] float gatherRange = 2f;
-    
+
     InputManager inputManager => InputManager.instance;
     private Player player;
     private Transform playerTrans;
@@ -30,9 +30,12 @@ public class BuildingSystem : MonoBehaviour
 
     [SerializeField] private Tilemap structuresTilemap;
     [SerializeField] private Tilemap shadowTilemap;
-    [SerializeField] private Tilemap resourcesTilemap;
+    [SerializeField] private Tilemap resourcesHighTilemap;
+    [SerializeField] private Tilemap resourcesMediumTilemap;
+    [SerializeField] private Tilemap resourcesLowTilemap;
     [SerializeField] private Tilemap backgroundTilemap;
-    public BuildingObject tempStructure;
+    [Space]
+    [SerializeField] private LayerMask layerMask;
     public List<BuildingObject> structures = new List<BuildingObject>();
 
     private void Start()
@@ -44,17 +47,17 @@ public class BuildingSystem : MonoBehaviour
     public void PlaceStrucure(BuildingObject buildingObject)
     {
         var position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        
+
         var distance = Vector2.Distance(playerTrans.position, position);
 
         if (distance > gatherRange || distance < 0.7f) return;
-        
+
         foreach (var tileToBuildOn in buildingObject.tilesToBuildOn)
         {
             if (backgroundTilemap.GetTile(backgroundTilemap.WorldToCell(position)).name == tileToBuildOn.name)
             {
                 // Checks if the tile doesn't have a resource on the resource tile map
-                if (resourcesTilemap.GetTile(resourcesTilemap.WorldToCell(position)) == null)
+                if (resourcesHighTilemap.GetTile(resourcesHighTilemap.WorldToCell(position)) == null && resourcesMediumTilemap.GetTile(resourcesMediumTilemap.WorldToCell(position)) == null && resourcesLowTilemap.GetTile(resourcesLowTilemap.WorldToCell(position)) == null)
                 {
                     Vector3Int gridPosition = structuresTilemap.WorldToCell(position);
                     // Checks if there isn't already a structure on the tile.
@@ -62,7 +65,7 @@ public class BuildingSystem : MonoBehaviour
                     {
                         //Remove all the items from the player his inventory
                         player.inventory.Remove(buildingObject.item.item.itemId, buildingObject.item.amount);
-                        
+
                         // Changes the tiles in the tilemaps
                         structuresTilemap.SetTile(gridPosition, buildingObject.tile);
                         shadowTilemap.SetTile(shadowTilemap.WorldToCell(position + shadowTilemap.transform.position), buildingObject.tile);
@@ -103,8 +106,17 @@ public class BuildingSystem : MonoBehaviour
         {
             var building = GetBuilding();
             if (building == null) return;
-            
+
             PlaceStrucure(building);
+        }
+        if (inputManager.pressedAttack)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(playerTrans.position, Vector2FromAngle(playerTrans.eulerAngles.z + 90), gatherRange, layerMask);
+            if (hit.collider)
+            {
+                Vector3 position = hit.point + Vector2FromAngle(playerTrans.eulerAngles.z + 90) * new Vector2(0.1f, 0.1f);
+                DestroyStructure(position, 1000);
+            }
         }
     }
 
@@ -115,11 +127,17 @@ public class BuildingSystem : MonoBehaviour
             var itemData = player.inventory.items[player.inventorySlot];
             if (itemData == null || itemData.item == null) return null;
             var itemId = itemData.item.itemId;
-             if (structure.item.item.itemId == itemId && player.inventory.Contains(itemId, structure.item.amount))
+            if (structure.item.item.itemId == itemId && player.inventory.Contains(itemId, structure.item.amount))
             {
                 return structure;
             }
         }
         return null;
+    }
+
+    private Vector2 Vector2FromAngle(float a)
+    {
+        a *= Mathf.Deg2Rad;
+        return new Vector2(Mathf.Cos(a), Mathf.Sin(a));
     }
 }

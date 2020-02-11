@@ -1983,9 +1983,13 @@ MonoBehaviour:
   gatherRange: 2
   structuresTilemap: {fileID: 434384993}
   shadowTilemap: {fileID: 685994588}
-  resourcesTilemap: {fileID: 903860017}
+  resourcesHighTilemap: {fileID: 903860017}
+  resourcesMediumTilemap: {fileID: 895591393}
+  resourcesLowTilemap: {fileID: 338744017}
   backgroundTilemap: {fileID: 1617556485}
-  tempStructure: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
   structures:
   - {fileID: 11400000, guid: dad97048d0b5cb643b8614f430f794c4, type: 2}
   - {fileID: 11400000, guid: b22d2942407e8ad4aa90ad80c7e32387, type: 2}
