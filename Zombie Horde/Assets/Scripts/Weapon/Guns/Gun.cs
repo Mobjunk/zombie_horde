@@ -8,7 +8,19 @@ public class Gun : Weapon<GunData>
     /// The current time of the reload
     /// </summary>
     private float reloadTimer;
-    public Gun(Player player) : base(player) { }
+    /// <summary>
+    /// Time between each possible shot
+    /// </summary>
+    public float _cooldownRatePerBulletShot;
+    /// <summary>
+    /// Time when a new bullet can be fired again
+    /// </summary>
+    private float _newBulletTimeStamp;
+
+    public Gun(Player player) : base(player)
+    {
+        _newBulletTimeStamp = Time.time;
+    }
     
     public override bool CanUse()
     {
@@ -20,6 +32,8 @@ public class Gun : Weapon<GunData>
 
             return false;
         }
+
+        _cooldownRatePerBulletShot = 1.0f / weapon.gun.weaponSpeed;
 
         return true;
     }
@@ -36,17 +50,22 @@ public class Gun : Weapon<GunData>
             ToolTipSystem.showReload = true;
             return;
         }
-        
-        weapon.gunDurability -= weapon.gun.durabilityDamage;
-        
-        if (weapon.gunDurability <= 0)
+
+        if (Time.time > _newBulletTimeStamp)
         {
-            player.inventory.Remove(weapon.gun.item.itemId, 1, player.inventorySlot);
-            player.guns.Remove(weapon);
-        }
+            weapon.gunDurability -= weapon.gun.durabilityDamage;
         
-        weapon.bulletsInChamber--;
-        SpawnBullet(weapon.gun);
+            if (weapon.gunDurability <= 0)
+            {
+                player.inventory.Remove(weapon.gun.item.itemId, 1, player.inventorySlot);
+                player.guns.Remove(weapon);
+            }
+        
+            weapon.bulletsInChamber--;
+            SpawnBullet(weapon.gun);
+            
+            _newBulletTimeStamp = Time.time + _cooldownRatePerBulletShot;
+        }
     }
 
     public override float GetDamage()
