@@ -4972,6 +4972,10 @@ MonoBehaviour:
   gameoverMenu: {fileID: 1197852468}
   gameoverText: {fileID: 1841072622}
   dayNightCycle: {fileID: 1577931857}
+  ObjectsToDisable:
+  - {fileID: 427394497}
+  - {fileID: 1837774032}
+  - {fileID: 776199489}
 --- !u!114 &1577931857 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5082412508422531452, guid: 3bbeeeb83752c2242925ea1add3c827a,
