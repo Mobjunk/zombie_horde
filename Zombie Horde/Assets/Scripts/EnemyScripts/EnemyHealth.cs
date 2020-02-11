@@ -25,9 +25,11 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakePlayerDamage(int amount)
     {
+        player.damageDealt += amount;
         currentHealth -= amount;
         if(currentHealth <= 0)
         {
+            player.zombiesKilled++;
             dayNightCycle.movingShadows.Remove(shadow);
             Destroy(gameObject);
             var startRot = Quaternion.LookRotation(enemy.transform.forward - enemy.transform.forward * 2);
@@ -46,7 +48,6 @@ public class EnemyHealth : MonoBehaviour
                 damage = (int) weapon.tool.weaponDamage;
                 player.tool.LoseDurability(weapon, 8);
             }
-            Debug.Log($"damage: {damage}");
             TakePlayerDamage(damage);
         }
 

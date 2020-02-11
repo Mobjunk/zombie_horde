@@ -50,7 +50,7 @@ public class PlayerHealing : MonoBehaviour
                 playerHealth.currentHealth = playerHealth.startingHealth;
 
             //Adds the delay for eating
-            lastEat = 2.5f;
+            lastEat = 1.85f;
         }
     }
 }

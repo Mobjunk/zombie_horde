@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public InputManager inputManager => InputManager.instance;
     public PlayerAttack playerAttack => PlayerAttack.instance;
     ResourceSystem resourceSystem => ResourceSystem.instance;
+    
     /// <summary>
     /// The left and right hand of the player
     /// </summary>
@@ -61,6 +62,27 @@ public class Player : MonoBehaviour
     /// A listt of all the tools the player has
     /// </summary>
     [HideInInspector]public List<Tools> tools = new List<Tools>();
+
+    /// <summary>
+    /// The name of the player
+    /// </summary>
+    public string playerName;
+    /// <summary>
+    /// How many zombies the player has killed
+    /// </summary>
+    public int zombiesKilled;
+    /// <summary>
+    /// How many damage the player has dealt
+    /// </summary>
+    public int damageDealt;
+    /// <summary>
+    /// How much damage the player has taken
+    /// </summary>
+    public int damageTaken;
+    /// <summary>
+    /// The status of the player
+    /// </summary>
+    public string playerStatus = "Alive";
 
     private void Start()
     {
@@ -136,6 +158,43 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// Checks if the player is holding a tool
+    /// </summary>
+    /// <returns></returns>
+    public bool IsHoldingTool()
+    {
+        return tool.CanUse();
+    }
+
+    /// <summary>
+    /// Checks if the player is holding a gun
+    /// </summary>
+    /// <returns></returns>
+    public bool IsHoldingGun()
+    {
+        return gun.CanUse();
+    }
+
+    /// <summary>
+    /// Grabs the gun the player is holding
+    /// </summary>
+    /// <returns>The gun the player is holding (if he is holding any)</returns>
+    public GunData GetGun()
+    {
+        return gun.GetWeapon(inventorySlot);
+    }
+
+    /// <summary>
+    /// Grabs what tool the player is holding
+    /// </summary>
+    /// <returns>The tool the player is holding (if he is holding any)</returns>
+    public ToolData GetTool()
+    {
+        return tool.GetWeapon(inventorySlot);
+    }
+    
     public void OpenInventory()
     {
         if (!inputManager.pressedInventory || craftingOpened || OpenPauseMenu.pauseMenuOpen) return;

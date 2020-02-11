@@ -8,6 +8,8 @@ public class CraftingUI : MonoBehaviour
 {
     public List<CraftingRecipe> craftingRecipes = new List<CraftingRecipe>();
     [SerializeField] private GameObject recipePrefab, recipeParent;
+    [SerializeField] private Text selectedAmount;
+    [HideInInspector] public int selectedTotal = 1;
     public Player player;
     
     private void Start()
@@ -65,7 +67,7 @@ public class CraftingUI : MonoBehaviour
 
         var items = resources.GetChild(1);
 
-        for (int index = 0; index < 5; index++)
+        for (var index = 0; index < 5; index++)
         {
             var item = items.GetChild(index);
             if (index >= itemCount)
@@ -88,5 +90,11 @@ public class CraftingUI : MonoBehaviour
                 text.color = hasCorrectAmount ? Color.green : Color.red;
             }
         }
+    }
+
+    public void UpdateSelectedTotal(int total)
+    {
+        selectedTotal = total;
+        selectedAmount.text = selectedTotal == -1 ? "Select\namount: All" : $"Select\namount: {selectedTotal}";
     }
 }

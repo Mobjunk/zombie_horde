@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
     public static bool playerAlive;
 
     [SerializeField] private UnityEvent OnPlayerDie = new UnityEvent();
+    private Player player;
 
     void Awake()
     {
@@ -33,10 +35,16 @@ public class PlayerHealth : MonoBehaviour
         //Find the HP bar object and retrieve the image component
     }
 
+    private void Start()
+    {
+        player = GameManager.playerObject.GetComponent<Player>();
+    }
+
     public void TakeDamage(float amount)
     {
         if (playerVuln)
         {
+            player.damageTaken += (int) amount;
             gameManager.soundPlayer.PlaySound(Sounds.PLAYER_HIT);
             currentHealth -= amount;
             //Checks if health drops below a threshold and switches to game over scene

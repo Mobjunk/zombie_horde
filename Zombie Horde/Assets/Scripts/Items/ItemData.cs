@@ -9,4 +9,10 @@ public class ItemData
         item = null;
         amount = 0;
     }
+
+    public ItemData(Item item, int amount)
+    {
+        this.item = item;
+        this.amount = amount;
+    }
 }
