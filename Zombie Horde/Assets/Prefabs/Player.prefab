@@ -624,6 +624,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 32bf7962aa704d34c8272dbd41c3ebad, type: 2}
   speed: 4
   slowSpeed: 2
+  timer: 0
+  waterWalkEffect: {fileID: 1592977467092703709, guid: 20f55f0304ccaf44f8d6fa5005afa2ac,
+    type: 3}
   rb: {fileID: 5868418563330530514}
 --- !u!114 &9008550542681894926
 MonoBehaviour:
