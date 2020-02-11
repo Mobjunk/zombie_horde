@@ -1825,9 +1825,13 @@ MonoBehaviour:
   gatherRange: 2
   structuresTilemap: {fileID: 434384993}
   shadowTilemap: {fileID: 685994588}
-  resourcesTilemap: {fileID: 903860017}
+  resourcesHighTilemap: {fileID: 0}
+  resourcesMediumTilemap: {fileID: 0}
+  resourcesLowTilemap: {fileID: 0}
   backgroundTilemap: {fileID: 1617556485}
-  tempStructure: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   structures:
   - {fileID: 11400000, guid: dad97048d0b5cb643b8614f430f794c4, type: 2}
   - {fileID: 11400000, guid: b22d2942407e8ad4aa90ad80c7e32387, type: 2}
@@ -2402,6 +2406,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1499841750}
     m_Modifications:
+    - target: {fileID: 933097077, guid: 85434f9834eefe54285d3fd7624cad34, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 155
+      objectReference: {fileID: 0}
+    - target: {fileID: 933097077, guid: 85434f9834eefe54285d3fd7624cad34, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 310
+      objectReference: {fileID: 0}
     - target: {fileID: 109845171978804976, guid: 85434f9834eefe54285d3fd7624cad34,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4200,7 +4212,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   harvestCooldown: 0.3
-  resourceTilemap: {fileID: 903860017}
+  resourceHighTilemap: {fileID: 0}
+  resourceMediumTilemap: {fileID: 0}
+  resourceLowTilemap: {fileID: 0}
   shadowTilemap: {fileID: 685994588}
   structuresTilemap: {fileID: 434384993}
   resourceObjects:
@@ -4542,6 +4556,7 @@ MonoBehaviour:
   gameoverMenu: {fileID: 1197852468}
   gameoverText: {fileID: 1841072622}
   dayNightCycle: {fileID: 1577931857}
+  ObjectsToDisable: []
 --- !u!114 &1577931857 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5082412508422531452, guid: 3bbeeeb83752c2242925ea1add3c827a,
@@ -4832,10 +4847,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 255837587, guid: 7bdd93206fc8aa4459f62ac28ebecad8, type: 3}
-      propertyPath: OnPlayerDie.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 255837587, guid: 7bdd93206fc8aa4459f62ac28ebecad8, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 710289945}
@@ -4844,33 +4855,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 122245940}
     - target: {fileID: 255837587, guid: 7bdd93206fc8aa4459f62ac28ebecad8, type: 3}
-      propertyPath: OnPlayerDie.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 255837587, guid: 7bdd93206fc8aa4459f62ac28ebecad8, type: 3}
-      propertyPath: OnPlayerDie.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 255837587, guid: 7bdd93206fc8aa4459f62ac28ebecad8, type: 3}
       propertyPath: OnPlayerDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1499841752}
-    - target: {fileID: 255837587, guid: 7bdd93206fc8aa4459f62ac28ebecad8, type: 3}
-      propertyPath: OnPlayerDie.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenGameoverMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 255837587, guid: 7bdd93206fc8aa4459f62ac28ebecad8, type: 3}
-      propertyPath: OnPlayerDie.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 255837587, guid: 7bdd93206fc8aa4459f62ac28ebecad8, type: 3}
-      propertyPath: deadParticle
-      value: 
-      objectReference: {fileID: 7884275824156312776, guid: 451244edbe44ed346a0e1801d9168648,
-        type: 3}
     - target: {fileID: 3287519462029026801, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
         type: 3}
-      propertyPath: invetoryUI
+      propertyPath: inventoryUI
       value: 
       objectReference: {fileID: 1837774032}
     - target: {fileID: 3287519462029026801, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
@@ -4880,36 +4870,14 @@ PrefabInstance:
       objectReference: {fileID: 179214379}
     - target: {fileID: 3287519462029026801, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
         type: 3}
-      propertyPath: inventoryUI
-      value: 
-      objectReference: {fileID: 1837774032}
-    - target: {fileID: 3287519462029026801, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
-        type: 3}
       propertyPath: itemName
       value: 
       objectReference: {fileID: 776199490}
     - target: {fileID: 5868418563330530513, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
         type: 3}
-      propertyPath: slowTiles.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5868418563330530513, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
-        type: 3}
       propertyPath: backgroundTilemap
       value: 
       objectReference: {fileID: 1617556485}
-    - target: {fileID: 5868418563330530513, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
-        type: 3}
-      propertyPath: slowTiles.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 32bf7962aa704d34c8272dbd41c3ebad,
-        type: 2}
-    - target: {fileID: 5868418563330530513, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
-        type: 3}
-      propertyPath: waterWalkEffect
-      value: 
-      objectReference: {fileID: 1592977467092703709, guid: 20f55f0304ccaf44f8d6fa5005afa2ac,
-        type: 3}
     - target: {fileID: 5868418563330530515, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
         type: 3}
       propertyPath: m_Name
@@ -4969,11 +4937,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6158465514030912696, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9008550542681894926, guid: 7bdd93206fc8aa4459f62ac28ebecad8,
         type: 3}
