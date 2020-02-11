@@ -130,7 +130,7 @@ public class ResourceSystem : MonoBehaviour
                             }
 
                             resources[i].durability -= damage;
-                            Instantiate(resources[i].resourceObject.particleEffect, resources[i].position, Quaternion.identity);
+                            Instantiate(resources[i].resourceObject.particleEffect, resources[i].position + new Vector3(0.5f,0.5f,0), Quaternion.identity);
                             // Adds items to player inventory
                             foreach (var item in resources[i].resourceObject.itemsGivenPerHit)
                             {
