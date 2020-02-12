@@ -102,14 +102,14 @@ public class BuildingSystem : MonoBehaviour
 
     private void Update()
     {
-        if (inputManager.placeStructure)
+        if (inputManager.placeStructure && !player.inventoryOpened && !player.craftingOpened)
         {
             var building = GetBuilding();
             if (building == null) return;
 
             PlaceStrucure(building);
         }
-        if (inputManager.pressedAttack && !player.inventoryOpened && !player.craftingOpened)
+        if (inputManager.pressedAttack && !player.inventoryOpened && !player.craftingOpened && !player.IsHoldingGun() && !player.IsHoldingTool())
         {
             RaycastHit2D hit = Physics2D.Raycast(playerTrans.position, Vector2FromAngle(playerTrans.eulerAngles.z + 90), gatherRange, layerMask);
             if (hit.collider)
