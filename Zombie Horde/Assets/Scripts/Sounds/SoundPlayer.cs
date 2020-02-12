@@ -56,15 +56,10 @@ public class SoundPlayer : MonoBehaviour
         else
         {
             //Grabs the available audio source
-            var source = audioSources[sounds.Count];
+            var source = audioSources[sounds.Count - 1];
             //Sets the clip and plays the clip
             source.clip = clip;
             source.Play();
         }
-    }
-
-    public void Play()
-    {
-        
     }
 }
