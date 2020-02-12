@@ -18,7 +18,7 @@ public class Highscore : JsonHandler<HighscoreEntry>
  
      protected override string GetPath()
      {
-         return "";
+         return $"{Application.persistentDataPath}/SaveData";
      }
 
      public override void Start()
@@ -104,4 +104,10 @@ public class Highscore : JsonHandler<HighscoreEntry>
              playerStatus.GetComponent<Text>().text = $"Player status: {entry.playerStatus}";
          }
      }
- }
+
+    public void Add(HighscoreEntry entry)
+    {
+        entries.Add(entry);
+        Save();
+    }
+}

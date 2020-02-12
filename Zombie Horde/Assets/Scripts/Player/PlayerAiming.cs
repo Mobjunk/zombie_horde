@@ -7,11 +7,12 @@ public class PlayerAiming : MonoBehaviour
     public static PlayerAiming instance;
     InputManager inputManager => InputManager.instance;
     PlayerMovement playerMovement => PlayerMovement.instance;
-    public Camera _camera;
+    private Camera _camera;
     public Vector2 mousePos;
     // Start is called before the first frame update
     void Start()
     {
+        _camera = Camera.main;
         instance = this;
         Cursor.visible = false;
     }

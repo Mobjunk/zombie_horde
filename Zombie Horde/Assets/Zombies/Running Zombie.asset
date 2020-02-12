@@ -19,7 +19,7 @@ MonoBehaviour:
   slowSpeed: 0.75
   slowTiles:
   - {fileID: 11400000, guid: 32bf7962aa704d34c8272dbd41c3ebad, type: 2}
-  minimumDistance: 1.2
+  minimumDistance: 0.7
   maximumDistance: 100
   zombieVariants:
   - {fileID: 75903289641227606, guid: 881f27612f69c8543a468ec7f3a180f1, type: 3}

@@ -612,6 +612,11 @@ PrefabInstance:
       propertyPath: toolTipDescriptionText
       value: 
       objectReference: {fileID: 836544901}
+    - target: {fileID: 7117350141441837597, guid: 48ded8577040b69479ec7a6cbb560225,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7499313197917639885, guid: 48ded8577040b69479ec7a6cbb560225,
         type: 3}
       propertyPath: recipeParent
@@ -2345,7 +2350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426421926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000047683716, y: 0.00000011920929, z: -10}
+  m_LocalPosition: {x: -0.00000023841858, y: 0.00000011920929, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 66858390}
@@ -28153,9 +28158,13 @@ MonoBehaviour:
   gatherRange: 2
   structuresTilemap: {fileID: 434384993}
   shadowTilemap: {fileID: 685994588}
-  resourcesTilemap: {fileID: 903860017}
+  resourcesHighTilemap: {fileID: 903860017}
+  resourcesMediumTilemap: {fileID: 0}
+  resourcesLowTilemap: {fileID: 0}
   backgroundTilemap: {fileID: 1617556485}
-  tempStructure: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
   structures:
   - {fileID: 11400000, guid: dad97048d0b5cb643b8614f430f794c4, type: 2}
   - {fileID: 11400000, guid: b22d2942407e8ad4aa90ad80c7e32387, type: 2}
@@ -28285,7 +28294,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000047683716, y: 0.00000011920929, z: -10}
+  m_LocalPosition: {x: -0.00000023841858, y: 0.00000011920929, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -31088,7 +31097,10 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
-  resourceTilemap: {fileID: 903860017}
+  harvestCooldown: 0.3
+  resourceHighTilemap: {fileID: 0}
+  resourceMediumTilemap: {fileID: 0}
+  resourceLowTilemap: {fileID: 0}
   shadowTilemap: {fileID: 685994588}
   structuresTilemap: {fileID: 434384993}
   resourceObjects:
@@ -31562,6 +31574,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 779338144}
+  objectsToDeactivate: []
+  controls: {fileID: 0}
 --- !u!114 &1499841752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31577,6 +31591,7 @@ MonoBehaviour:
   gameoverMenu: {fileID: 1197852468}
   gameoverText: {fileID: 1841072622}
   dayNightCycle: {fileID: 1577931857}
+  ObjectsToDisable: []
 --- !u!1 &1500718217
 GameObject:
   m_ObjectHideFlags: 0

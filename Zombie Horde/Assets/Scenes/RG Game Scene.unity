@@ -2607,6 +2607,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -180.33946
       objectReference: {fileID: 0}
+    - target: {fileID: 2538972178101385311, guid: 85434f9834eefe54285d3fd7624cad34,
+        type: 3}
+      propertyPath: dayNightCycle
+      value: 
+      objectReference: {fileID: 1577931857}
     - target: {fileID: 6221259068288024164, guid: 85434f9834eefe54285d3fd7624cad34,
         type: 3}
       propertyPath: m_AnchorMin.y
