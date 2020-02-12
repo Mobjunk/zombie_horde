@@ -18,7 +18,7 @@ public class Highscore : JsonHandler<HighscoreEntry>
  
      protected override string GetPath()
      {
-         return "";
+         return $"{Application.persistentDataPath}/SaveData";
      }
 
      public override void Start()
