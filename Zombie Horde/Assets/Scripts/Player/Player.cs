@@ -41,11 +41,11 @@ public class Player : MonoBehaviour
     /// <summary>
     /// The players inventory
     /// </summary>
-    public Container inventory;
+    [HideInInspector] public Container inventory;
     /// <summary>
     /// The slot currently selected in the hotbar
     /// </summary>
-    public int inventorySlot = 0;
+    [HideInInspector] public int inventorySlot = 0;
     /// <summary>
     /// Handles the gun
     /// </summary>
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
     /// <summary>
     /// A listt of all the tools the player has
     /// </summary>
-    public List<Tools> tools = new List<Tools>();
+    [HideInInspector] public List<Tools> tools = new List<Tools>();
 
     public Tools GetTool(int slot)
     {
@@ -77,23 +77,23 @@ public class Player : MonoBehaviour
     /// <summary>
     /// The name of the player
     /// </summary>
-    public string playerName;
+    [HideInInspector] public string playerName;
     /// <summary>
     /// How many zombies the player has killed
     /// </summary>
-    public int zombiesKilled;
+    [HideInInspector] public int zombiesKilled;
     /// <summary>
     /// How many damage the player has dealt
     /// </summary>
-    public int damageDealt;
+    [HideInInspector] public int damageDealt;
     /// <summary>
     /// How much damage the player has taken
     /// </summary>
-    public int damageTaken;
+    [HideInInspector] public int damageTaken;
     /// <summary>
     /// The status of the player
     /// </summary>
-    public string playerStatus = "Alive";
+    [HideInInspector] public string playerStatus = "Alive";
 
     private void Start()
     {
@@ -104,11 +104,6 @@ public class Player : MonoBehaviour
         inventory = new Container(36);
         gun = new Gun(this);
         tool = new Tool(this);
-
-        inventory.Add(10, 100);
-        inventory.Add(3);
-        inventory.Add(4, 1000);
-        inventory.Add(6, 2);
     }
 
     private void Update()

@@ -35,9 +35,8 @@ public class CraftingUI : MonoBehaviour
         for(var slot = 0; slot < craftingRecipes.Count; slot++)
         {
             var recipe = craftingRecipes[slot];
-            var recipeObject = Instantiate(recipePrefab);
+            var recipeObject = Instantiate(recipePrefab, recipeParent.transform, true);
             recipeObject.GetComponent<CraftItem>().slot = slot;
-            recipeObject.transform.SetParent(recipeParent.transform);
             recipeObject.transform.localScale = new Vector3(1,1,1);
 
             UpdateUI(recipeObject, recipe);
