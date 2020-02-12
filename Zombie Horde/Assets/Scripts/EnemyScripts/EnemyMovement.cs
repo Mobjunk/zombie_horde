@@ -46,10 +46,9 @@ public class EnemyMovement : MonoBehaviour
                 CreateDust();
             }
             //If the zombie cannot see an enemy it will not move
-            else if (target)
-                rb2d.velocity = Vector2.zero;
-        } 
-       
+            else if (target) rb2d.velocity = Vector2.zero;
+        }
+        else if (target) rb2d.velocity = Vector2.zero;
     }
 
     private void Move()
