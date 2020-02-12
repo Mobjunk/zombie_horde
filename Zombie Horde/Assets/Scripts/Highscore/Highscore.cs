@@ -104,4 +104,10 @@ public class Highscore : JsonHandler<HighscoreEntry>
              playerStatus.GetComponent<Text>().text = $"Player status: {entry.playerStatus}";
          }
      }
- }
+
+    public void Add(HighscoreEntry entry)
+    {
+        entries.Add(entry);
+        Save();
+    }
+}

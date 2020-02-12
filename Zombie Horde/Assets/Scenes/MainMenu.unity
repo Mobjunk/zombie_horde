@@ -11775,9 +11775,10 @@ MonoBehaviour:
   panels:
   - {fileID: 233617685}
   - {fileID: 1622350950}
-  - {fileID: 0}
+  - {fileID: 1710504514}
   - {fileID: 1649197453}
   - {fileID: 820137389}
+  - {fileID: 238158476}
   idleAfterSec: 5
 --- !u!114 &2057622309
 MonoBehaviour:
