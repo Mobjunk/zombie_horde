@@ -53,6 +53,8 @@ public abstract class JsonHandler<T> : MonoBehaviour
     /// </summary>
     public void Load()
     {
+        if (!File.Exists($"{GetPath()}{GetFileName()}")) return;
+        
         var jsonString = "";
         //Read the json file
         //And closes the stream reader
