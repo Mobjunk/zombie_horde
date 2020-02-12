@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
     /// <summary>
     /// The name of the player
     /// </summary>
-    [HideInInspector] public string playerName;
+    public string playerName;
     /// <summary>
     /// How many zombies the player has killed
     /// </summary>
@@ -104,6 +104,9 @@ public class Player : MonoBehaviour
         inventory = new Container(36);
         gun = new Gun(this);
         tool = new Tool(this);
+        
+        playerName = PlayerPrefs.GetString("CurrentPlayer");
+        Debug.Log($"name: {playerName}");
     }
 
     private void Update()

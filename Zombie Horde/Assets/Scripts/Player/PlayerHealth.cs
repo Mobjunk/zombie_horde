@@ -20,7 +20,6 @@ public class PlayerHealth : MonoBehaviour
     public Text healthText;
     public GameObject deadParticle;
 
-    public bool playerVuln;
     public static bool playerAlive;
 
     [SerializeField] private UnityEvent OnPlayerDie = new UnityEvent();
@@ -30,7 +29,6 @@ public class PlayerHealth : MonoBehaviour
     {
         instance = this;
         currentHealth = startingHealth;
-        playerVuln = true;
         playerAlive = true;
         //Find the HP bar object and retrieve the image component
     }
@@ -42,40 +40,20 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        if (playerVuln)
+        player.damageTaken += (int) amount;
+        gameManager.soundPlayer.PlaySound(Sounds.PLAYER_HIT);
+        currentHealth -= amount;
+        //Checks if health drops below a threshold and switches to game over scene
+        if (currentHealth <= 0)
         {
-            player.damageTaken += (int) amount;
-            gameManager.soundPlayer.PlaySound(Sounds.PLAYER_HIT);
-            currentHealth -= amount;
-            //Checks if health drops below a threshold and switches to game over scene
-            if (currentHealth <= 0)
-            {
-                Instantiate(deadParticle, this.transform.position, Quaternion.identity);
-                playerAlive = false;
-                OnPlayerDie.Invoke();
-                Destroy(this.gameObject, 0.2f);
-            }
-            else
-            {
-                playerAlive = true;
-                //PlayerInvuln();
-            }
+            Instantiate(deadParticle, this.transform.position, Quaternion.identity);
+            playerAlive = false;
+            OnPlayerDie.Invoke();
+            Destroy(this.gameObject, 0.2f);
         }
+        else playerAlive = true;
     }
-    void PlayerInvuln()
-    {
-        playerVuln = false;
-        //Sets the material of the player to white so indicate invulnerability
-        //gameObject.GetComponent<Renderer>().material.color = Color.red;
-        //StartCoroutine(waiter());
-    }
-    IEnumerator waiter()
-    {
-        //Wait for 2 seconds before performing the following action
-        yield return new WaitForSeconds(2);
-        gameObject.GetComponent<Renderer>().material.color = Color.green;
-        playerVuln = true;
-    }
+    
     private void Update()
     {
         healthBar.fillAmount = currentHealth / startingHealth;

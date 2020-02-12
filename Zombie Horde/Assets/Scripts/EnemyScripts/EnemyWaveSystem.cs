@@ -31,10 +31,13 @@ public class EnemyWaveSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Checks if the night is in progress
         if (dayNightCycle.IsNight())
         {
-            if(hasSpawned == false){
-                if (isSpawning == false)
+            //Checks if it has spawned the zombies
+            if(!hasSpawned){
+                //Checks if its currently spawning
+                if (!isSpawning)
                 {
                     Debug.Log("start wave");
                     isSpawning = true;
@@ -52,9 +55,11 @@ public class EnemyWaveSystem : MonoBehaviour
     IEnumerator SpawningEnemies()
     {
         hasSpawned = true;
+        //Loops though all the enemies it can spawn
         for (int i = 0; i < startingAmount + zombiesPerDay * dayNightCycle.daysPassed; i++)
         {
             SpawnEnemy();
+            //Adds a delay to the spawning of the enemy
             yield return new WaitForSeconds(dayNightCycle.dayNightCycleMin * (1f / 24f * ((24 - dayNightCycle.startNight) + dayNightCycle.endNight)) * 60f / (startingAmount + zombiesPerDay * dayNightCycle.daysPassed));
         }
         isSpawning = false;
@@ -62,21 +67,26 @@ public class EnemyWaveSystem : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        float change = Random.Range(0, 1000);
-        float currentChange = 0;
+        //The random chance of spawning an enemy
+        float chance = Random.Range(0, 1000);
+        float currentChance = 0;
 
+        //Loops though all the enemy spawn data
         foreach (var enemySpawnData in enemySpawnDatas)
         {
+            //Checks if days passed is higher then the required days
             if (dayNightCycle.daysPassed >= enemySpawnData.spawnAfterDays)
             {
-                if (change < enemySpawnData.chance * 10 + currentChange)
+                //Checks if the random chance is lower then the change * 10 + current chance
+                if (chance < enemySpawnData.chance * 10 + currentChance)
                 {
                     enemySpawner.EnemySpawning(enemySpawnData.enemyObject, dayNightCycle);
                     return;
                 }
+                //Else increase the chance
                 else
                 {
-                    currentChange += enemySpawnData.chance * 10;
+                    currentChance += enemySpawnData.chance * 10;
                 }
             }
         }

@@ -12,7 +12,9 @@ public class EnemySpawner : MonoBehaviour
 
     public void EnemySpawning(EnemyObject enemyObject, DayNightCycle dayNightCycle)
     {
-        GameObject spawnedEnemy = Instantiate(enemy, target.position + Quaternion.Euler(0, 0, Random.Range(0, 360)) * new Vector3(20, 0, 0), Quaternion.identity);
+        //Spawns an enemy around a 360 degrees angle around the player
+        var spawnedEnemy = Instantiate(enemy, target.position + Quaternion.Euler(0, 0, Random.Range(0, 360)) * new Vector3(20, 0, 0), Quaternion.identity);
+        //Sets up the scriptable object
         enemyObject.SetUp(spawnedEnemy.GetComponent<EnemyMovement>(), spawnedEnemy.GetComponent<EnemyHealth>(), target, backgroundTilemap, spawnedEnemy, spawnedEnemy.GetComponentInChildren<EnemyAttack>(), dayNightCycle);
     }
 }

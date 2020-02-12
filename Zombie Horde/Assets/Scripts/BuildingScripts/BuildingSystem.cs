@@ -84,10 +84,14 @@ public class BuildingSystem : MonoBehaviour
         // Loops through all placed structures to find the tile on the grid position
         for (int i = 0; i < placedBuildings.Count; i++)
         {
+            //Checks if the position of the building matches the position of the position
             if (placedBuildings[i].position == gridPosition)
             {
+                //Damages the structure
                 placedBuildings[i].structureHealth -= damage;
+                //Spawns the particle effect of hitting the structure
                 Instantiate(placedBuildings[i].particleEffect, placedBuildings[i].position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
+                //Checks if the health of the structure is lower then 1
                 if (placedBuildings[i].structureHealth <= 0)
                 {
                     // removes the tile when the structure has 0 hp.
@@ -102,19 +106,27 @@ public class BuildingSystem : MonoBehaviour
 
     private void Update()
     {
+        //Checks if the player pressed the place structure button and doesnt have the inventory/crafting open
         if (inputManager.placeStructure && !player.inventoryOpened && !player.craftingOpened)
         {
+            //Grabs the building your trying to place
+            //And checks if that building inst null
             var building = GetBuilding();
             if (building == null) return;
 
             PlaceStrucure(building);
         }
+        //Checks if the player has clicked the attack button and doesnt have inventory or crafting open
+        //Also checks if the player isn't holding a gun or tool
         if (inputManager.pressedAttack && !player.inventoryOpened && !player.craftingOpened && !player.IsHoldingGun() && !player.IsHoldingTool())
         {
-            RaycastHit2D hit = Physics2D.Raycast(playerTrans.position, Vector2FromAngle(playerTrans.eulerAngles.z + 90), gatherRange, layerMask);
+            //Checks if the player is hitting any objects in the gathering range in the direction the player is looking
+            var hit = Physics2D.Raycast(playerTrans.position, Vector2FromAngle(playerTrans.eulerAngles.z + 90), gatherRange, layerMask);
             if (hit.collider)
             {
+                //The position of the tile you hit
                 Vector3 position = hit.point + Vector2FromAngle(playerTrans.eulerAngles.z + 90) * new Vector2(0.1f, 0.1f);
+                //Destoys the structure
                 DestroyStructure(position, 1000);
             }
         }
@@ -124,13 +136,16 @@ public class BuildingSystem : MonoBehaviour
     {
         foreach (var structure in structures)
         {
+            //Grabs the item for the selected inventory slot
+            //Also checks if the item data or 
             var itemData = player.inventory.items[player.inventorySlot];
             if (itemData == null || itemData.item == null) return null;
+            
+            //The item id required for this item
+            //And checks if the item ids matches and if the player has the correct items
             var itemId = itemData.item.itemId;
             if (structure.item.item.itemId == itemId && player.inventory.Contains(itemId, structure.item.amount))
-            {
                 return structure;
-            }
         }
         return null;
     }

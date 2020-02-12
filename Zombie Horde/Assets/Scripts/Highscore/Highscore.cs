@@ -11,11 +11,19 @@ public class Highscore : JsonHandler<HighscoreEntry>
      private Color defaultColor = new Color(0.6117647f, 0.4117647f, 0.1294118f);
      private Color secondColor = new Color(0.5372549f, 0.3647059f, 0.1254902f);
      
+     /// <summary>
+     /// Name of the json file
+     /// </summary>
+     /// <returns>The name of the json file its saving/loading</returns>
      protected override string GetFileName()
      {
          return "highscores.json";
      }
  
+     /// <summary>
+     /// The path of where the file can be found
+     /// </summary>
+     /// <returns>The path where the json file can be found</returns>
      protected override string GetPath()
      {
          return $"{Application.persistentDataPath}/SaveData";
@@ -34,6 +42,10 @@ public class Highscore : JsonHandler<HighscoreEntry>
              UpdateUI();
      }
 
+     /// <summary>
+     /// Handles sorting the list with days survived
+     /// Top -> Bottom
+     /// </summary>
      public void SortByDays()
      {
          entries.Sort((a, b) => a.daysSurvived.CompareTo(b.daysSurvived));
@@ -42,6 +54,10 @@ public class Highscore : JsonHandler<HighscoreEntry>
          UpdateUI();
      }
 
+     /// <summary>
+     /// Handles sorting the list with zombies killed
+     /// Top -> Bottom
+     /// </summary>
      public void SortByZombiesKilled()
      {
          entries.Sort((a, b) => a.zombiesKilled.CompareTo(b.zombiesKilled));
@@ -50,6 +66,10 @@ public class Highscore : JsonHandler<HighscoreEntry>
          UpdateUI();
      }
 
+     /// <summary>
+     /// Handles sorting the list with damage dealt
+     /// Top -> Bottom
+     /// </summary>
      public void SortByDamageDealt()
      {
          entries.Sort((a, b) => a.damageDealt.CompareTo(b.damageDealt));
@@ -58,6 +78,10 @@ public class Highscore : JsonHandler<HighscoreEntry>
          UpdateUI();
      }
 
+     /// <summary>
+     /// Handles sorting the list with damage taken
+     /// Top -> Bottom
+     /// </summary>
      public void SortByDamageTaken()
      {
          entries.Sort((a, b) => a.damageTaken.CompareTo(b.damageTaken));
@@ -74,7 +98,8 @@ public class Highscore : JsonHandler<HighscoreEntry>
          for (var slot = 0; slot < entries.Count; slot++)
          {
              var entry = entries[slot];
-                 
+             
+             //Handles spawning the prefab for the highscore entry
              var entryObject = Instantiate(highscorePrefab, highscoreParent.transform, true);
              entryObject.transform.localScale = new Vector3(1,1,1);
              entryObject.transform.name = $"Highscore: {entry.playerName}";

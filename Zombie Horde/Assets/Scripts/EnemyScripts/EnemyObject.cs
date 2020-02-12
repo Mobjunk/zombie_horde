@@ -36,12 +36,17 @@ public class EnemyObject : ScriptableObject
         enemyMovement.backgroundTilemap = backgroundTilemap;
 
         enemy.transform.localScale = size;
-        Sprite zombieVariant = zombieVariants[Random.Range(0, zombieVariants.Length)];
+        
+        //Grabs a random sprite for the zombie and changes it
+        var zombieVariant = zombieVariants[Random.Range(0, zombieVariants.Length)];
         enemy.GetComponentInChildren<SpriteRenderer>().sprite = zombieVariant;
+        
         enemy.name = this.name;
 
-        SpriteRenderer shadowSprite = enemy.transform.GetChild(1).GetComponent<SpriteRenderer>();
+        //Grabs the sprite renderer of the zombie and sets the shadow sprite
+        var shadowSprite = enemy.transform.GetChild(1).GetComponent<SpriteRenderer>();
         shadowSprite.sprite = zombieVariant;
+        
         dayNightCycle.movingShadows.Add(shadowSprite);
         enemyHealth.shadow = shadowSprite;
         enemyHealth.dayNightCycle = dayNightCycle;

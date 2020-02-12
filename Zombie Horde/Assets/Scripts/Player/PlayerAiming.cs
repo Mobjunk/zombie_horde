@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerAiming : MonoBehaviour
 {
     public static PlayerAiming instance;
-    InputManager inputManager => InputManager.instance;
     PlayerMovement playerMovement => PlayerMovement.instance;
     private Camera _camera;
     public Vector2 mousePos;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,20 +22,12 @@ public class PlayerAiming : MonoBehaviour
     {
         if (OpenPauseMenu.pauseMenuOpen) return;
         LookAtMouse();
-        
-        //if (inputManager.controllerConnected)
-        //{
-            
-        //    //MoveCrossHairJoyStick();
-        //}
-        //else LookAtMouse();
-
-
     }
-    void MoveCrossHairJoyStick()
-    {
-        //transform.position = transform.position + new Vector3(inputManager.horizontalMovementRightStick, inputManager.verticalMovementRightStick, transform.position.z) * 2;
-    }
+    
+    /// <summary>
+    /// Makes the player look at the mouse
+    /// TODO: Find a fix for the player not properly looking at the mouse 
+    /// </summary>
     void LookAtMouse()
     {
         mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);

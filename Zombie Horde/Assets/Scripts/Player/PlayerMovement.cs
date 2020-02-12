@@ -19,9 +19,6 @@ public class PlayerMovement : MonoBehaviour
     public GameObject waterWalkEffect;
     bool spawnParticle;
 
-    float _horizontal;
-    float _vertical;
-
     public Rigidbody2D rb;
 
     private Player player;
@@ -35,6 +32,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        //Checks if the pause menu is opened
+        if (OpenPauseMenu.pauseMenuOpen) return;
+        
+        //Checks if there is a particle that needs to be spawned
         timer += Time.deltaTime;
         if(timer > 1)
         {
@@ -44,29 +45,39 @@ public class PlayerMovement : MonoBehaviour
         {
             spawnParticle = false;
         }
-        if (OpenPauseMenu.pauseMenuOpen) return;
         HandleMovement();
     }
     void HandleMovement()
     {
-        float _horizontal = inputManager.horizontalMovementLeftStick;
-        float _vertical = inputManager.verticalMovementLeftStick;
-        Vector2 inputVector = new Vector2(_horizontal, _vertical);
+        //Checks if the player has the inventory/crafting or pause menu open
+        if (player.inventoryOpened || player.craftingOpened || OpenPauseMenu.pauseMenuOpen) return;
+        
+        //Grabs the horizontal and vertical input
+        var horizontal = inputManager.horizontalMovementLeftStick;
+        var vertical = inputManager.verticalMovementLeftStick;
+        
+        //Normalize the input
+        var inputVector = new Vector2(horizontal, vertical);
         inputVector.Normalize();
 
-        if (player.inventoryOpened || player.craftingOpened || OpenPauseMenu.pauseMenuOpen) return;
-
+        //Grabs the position the player is standing on
         Vector3Int gridPosition = backgroundTilemap.WorldToCell(this.transform.position);
+        
+        //Grabs the tile the player is standing on
+        //Also checks if the tile inst null
         TileBase tile = backgroundTilemap.GetTile(gridPosition);
         if (tile != null)
         {
+            //Loops though all the slow tiles
             foreach (var slowTile in slowTiles)
             {
+                //Checks if the names match
                 if (slowTile.name == tile.name)
                 {
+                    //Sets the speed op the player
                     rb.velocity = inputVector * slowSpeed;
-
-                    if (spawnParticle == true)
+                    //Checks the parctile should spawn
+                    if (spawnParticle)
                     {
                         Instantiate(waterWalkEffect, this.transform.position, Quaternion.identity);
                         timer = 0;
@@ -76,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-
+        //Makes the player move
         rb.velocity = inputVector*speed;
     }
 

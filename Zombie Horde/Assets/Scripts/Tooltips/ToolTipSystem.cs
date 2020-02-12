@@ -39,33 +39,41 @@ public class ToolTipSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Checks if the pause ment isn't open and the player is alive
         if (!OpenPauseMenu.pauseMenuOpen && PlayerHealth.playerAlive)
         {
+            //Checks if the current tooltip isn't null and has activated himself
             if (currentToolTip && toolTipHolder.activeSelf)
             {
                 currentToolTip.ToolTipComplete(this);
             }
+            //Checks if the inventory one hasn't been shown yet
             if (!openInventory.shown)
             {
                 openInventory.shown = openInventory.toolTip.ButtonAlreadyPressed();
             }
+            //Checks if the crafting one hasn't been shown yet
             if (!openCrafting.shown)
             {
                 openCrafting.shown = openCrafting.toolTip.ButtonAlreadyPressed();
             }
-
+            //Checks if the reload gun one hasn't been shown yet
             if (!reloadGun.shown)
             {
                 reloadGun.shown = reloadGun.toolTip.ButtonAlreadyPressed();
             }
 
+            //Checks if the time exceeded the tooltip delay
             if (Time.time > tooltipDelay && !toolTipHolder.activeSelf)
             {
+                //Calculates a random range
                 float chance = Random.Range(0, 100);
+                //Chance is lower then 50
                 if (chance < 50 && !openInventory.shown)
                 {
                     ShowToolTip(openInventory);
                 }
+                //Chance lower then 100
                 else if (chance < 100 && !openCrafting.shown)
                 {
                     ShowToolTip(openCrafting);

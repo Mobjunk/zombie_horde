@@ -7,5 +7,4 @@ using UnityEngine;
 public class Food : ScriptableObject
 {
     public int healthIncrease;
-    public string chatMessage;
 }

@@ -71,6 +71,14 @@
             "damageDealt": 0,
             "damageTaken": 100,
             "playerStatus": "Died"
+        },
+        {
+            "playerName": "Ramon",
+            "daysSurvived": 1,
+            "zombiesKilled": 3,
+            "damageDealt": 26,
+            "damageTaken": 100,
+            "playerStatus": "Died"
         }
     ]
 }
