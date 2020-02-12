@@ -106,8 +106,6 @@ public class Player : MonoBehaviour
         tool = new Tool(this);
         
         playerName = PlayerPrefs.GetString("CurrentPlayer");
-
-        inventory.Add(10, 10);
     }
 
     private void Update()
