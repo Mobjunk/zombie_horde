@@ -1813,7 +1813,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426421926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 0.00000011920929, z: -10}
+  m_LocalPosition: {x: -0.00000047683716, y: 0.00000011920929, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 66858390}
@@ -2128,7 +2128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 0.00000011920929, z: -10}
+  m_LocalPosition: {x: -0.00000047683716, y: 0.00000011920929, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2141,25 +2141,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1499841750}
     m_Modifications:
-    - target: {fileID: 5812840581564918687, guid: ef9239fc790a1fa4bb4c819187ad485e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5812840581564918687, guid: ef9239fc790a1fa4bb4c819187ad485e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5812840582725994442, guid: ef9239fc790a1fa4bb4c819187ad485e,
         type: 3}
       propertyPath: m_Name
       value: Crafting
-      objectReference: {fileID: 0}
-    - target: {fileID: 5812840582725994442, guid: ef9239fc790a1fa4bb4c819187ad485e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5812840582725994443, guid: ef9239fc790a1fa4bb4c819187ad485e,
         type: 3}
@@ -2271,11 +2256,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1788338652}
-    - target: {fileID: 7779913678403640768, guid: ef9239fc790a1fa4bb4c819187ad485e,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1788338652}
     - target: {fileID: 8122049155675801627, guid: ef9239fc790a1fa4bb4c819187ad485e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2348,7 +2328,7 @@ MonoBehaviour:
     fulltileVariants:
     - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}
     - {fileID: 11400000, guid: a5da7d7bb59c0fa4387f66d629ce7b34, type: 2}
-    - {fileID: 11400000, guid: 0b2b28b1135c5a74286978f414916608, type: 2}
+    - {fileID: 0}
     - {fileID: 11400000, guid: 4a4ad0a6264f799459c4b750aad36b95, type: 2}
     - {fileID: 11400000, guid: 0ce785b9c9848dd4eb61363f75ed6962, type: 2}
     - {fileID: 11400000, guid: 279819d9c05b44e40bce10bbd43371d9, type: 2}
