@@ -22,6 +22,8 @@ public class EnemyWaveSystem : MonoBehaviour
     [SerializeField] private int startingAmount = 2;
     [SerializeField] private int zombiesPerDay = 2;
 
+    private int spawnDay = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,7 @@ public class EnemyWaveSystem : MonoBehaviour
                 {
                     Debug.Log("start wave");
                     isSpawning = true;
+                    spawnDay = dayNightCycle.daysPassed;
                     StartCoroutine(SpawningEnemies());
                 }
             }
@@ -56,11 +59,11 @@ public class EnemyWaveSystem : MonoBehaviour
     {
         hasSpawned = true;
         //Loops though all the enemies it can spawn
-        for (int i = 0; i < startingAmount + zombiesPerDay * dayNightCycle.daysPassed; i++)
+        for (int i = 0; i < startingAmount + zombiesPerDay * spawnDay; i++)
         {
             SpawnEnemy();
             //Adds a delay to the spawning of the enemy
-            yield return new WaitForSeconds(dayNightCycle.dayNightCycleMin * (1f / 24f * ((24 - dayNightCycle.startNight) + dayNightCycle.endNight)) * 60f / (startingAmount + zombiesPerDay * dayNightCycle.daysPassed));
+            yield return new WaitForSeconds(dayNightCycle.dayNightCycleMin * (1f / 24f * ((24 - dayNightCycle.startNight) + dayNightCycle.endNight)) * 60f / (startingAmount + zombiesPerDay * spawnDay));
         }
         isSpawning = false;
     }
@@ -75,7 +78,7 @@ public class EnemyWaveSystem : MonoBehaviour
         foreach (var enemySpawnData in enemySpawnDatas)
         {
             //Checks if days passed is higher then the required days
-            if (dayNightCycle.daysPassed >= enemySpawnData.spawnAfterDays)
+            if (spawnDay >= enemySpawnData.spawnAfterDays)
             {
                 //Checks if the random chance is lower then the change * 10 + current chance
                 if (chance < enemySpawnData.chance * 10 + currentChance)
