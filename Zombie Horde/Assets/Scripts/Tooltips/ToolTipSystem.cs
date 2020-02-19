@@ -40,7 +40,7 @@ public class ToolTipSystem : MonoBehaviour
     void Update()
     {
         //Checks if the pause ment isn't open and the player is alive
-        if (!OpenPauseMenu.pauseMenuOpen && PlayerHealth.playerAlive)
+        if (!OpenPauseMenu.pauseMenuOpen && !ConsoleHandler.instance.consoleOpened && PlayerHealth.playerAlive)
         {
             //Checks if the current tooltip isn't null and has activated himself
             if (currentToolTip && toolTipHolder.activeSelf)

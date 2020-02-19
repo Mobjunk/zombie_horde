@@ -118,7 +118,19 @@ public class InputManager : MonoBehaviour
         get;
         private set;
     }
-    
+
+    public bool pressedConsole
+    {
+        get;
+        private set;
+    }
+
+    public bool pressedEnter
+    {
+        get;
+        private set;
+    }
+
     private void Start()
     {
         instance = this;
@@ -167,6 +179,9 @@ public class InputManager : MonoBehaviour
             pressedCrafting = Input.GetKeyDown(KeyCode.C);
 
             placeStructure = Input.GetKeyDown(KeyCode.Mouse1);
+
+            pressedConsole = Input.GetKeyDown(KeyCode.Backslash);
+            pressedEnter = Input.GetKeyDown(KeyCode.Return);
         }
     }
 

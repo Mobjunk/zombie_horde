@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7117350141441837597}
   - component: {fileID: 4689801427944551729}
   - component: {fileID: 8480088556361661156}
+  - component: {fileID: 3326313288972055158}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -174,6 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f561004ebdc0c5246852fd55581d12c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixer: {fileID: 0}
   audioSources: []
   sounds: []
 --- !u!114 &8480088556361661156
@@ -191,3 +193,19 @@ MonoBehaviour:
   entries: []
   highscorePrefab: {fileID: 0}
   highscoreParent: {fileID: 0}
+--- !u!114 &3326313288972055158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8855366034490432718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e557b2b1598b86d418bbda9e0d7b777b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  console: {fileID: 0}
+  input: {fileID: 0}
+  commandConsole: {fileID: 0}
+  consoleOpened: 0

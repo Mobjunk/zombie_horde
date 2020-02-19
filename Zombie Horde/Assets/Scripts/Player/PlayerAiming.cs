@@ -8,7 +8,8 @@ public class PlayerAiming : MonoBehaviour
     PlayerMovement playerMovement => PlayerMovement.instance;
     private Camera _camera;
     public Vector2 mousePos;
-    
+    public float angleOffset = 90f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class PlayerAiming : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (OpenPauseMenu.pauseMenuOpen) return;
+        if (OpenPauseMenu.pauseMenuOpen || ConsoleHandler.instance.consoleOpened) return;
         LookAtMouse();
     }
     
@@ -33,8 +34,7 @@ public class PlayerAiming : MonoBehaviour
         mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
 
         Vector2 lookDir = mousePos - playerMovement.rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+        float angle = (Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg) - angleOffset;
         playerMovement.rb.rotation = angle;
-
     }
 }

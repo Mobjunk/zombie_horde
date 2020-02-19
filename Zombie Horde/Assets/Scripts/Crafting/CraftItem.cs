@@ -41,6 +41,8 @@ public class CraftItem : MonoBehaviour
                 playerMaxAmount = total;
         }
 
+        if (playerMaxAmount <= 0) return;
+
         //Creates a new list of required items with the updated amount
         //And checks if the player has all these items
         var itemsRequired = recipe.items.Select(item => new ItemData(item.item, item.amount * playerMaxAmount)).ToList();

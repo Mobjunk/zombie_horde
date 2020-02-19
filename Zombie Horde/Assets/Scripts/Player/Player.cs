@@ -206,13 +206,13 @@ public class Player : MonoBehaviour
     
     public void OpenInventory()
     {
-        if (!inputManager.pressedInventory || craftingOpened || OpenPauseMenu.pauseMenuOpen) return;
+        if (!inputManager.pressedInventory || craftingOpened || OpenPauseMenu.pauseMenuOpen || ConsoleHandler.instance.consoleOpened) return;
         HandleInventory(!inventoryOpened);
     }
 
     void OpenCrafting()
     {
-        if (!inputManager.pressedCrafting || inventoryOpened || OpenPauseMenu.pauseMenuOpen) return;
+        if (!inputManager.pressedCrafting || inventoryOpened || OpenPauseMenu.pauseMenuOpen || ConsoleHandler.instance.consoleOpened) return;
         HandleCrafting(!craftingOpened);
     }
 
@@ -232,13 +232,15 @@ public class Player : MonoBehaviour
 
     public bool AllowedToScroll()
     {
-        return !inventoryOpened && !craftingOpened && !OpenPauseMenu.pauseMenuOpen;
+        return !inventoryOpened && !craftingOpened && !OpenPauseMenu.pauseMenuOpen && !ConsoleHandler.instance.consoleOpened;
     }
     
     void SwitchSlot()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f && AllowedToScroll()) inventorySlot--;
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f && AllowedToScroll()) inventorySlot++;
+        if (!AllowedToScroll()) return;
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f) inventorySlot--;
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f) inventorySlot++;
         
         if (inventorySlot > 8) inventorySlot = 0;
         else if (inventorySlot < 0) inventorySlot = 8;

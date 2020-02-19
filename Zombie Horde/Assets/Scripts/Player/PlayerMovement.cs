@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         //Checks if the pause menu is opened
-        if (OpenPauseMenu.pauseMenuOpen) return;
+        if (OpenPauseMenu.pauseMenuOpen || ConsoleHandler.instance.consoleOpened) return;
         
         //Checks if there is a particle that needs to be spawned
         timer += Time.deltaTime;
