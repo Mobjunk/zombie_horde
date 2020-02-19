@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Tilemaps;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class DayNightCycle : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class DayNightCycle : MonoBehaviour
     [SerializeField] private AnimationCurve shadowsOpacity;
     [Space]
     [Header("References")]
-    [SerializeField] private Image darknessImage;
+    [SerializeField] private Light2D globalLight;
     [SerializeField] private Transform shadowsTilemap;
     [SerializeField] private Tilemap shadowImage;
     [SerializeField] private Text dayCounterText;
@@ -63,7 +64,8 @@ public class DayNightCycle : MonoBehaviour
     private void ChangeColorsDarknessShadows()
     {
         // changes the color and opacity of a canvas panel to make it look darker or a different color.
-        darknessImage.color = new Color(redColorTime.Evaluate(timeOfDay), greenColorTime.Evaluate(timeOfDay), blueColorTime.Evaluate(timeOfDay), darknessTime.Evaluate(timeOfDay));
+        globalLight.color = new Color(redColorTime.Evaluate(timeOfDay), greenColorTime.Evaluate(timeOfDay), blueColorTime.Evaluate(timeOfDay), 1);
+        globalLight.intensity = darknessTime.Evaluate(timeOfDay);
         // Changes the X position of the tile map with shadows so it look like time passes
         shadowsTilemap.position = new Vector3(shadowsXPosition.Evaluate(timeOfDay), 0, 0);
         // changes the opicaty of the shadows so you don't have shadows in the night.

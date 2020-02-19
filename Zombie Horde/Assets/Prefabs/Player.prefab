@@ -49,7 +49,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -161,7 +161,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -244,7 +244,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -366,7 +366,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -498,7 +498,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -602,11 +602,17 @@ MonoBehaviour:
   inventoryUI: {fileID: 0}
   craftingUI: {fileID: 0}
   itemName: {fileID: 0}
-  invetoryOpened: 0
+  inventoryOpened: 0
   craftingOpened: 0
   inventory:
     items: []
   inventorySlot: 0
+  tools: []
+  playerName: 
+  zombiesKilled: 0
+  damageDealt: 0
+  damageTaken: 0
+  playerStatus: Alive
 --- !u!114 &5868418563330530513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,8 +646,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c20b92d2aeb704d8766813a60221c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
   mousePos: {x: 0, y: 0}
+  angleOffset: 90
 --- !u!114 &3824407127272105291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,7 +679,6 @@ MonoBehaviour:
   healthText: {fileID: 0}
   deadParticle: {fileID: 7884275824156312776, guid: 451244edbe44ed346a0e1801d9168648,
     type: 3}
-  playerVuln: 0
   OnPlayerDie:
     m_PersistentCalls:
       m_Calls:
