@@ -20,7 +20,8 @@ public class RandomLevelGenerator : MonoBehaviour
         NotSet,
         Grass,
         Water,
-        Sand
+        Sand,
+        Road
     }
 
     public enum Direction4
@@ -29,6 +30,12 @@ public class RandomLevelGenerator : MonoBehaviour
         East,
         South,
         West
+    }
+
+    enum RoadDirecections
+    {
+        Vertical,
+        Horizontal
     }
 
     [System.Serializable]
@@ -98,6 +105,13 @@ public class RandomLevelGenerator : MonoBehaviour
 
         GenerateLakes();
         GenerateSands();
+
+        //int amountOfRoads = Mathf.RoundToInt(Random.Range(0, (int)mapSize / 100f));
+        //for (int i = 0; i < amountOfRoads; i++)
+        //{
+        //    GenerateRoad();
+        //}
+
         GenerateGrass();
         GenerateTiles();
         GenerateResources();
@@ -666,5 +680,214 @@ public class RandomLevelGenerator : MonoBehaviour
     {
         tile.transform = Matrix4x4.TRS(Vector3.zero, rotation, Vector3.one);
         backgroundTilemap.SetTile(new Vector3Int(x - (int)mapSize / 2, y - (int)mapSize / 2, 0), tile);
+    }
+
+    private void GenerateRoad()
+    {
+        RoadDirecections startDirection = (RoadDirecections)Random.Range(0,2);
+        RoadDirecections endDirection = (RoadDirecections)Random.Range(0, 2);
+        Vector2Int startPos = new Vector2Int(0,0);
+        Vector2Int endPos = new Vector2Int(0,0);
+
+        switch (startDirection)
+        {
+            case RoadDirecections.Vertical:
+                if (Random.Range(0, 2) == 0)
+                {
+                    startPos = new Vector2Int(Random.Range(0, (int)mapSize - 2), 0);
+                }
+                else
+                {
+                    startPos = new Vector2Int(Random.Range(0, (int)mapSize - 2), (int)mapSize - 1);
+                }
+                break;
+            case RoadDirecections.Horizontal:
+                if (Random.Range(0, 2) == 0)
+                {
+                    startPos = new Vector2Int(0, Random.Range(0, (int)mapSize - 2));
+                }
+                else
+                {
+                    startPos = new Vector2Int((int)mapSize - 1, Random.Range(0, (int)mapSize - 2));
+                }
+                break;
+            default:
+                break;
+        }
+
+        switch (startDirection)
+        {
+            case RoadDirecections.Vertical:
+                switch (endDirection)
+                {
+                    case RoadDirecections.Vertical:
+                            endPos = new Vector2Int(Mathf.Clamp(Random.Range(startPos.x - 10, startPos.x + 11), 0, (int)mapSize - 2), startPos.y);
+                        break;
+                    case RoadDirecections.Horizontal:
+                        if (Random.Range(0, 2) == 0)
+                        {
+                            endPos = new Vector2Int(0, Random.Range(0, (int)mapSize - 1));
+                        }
+                        else
+                        {
+                            endPos = new Vector2Int((int)mapSize - 1, Random.Range(0, (int)mapSize - 1));
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case RoadDirecections.Horizontal:
+                switch (endDirection)
+                {
+                    case RoadDirecections.Vertical:
+                        if (Random.Range(0, 2) == 0)
+                        {
+                            endPos = new Vector2Int(0, Random.Range(0, (int)mapSize - 1));
+                        }
+                        else
+                        {
+                            endPos = new Vector2Int((int)mapSize - 1, Random.Range(0, (int)mapSize - 1));
+                        }
+                        break;
+                    case RoadDirecections.Horizontal:
+                        endPos = new Vector2Int(startPos.x, Mathf.Clamp(Random.Range(startPos.y - 10, startPos.y + 11), 0, (int)mapSize - 2));
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                break;
+        }
+
+        if (startDirection == endDirection)
+        {
+            switch (startDirection)
+            {
+                case RoadDirecections.Vertical:
+                    {
+                        int x = startPos.x;
+                        if (startPos.y == 0)
+                        {
+                            int stepdistance = 0;
+                            int nextstep = 0;
+                            if (startPos.y - endPos.y != 0)
+                            {
+                                stepdistance = (int)mapSize / (startPos.x - endPos.x);
+                                nextstep = stepdistance;
+                            }
+                            for (int y = 0; y < (int)mapSize; y++)
+                            {
+                                if (startPos.x - endPos.x != 0)
+                                {
+                                    if (y == nextstep)
+                                    {
+                                        x += (startPos.x - endPos.x) / Mathf.Abs(startPos.x - endPos.x);
+                                        nextstep += stepdistance;
+                                    }
+                                }
+                                mapTypes[y, x] = TileTypes.Road;
+                                mapTypes[y, x + 1] = TileTypes.Road;
+
+                            }
+                        }
+                        else
+                        {
+                            int stepdistance = 0;
+                            int nextstep = 0;
+                            if (startPos.y - endPos.y != 0)
+                            {
+                                stepdistance = (int)mapSize / (startPos.x - endPos.x);
+                                nextstep = (int)mapSize - 1 - stepdistance;
+                            }
+                            for (int y = (int)mapSize - 1; y >= 0; y--)
+                            {
+                                if (startPos.x - endPos.x != 0)
+                                {
+                                    if (y == nextstep)
+                                    {
+                                        x += (startPos.x - endPos.x) / Mathf.Abs(startPos.x - endPos.x);
+                                        nextstep -= stepdistance;
+                                    }
+                                }
+                                mapTypes[y, x] = TileTypes.Road;
+                                mapTypes[y, x + 1] = TileTypes.Road;
+                            }
+                        }
+                        break;
+                    }
+                case RoadDirecections.Horizontal:
+                    {
+                        int y = startPos.y;
+                        if (startPos.x == 0)
+                        {
+                            int stepdistance = 0;
+                            int nextstep = 0;
+                            if (startPos.y - endPos.y != 0)
+                            {
+                                stepdistance = (int)mapSize / (startPos.y - endPos.y);
+                                nextstep = stepdistance;
+                            }
+                            for (int x = 0; x < (int)mapSize; x++)
+                            {
+                                if (startPos.y - endPos.y != 0)
+                                {
+                                    if (x == nextstep)
+                                    {
+                                        y += (startPos.y - endPos.y) / Mathf.Abs(startPos.y - endPos.y);
+                                        nextstep += stepdistance;
+                                    }
+                                }
+                                mapTypes[y, x] = TileTypes.Road;
+                                mapTypes[y + 1, x] = TileTypes.Road;
+                            }
+                        }
+                        else
+                        {
+                            int stepdistance = 0;
+                            int nextstep = 0;
+                            if (startPos.y - endPos.y != 0)
+                            {
+                                stepdistance = (int)mapSize / (startPos.y - endPos.y);
+                                nextstep = (int)mapSize - 1 - stepdistance;
+                            }
+                            for (int x = (int)mapSize - 1; x >= 0; x--)
+                            {
+                                if (startPos.y - endPos.y != 0)
+                                {
+                                    if (x == nextstep)
+                                    {
+                                        y += (startPos.y - endPos.y) / Mathf.Abs(startPos.y - endPos.y);
+                                        nextstep -= stepdistance;
+                                    }
+                                }
+                                mapTypes[y, x] = TileTypes.Road;
+                                mapTypes[y + 1, x] = TileTypes.Road;
+                            }
+                        }
+                        break;
+                    }
+                default:
+                    break;
+            }
+        }
+        //else
+        //{
+        //    if (startPos.y == 0)
+        //    {
+        //        for (int y = 0; y <= endPos.y; y++)
+        //        {
+
+        //        }
+        //    }
+        //    else
+        //    {
+        //        for (int y = (int)mapSize - 1; y >= endPos.y; y--)
+        //        {
+
+        //        }
+        //    }
+        //}
     }
 }
