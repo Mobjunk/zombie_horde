@@ -15,13 +15,9 @@ public class Bullet : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    public void Initialize(GunData gun)
+    public void Initialize(Vector3 pBulletVelocity)
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Get mouse position
-        Quaternion rot = Quaternion.LookRotation(transform.position - mousePosition, Vector3.forward); // set rotation to mouse position
-        transform.rotation = rot; //rotates game object to correct position
-        transform.eulerAngles = new Vector3(0,0, transform.eulerAngles.z); //remove x and y rotation along the x and y axis
-        rigidBody.velocity = transform.up * gun.bulletMovementSpeed; 
+        rigidBody.velocity = pBulletVelocity;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

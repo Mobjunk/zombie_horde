@@ -136,12 +136,11 @@ public class Gun : Weapon<GunData>
     /// <param name="totalBullets"></param>
     void SpawnBullet(GunData gun, int totalBullets = 1)
     {
-        var forward = player.transform.forward;
         for (int index = 0; index < totalBullets; index++)
         {
-            var bulletObject = MonoBehaviour.Instantiate(gameManager.bulletPrefab, gameManager.bulletSpawnLocation.position, Quaternion.LookRotation(forward));
+            var bulletObject = MonoBehaviour.Instantiate(gameManager.bulletPrefab, gameManager.bulletSpawnLocation.position, gameManager.bulletSpawnLocation.rotation);
             var bullet = bulletObject.GetComponent<Bullet>();
-            bullet.Initialize(gun);
+            bullet.Initialize(gameManager.bulletSpawnLocation.up * gun.bulletMovementSpeed);
         }
     }
 
