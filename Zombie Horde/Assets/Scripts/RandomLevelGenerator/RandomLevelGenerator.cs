@@ -29,7 +29,8 @@ public class RandomLevelGenerator : MonoBehaviour
         North,
         East,
         South,
-        West
+        West,
+        None
     }
 
     enum RoadDirecections
@@ -88,7 +89,9 @@ public class RandomLevelGenerator : MonoBehaviour
         {
             mapSize = setMapSizeScript.SetMapSize(mapSize);
         }
+        //Debug.Log("Starting Generate Map, Time in sec: " + Time.realtimeSinceStartup);
         GenerateMap();
+        //Debug.Log("finished Generate Map, Time  in sec: " + Time.realtimeSinceStartup);
     }
 
     public void GenerateMap()
@@ -103,7 +106,9 @@ public class RandomLevelGenerator : MonoBehaviour
             }
         }
 
+        //Debug.Log("Starting Generate lakes, Time in sec: " + Time.realtimeSinceStartup);
         GenerateLakes();
+        //Debug.Log("Starting Generate sand, Time in sec: " + Time.realtimeSinceStartup);
         GenerateSands();
 
         //int amountOfRoads = Mathf.RoundToInt(Random.Range(0, (int)mapSize / 100f));
@@ -111,10 +116,13 @@ public class RandomLevelGenerator : MonoBehaviour
         //{
         //    GenerateRoad();
         //}
-
+        //Debug.Log("Starting Generate grass, Time in sec: " + Time.realtimeSinceStartup);
         GenerateGrass();
+        //Debug.Log("Starting Generate tiles, Time in sec: " + Time.realtimeSinceStartup);
         GenerateTiles();
+        //Debug.Log("Starting Generate resources, Time in sec: " + Time.realtimeSinceStartup);
         GenerateResources();
+        //Debug.Log("Starting Generate fog, Time in sec: " + Time.realtimeSinceStartup);
         GenerateFog();
     }
 
@@ -126,6 +134,7 @@ public class RandomLevelGenerator : MonoBehaviour
         {
             int lakeSize = Random.Range(minLakeSize, maxLakeSize);
             Vector2Int lakeTilePosition = new Vector2Int(Random.Range(0, (int)mapSize), Random.Range(0, (int)mapSize));
+            Direction4 previeusLocation = Direction4.None;
 
             for (int i = 0; i < lakeSize; i++)
             {
@@ -136,51 +145,236 @@ public class RandomLevelGenerator : MonoBehaviour
                 while (!newPosFound && tries < lakeFixDirectionTries)
                 {
                     tries++;
-                    Direction4 direction = (Direction4)Random.Range(0, 4);
-                    switch (direction)
+                    switch (previeusLocation)
                     {
                         case Direction4.North:
-                            if (lakeTilePosition.y != (int)mapSize - 1)
                             {
-                                if (mapTypes[lakeTilePosition.y + 1, lakeTilePosition.x] == TileTypes.NotSet)
+                                int direction = Random.Range(0, 3);
+                                switch (direction)
                                 {
-                                    lakeTilePosition += new Vector2Int(0, 1);
-                                    newPosFound = true;
+                                    case 0:
+                                        if (lakeTilePosition.x > 0)
+                                        {
+                                            if (mapTypes[lakeTilePosition.y, lakeTilePosition.x - 1] == TileTypes.NotSet)
+                                            {
+                                                lakeTilePosition -= new Vector2Int(1, 0);
+                                                newPosFound = true;
+                                                previeusLocation = Direction4.East;
+                                            }
+                                        }
+                                        break;
+                                    case 1:
+                                        if (lakeTilePosition.x < (int)mapSize - 1)
+                                        {
+                                            if (mapTypes[lakeTilePosition.y, lakeTilePosition.x + 1] == TileTypes.NotSet)
+                                            {
+                                                lakeTilePosition += new Vector2Int(1, 0);
+                                                newPosFound = true;
+                                                previeusLocation = Direction4.West;
+                                            }
+                                        }
+                                        break;
+                                    case 2:
+                                        if (lakeTilePosition.y > 0)
+                                        {
+                                            if (mapTypes[lakeTilePosition.y - 1, lakeTilePosition.x] == TileTypes.NotSet)
+                                            {
+                                                lakeTilePosition -= new Vector2Int(0, 1);
+                                                newPosFound = true;
+                                                previeusLocation = Direction4.North;
+                                            }
+                                        }
+                                        break;
+                                    default:
+                                        break;
                                 }
+                                break;
                             }
-                            break;
                         case Direction4.East:
-                            if (lakeTilePosition.x != (int)mapSize - 1)
                             {
-                                if (mapTypes[lakeTilePosition.y, lakeTilePosition.x + 1] == TileTypes.NotSet)
+                                int direction = Random.Range(0, 3);
+                                switch (direction)
                                 {
-                                    lakeTilePosition += new Vector2Int(1, 0);
-                                    newPosFound = true;
+                                    case 0:
+                                        if (lakeTilePosition.y < (int)mapSize - 1)
+                                        {
+                                            if (mapTypes[lakeTilePosition.y + 1, lakeTilePosition.x] == TileTypes.NotSet)
+                                            {
+                                                lakeTilePosition += new Vector2Int(0, 1);
+                                                newPosFound = true;
+                                                previeusLocation = Direction4.South;
+                                            }
+                                        }
+                                        break;
+                                    case 1:
+                                        if (lakeTilePosition.x > 0)
+                                        {
+                                            if (mapTypes[lakeTilePosition.y, lakeTilePosition.x - 1] == TileTypes.NotSet)
+                                            {
+                                                lakeTilePosition -= new Vector2Int(1, 0);
+                                                newPosFound = true;
+                                                previeusLocation = Direction4.East;
+                                            }
+                                        }
+                                        break;
+                                    case 2:
+                                        if (lakeTilePosition.y > 0)
+                                        {
+                                            if (mapTypes[lakeTilePosition.y - 1, lakeTilePosition.x] == TileTypes.NotSet)
+                                            {
+                                                lakeTilePosition -= new Vector2Int(0, 1);
+                                                newPosFound = true;
+                                                previeusLocation = Direction4.North;
+                                            }
+                                        }
+                                        break;
+                                    default:
+                                        break;
                                 }
+                                break;
                             }
-                            break;
                         case Direction4.South:
-                            if (lakeTilePosition.y != 0)
                             {
-                                if (mapTypes[lakeTilePosition.y - 1, lakeTilePosition.x] == TileTypes.NotSet)
+                                int direction = Random.Range(0, 3);
+                                switch (direction)
                                 {
-                                    lakeTilePosition -= new Vector2Int(0, 1);
-                                    newPosFound = true;
+                                    case 0:
+                                        if (lakeTilePosition.y < (int)mapSize - 1)
+                                        {
+                                            if (mapTypes[lakeTilePosition.y + 1, lakeTilePosition.x] == TileTypes.NotSet)
+                                            {
+                                                lakeTilePosition += new Vector2Int(0, 1);
+                                                newPosFound = true;
+                                                previeusLocation = Direction4.South;
+                                            }
+                                        }
+                                        break;
+                                    case 1:
+                                        if (lakeTilePosition.x < (int)mapSize - 1)
+                                        {
+                                            if (mapTypes[lakeTilePosition.y, lakeTilePosition.x + 1] == TileTypes.NotSet)
+                                            {
+                                                lakeTilePosition += new Vector2Int(1, 0);
+                                                newPosFound = true;
+                                                previeusLocation = Direction4.West;
+                                            }
+                                        }
+                                        break;
+                                    case 2:
+                                        if (lakeTilePosition.x > 0)
+                                        {
+                                            if (mapTypes[lakeTilePosition.y, lakeTilePosition.x - 1] == TileTypes.NotSet)
+                                            {
+                                                lakeTilePosition -= new Vector2Int(1, 0);
+                                                newPosFound = true;
+                                                previeusLocation = Direction4.East;
+                                            }
+                                        }
+                                        break;
+                                    default:
+                                        break;
                                 }
+                                break;
                             }
-                            break;
                         case Direction4.West:
-                            if (lakeTilePosition.x != 0)
                             {
-                                if (mapTypes[lakeTilePosition.y, lakeTilePosition.x - 1] == TileTypes.NotSet)
+                                int direction = Random.Range(0,3);
+                                switch (direction)
                                 {
-                                    lakeTilePosition -= new Vector2Int(1, 0);
-                                    newPosFound = true;
+                                    case 0:
+                                        if (lakeTilePosition.y < (int)mapSize - 1)
+                                        {
+                                            if (mapTypes[lakeTilePosition.y + 1, lakeTilePosition.x] == TileTypes.NotSet)
+                                            {
+                                                lakeTilePosition += new Vector2Int(0, 1);
+                                                newPosFound = true;
+                                                previeusLocation = Direction4.South;
+                                            }
+                                        }
+                                        break;
+                                    case 1:
+                                        if (lakeTilePosition.x < (int)mapSize - 1)
+                                        {
+                                            if (mapTypes[lakeTilePosition.y, lakeTilePosition.x + 1] == TileTypes.NotSet)
+                                            {
+                                                lakeTilePosition += new Vector2Int(1, 0);
+                                                newPosFound = true;
+                                                previeusLocation = Direction4.West;
+                                            }
+                                        }
+                                        break;
+                                    case 2:
+                                        if (lakeTilePosition.y > 0)
+                                        {
+                                            if (mapTypes[lakeTilePosition.y - 1, lakeTilePosition.x] == TileTypes.NotSet)
+                                            {
+                                                lakeTilePosition -= new Vector2Int(0, 1);
+                                                newPosFound = true;
+                                                previeusLocation = Direction4.North;
+                                            }
+                                        }
+                                        break;
+                                    default:
+                                        break;
                                 }
+                                break;
                             }
-                            break;
+                        case Direction4.None:
+                            {
+                                Direction4 direction = (Direction4)Random.Range(0, 4);
+                                switch (direction)
+                                {
+                                    case Direction4.North:
+                                        if (lakeTilePosition.y < (int)mapSize - 1)
+                                        {
+                                            if (mapTypes[lakeTilePosition.y + 1, lakeTilePosition.x] == TileTypes.NotSet)
+                                            {
+                                                lakeTilePosition += new Vector2Int(0, 1);
+                                                newPosFound = true;
+                                                previeusLocation = Direction4.South;
+                                            }
+                                        }
+                                        break;
+                                    case Direction4.East:
+                                        if (lakeTilePosition.x < (int)mapSize - 1)
+                                        {
+                                            if (mapTypes[lakeTilePosition.y, lakeTilePosition.x + 1] == TileTypes.NotSet)
+                                            {
+                                                lakeTilePosition += new Vector2Int(1, 0);
+                                                newPosFound = true;
+                                                previeusLocation = Direction4.West;
+                                            }
+                                        }
+                                        break;
+                                    case Direction4.South:
+                                        if (lakeTilePosition.y > 0)
+                                        {
+                                            if (mapTypes[lakeTilePosition.y - 1, lakeTilePosition.x] == TileTypes.NotSet)
+                                            {
+                                                lakeTilePosition -= new Vector2Int(0, 1);
+                                                newPosFound = true;
+                                                previeusLocation = Direction4.North;
+                                            }
+                                        }
+                                        break;
+                                    case Direction4.West:
+                                        if (lakeTilePosition.x > 0)
+                                        {
+                                            if (mapTypes[lakeTilePosition.y, lakeTilePosition.x - 1] == TileTypes.NotSet)
+                                            {
+                                                lakeTilePosition -= new Vector2Int(1, 0);
+                                                newPosFound = true;
+                                                previeusLocation = Direction4.East;
+                                            }
+                                        }
+                                        break;
+                                    default:
+                                        newPosFound = true;
+                                        break;
+                                }
+                                break;
+                            }
                         default:
-                            newPosFound = true;
                             break;
                     }
                 }
